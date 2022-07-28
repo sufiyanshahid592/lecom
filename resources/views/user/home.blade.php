@@ -18,7 +18,7 @@
                         </div>
                         <div class="more_slide_open" style="display: none">
                             <div class="d-flex categori-dropdown-inner">
-                                <ul>
+                                <ul> 
                                     <?php $i = 1; foreach($get_all_categories as $key=>$value){ if($i>11){ ?>
                                     <li>
                                         <a href="{{url($value->category_slug)}}"> <img src="{{url('assets/images/'.$value->category_icon)}}" alt="" /><?php echo $value->category_name; ?></a>
