@@ -125,7 +125,7 @@
 								</div>
 								<div class="form-group clearfix">
 									<div class="icheck-primary d-inline">
-										<input type="radio" id="radioPrimary4" value="3" name="product_fall_in">
+										<input type="radio" id="radioPrimary4" value="4" name="product_fall_in">
 										<label for="radioPrimary4" style="font-weight: normal;">Top Rated</label>
 									</div>
 								</div>

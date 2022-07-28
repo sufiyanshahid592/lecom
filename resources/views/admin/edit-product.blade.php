@@ -127,33 +127,34 @@
 								</div>
 								<div class="form-group clearfix">
 									<div class="icheck-primary d-inline"> 
-										<input type="radio" id="radioPrimary1" value="1" name="product_fall_in">
+										<input type="radio" id="radioPrimary1" value="1" <?php if($get_product_by_id[0]->product_fall_in==1){echo "checked";} ?> name="product_fall_in">
 										<label for="radioPrimary1" style="font-weight: normal;">Top Selling</label>
 									</div>
 								</div>
 								<div class="form-group clearfix">
 									<div class="icheck-primary d-inline">
-										<input type="radio" id="radioPrimary2" value="2" name="product_fall_in">
+										<input type="radio" id="radioPrimary2" value="2" <?php if($get_product_by_id[0]->product_fall_in==2){echo "checked";} ?> name="product_fall_in">
 										<label for="radioPrimary2" style="font-weight: normal;">Tranding Products</label>
 									</div>
 								</div>
 								<div class="form-group clearfix">
 									<div class="icheck-primary d-inline">
-										<input type="radio" id="radioPrimary3" value="3" name="product_fall_in">
+										<input type="radio" id="radioPrimary3" value="3" <?php if($get_product_by_id[0]->product_fall_in==3){echo "checked";} ?> name="product_fall_in">
 										<label for="radioPrimary3" style="font-weight: normal;">Recently added</label>
 									</div>
 								</div>
 								<div class="form-group clearfix">
 									<div class="icheck-primary d-inline">
-										<input type="radio" id="radioPrimary4" value="3" name="product_fall_in">
+										<input type="radio" id="radioPrimary4" value="4" <?php if($get_product_by_id[0]->product_fall_in==4){echo "checked";} ?> name="product_fall_in">
 										<label for="radioPrimary4" style="font-weight: normal;">Top Rated</label>
 									</div>
 								</div>
 								<div class="form-group">
 									<label>Select Related Product</label>
+
 									<select class="form-control select2" data-placeholder="Select Category Placement" name="related_product[]" style="width: 100%;" multiple>
 										<?php foreach($get_all_products as $key=>$value){ ?>
-										<option value="<?php echo $value->product_id; ?>"><?php echo $value->product_title; ?></option>
+										<option <?php if(!empty(json_decode($get_product_by_id[0]->related_product))){foreach(json_decode($get_product_by_id[0]->related_product) as $r_value){if($r_value==$value->product_id){echo "selected";}}} ?> value="<?php echo $value->product_id; ?>"><?php echo $value->product_title; ?></option>
 										<?php } ?>
 									</select>
 								</div>

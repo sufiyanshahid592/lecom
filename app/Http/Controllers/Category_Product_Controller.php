@@ -21,7 +21,7 @@ class Category_Product_Controller extends BaseController
             $data['get_product_by_category_id'] = DB::table("products")->leftJoin('categories', 'categories.category_id', '=', 'products.product_category')->where("product_category", $data['get_category_by_id'][0]->category_id)->get();
             return view("user/category", $data);
         }elseif(count($data['get_product_by_id'])>0){
-            $data['get_related_product'] = DB::table("products")->where("product_id", json_decode($data['get_product_by_id'][0]->related_product))->get();
+            $data['get_related_product'] = DB::table("products")->whereIn("product_id", json_decode($data['get_product_by_id'][0]->related_product))->get();
             return view("user/product", $data);
         }
     }
