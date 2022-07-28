@@ -16,7 +16,7 @@ class Category_Product_Controller extends BaseController
     
     public function dynamic_pages($slug){
         $data['get_category_by_id'] = DB::table("categories")->where("category_slug", $slug)->get();
-        $data['get_product_by_id'] = DB::table("products")->where("product_slug", $slug)->get();
+        $data['get_product_by_id'] = DB::table("products")->leftJoin('categories', 'categories.category_id', '=', 'products.product_category')->where("product_slug", $slug)->get();
         if(count($data['get_category_by_id'])>0){
             return view("user/category", $data);
         }elseif(count($data['get_product_by_id'])>0){
