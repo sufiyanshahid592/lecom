@@ -197,20 +197,11 @@
                     <div class="header-right">
                         <div class="search-style-2">
                             <form action="#">
-                                <select class="select-active">
-                                    <option>All Categories</option>
-                                    <option>Milks and Dairies</option>
-                                    <option>Wines & Alcohol</option>
-                                    <option>Clothing & Beauty</option>
-                                    <option>Pet Foods & Toy</option>
-                                    <option>Fast food</option>
-                                    <option>Baking material</option>
-                                    <option>Vegetables</option>
-                                    <option>Fresh Seafood</option>
-                                    <option>Noodles & Rice</option>
-                                    <option>Ice cream</option>
+                                <select class="select-active" name="product_category">
+                                    <option value="">All Categories</option>
+                                    <?php get_all_category_for_dropdown(); ?>
                                 </select>
-                                <input type="text" placeholder="Search for items..." />
+                                <input type="text" name="" placeholder="Search for items..." />
                             </form>
                         </div>
                         <div class="header-action-right">

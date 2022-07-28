@@ -71,5 +71,13 @@ function get_popular_category_products($category_id){
     </div>
 	<?php
 }
+function get_all_category_for_dropdown(){
+    $get_all_categories = DB::table("categories")->get();
+    foreach($get_all_categories as $key=>$value){ 
+    ?>
+    <option value="<?php echo $value->category_id; ?>"><?php echo $value->category_name; ?></option>
+    <?php 
+    }
+}
 
 ?>

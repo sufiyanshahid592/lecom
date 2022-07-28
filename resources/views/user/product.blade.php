@@ -5,8 +5,8 @@
     <div class="page-header breadcrumb-wrap">
         <div class="container">
             <div class="breadcrumb">
-                <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                <span></span> <a href="<?php echo $get_product_by_id[0]->category_slug; ?>"><?php echo $get_product_by_id[0]->category_name; ?></a> <span></span> Seeds of Change Organic
+                <a href="{{url('/')}}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+                <span></span> <a href="<?php echo $get_product_by_id[0]->category_slug; ?>"><?php echo $get_product_by_id[0]->category_name; ?></a> <span></span> <?php echo $get_product_by_id[0]->product_title; ?>
             </div>
         </div>
     </div>
@@ -85,8 +85,8 @@
                                     </div>
                                     <div class="product-extra-link2">
                                         <button type="submit" class="button button-add-to-cart"><i class="fi-rs-shopping-cart"></i>Add to cart</button>
-                                        <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                        <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
+                                        <!-- <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
+                                        <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a> -->
                                     </div>
                                 </div>
                                 <div class="font-xs">
