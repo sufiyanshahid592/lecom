@@ -19,10 +19,6 @@ class Category_Product_Controller extends BaseController
         $data['get_product_by_id'] = DB::table("products")->leftJoin('categories', 'categories.category_id', '=', 'products.product_category')->where("product_slug", $slug)->get();
         if(count($data['get_category_by_id'])>0){
             $data['get_product_by_category_id'] = DB::table("products")->leftJoin('categories', 'categories.category_id', '=', 'products.product_category')->where("product_category", $data['get_category_by_id'][0]->category_id)->get();
-            $data['get_product_by_category_id_pagination'] = DB::table("products")->leftJoin('categories', 'categories.category_id', '=', 'products.product_category')->where("product_category", $data['get_category_by_id'][0]->category_id)->paginate(1);
-            echo "<pre>";
-            print_r($data['get_product_by_category_id_pagination']);
-            die();
             return view("user/category", $data);
         }elseif(count($data['get_product_by_id'])>0){
             $data['get_related_product'] = DB::table("products")->where("product_id", json_decode($data['get_product_by_id'][0]->related_product))->get();

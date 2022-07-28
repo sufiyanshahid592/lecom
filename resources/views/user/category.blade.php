@@ -144,7 +144,6 @@
                 <!--product grid-->
                 <div class="pagination-area mt-20 mb-20">
                     <nav aria-label="Page navigation example">
-                    	<?php echo $get_product_by_category_id_pagination->links(); ?>
                         <ul class="pagination justify-content-start">
                             <li class="page-item">
                                 <a class="page-link" href="#"><i class="fi-rs-arrow-small-left"></i></a>
