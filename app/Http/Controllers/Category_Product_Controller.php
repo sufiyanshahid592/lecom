@@ -20,6 +20,7 @@ class Category_Product_Controller extends BaseController
         if(count($data['get_category_by_id'])>0){
             return view("user/category", $data);
         }elseif(count($data['get_product_by_id'])>0){
+            $data['get_related_product'] = DB::table("products")->where("product_id", json_decode($data['get_product_by_id'][0]->related_product))->get();
             return view("user/product", $data);
         }
     }

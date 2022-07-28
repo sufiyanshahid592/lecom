@@ -26,6 +26,7 @@ class AdminProduct_Controller extends BaseController
             return redirect('admin/login');
         }
         $data['get_all_categories'] = DB::table("categories")->get();
+        $data['get_all_products'] = DB::table("products")->get();
     	return view("admin/add-new-product", $data);
     }
     public function add_new_product_process(Request $request){
@@ -67,6 +68,7 @@ class AdminProduct_Controller extends BaseController
         $data['product_discount_price'] = $request->input("product_discount_price");
         $data['product_label'] = $request->input("product_label");
         $data['product_fall_in'] = $request->input("product_fall_in");
+        $data['related_product'] = json_encode($request->input("related_product"));
         $result = DB::table("products")->insert($data);
         if($result==1){
             Session::flash("success", "Product Added Successfully!...");
@@ -79,6 +81,7 @@ class AdminProduct_Controller extends BaseController
         }
         $data['get_all_categories'] = DB::table("categories")->get();
         $data['get_product_by_id'] = DB::table("products")->where("product_id", $id)->get();
+        $data['get_all_products'] = DB::table("products")->where("product_id","!=", $data['get_product_by_id'][0]->product_id)->get();
         return view("admin/edit-product", $data);
     }
     public function edit_product_process(Request $request){
@@ -132,6 +135,7 @@ class AdminProduct_Controller extends BaseController
         $data['product_discount_price'] = $request->input("product_discount_price");
         $data['product_label'] = $request->input("product_label");
         $data['product_fall_in'] = $request->input("product_fall_in");
+        $data['related_product'] = json_encode($request->input("related_product"));
         $result = DB::table("products")->where("product_id", $request->input("product_id"))->update($data);
         if($result==1){
             Session::flash("success", "Product Update Successfully!...");

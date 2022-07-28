@@ -149,6 +149,14 @@
 										<label for="radioPrimary4" style="font-weight: normal;">Top Rated</label>
 									</div>
 								</div>
+								<div class="form-group">
+									<label>Select Related Product</label>
+									<select class="form-control select2" data-placeholder="Select Category Placement" name="related_product[]" style="width: 100%;" multiple>
+										<?php foreach($get_all_products as $key=>$value){ ?>
+										<option value="<?php echo $value->product_id; ?>"><?php echo $value->product_title; ?></option>
+										<?php } ?>
+									</select>
+								</div>
 							</div>
 							<!-- /.card-body -->
 							<div class="card-footer">
