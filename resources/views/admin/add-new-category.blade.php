@@ -79,9 +79,9 @@
 										<option value="2">Home Page Carousel</option>
 									</select>
 								</div>
-								<div class="form-group">
-									<label>Add to Popular Products</label>
-									<input type="checkbox" name="popular_product" value="1" data-bootstrap-switch>
+								<div class="icheck-primary d-inline">
+									<input type="checkbox" name="popular_product" value="1" id="checkboxPrimary1" >
+									<label for="checkboxPrimary1">Add to Popular Products Section</label>
 								</div>
 							</div>
 							<!-- /.card-body -->

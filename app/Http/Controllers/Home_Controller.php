@@ -17,6 +17,10 @@ class Home_Controller extends BaseController
     public function index(){
     	$data['get_all_categories'] = DB::table("categories")->get();
     	$data['get_all_products'] = DB::table("products")->limit(10)->leftJoin('categories', 'categories.category_id', '=', 'products.product_category')->get();
+        $data['get_top_selling_products'] = DB::table("products")->leftJoin('categories', 'categories.category_id', '=', 'products.product_category')->where("product_fall_in", 1)->get();
+        $data['get_trending_products'] = DB::table("products")->leftJoin('categories', 'categories.category_id', '=', 'products.product_category')->where("product_fall_in", 2)->get();
+        $data['get_recently_added_products'] = DB::table("products")->leftJoin('categories', 'categories.category_id', '=', 'products.product_category')->where("product_fall_in", 3)->get();
+        $data['get_top_rated_products'] = DB::table("products")->leftJoin('categories', 'categories.category_id', '=', 'products.product_category')->where("product_fall_in", 4)->get();
     	$data['get_popular_category'] = DB::table("categories")->where("popular_product", 1)->get();
     	return view("user/home", $data);
     }

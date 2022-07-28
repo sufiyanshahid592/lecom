@@ -66,6 +66,7 @@ class AdminProduct_Controller extends BaseController
         $data['product_sale_price'] = $request->input("product_sale_price");
         $data['product_discount_price'] = $request->input("product_discount_price");
         $data['product_label'] = $request->input("product_label");
+        $data['product_fall_in'] = $request->input("product_fall_in");
         $result = DB::table("products")->insert($data);
         if($result==1){
             Session::flash("success", "Product Added Successfully!...");
@@ -130,6 +131,7 @@ class AdminProduct_Controller extends BaseController
         $data['product_sale_price'] = $request->input("product_sale_price");
         $data['product_discount_price'] = $request->input("product_discount_price");
         $data['product_label'] = $request->input("product_label");
+        $data['product_fall_in'] = $request->input("product_fall_in");
         $result = DB::table("products")->where("product_id", $request->input("product_id"))->update($data);
         if($result==1){
             Session::flash("success", "Product Update Successfully!...");

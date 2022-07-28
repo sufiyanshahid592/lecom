@@ -122,6 +122,33 @@
 										<option <?php if($get_product_by_id[0]->product_label==4){echo "selected";} ?> value="4">New</option>
 									</select>
 								</div>
+								<div class="form-group clearfix">
+									<label>Product Fall In</label>
+								</div>
+								<div class="form-group clearfix">
+									<div class="icheck-primary d-inline"> 
+										<input type="radio" id="radioPrimary1" value="1" name="product_fall_in">
+										<label for="radioPrimary1" style="font-weight: normal;">Top Selling</label>
+									</div>
+								</div>
+								<div class="form-group clearfix">
+									<div class="icheck-primary d-inline">
+										<input type="radio" id="radioPrimary2" value="2" name="product_fall_in">
+										<label for="radioPrimary2" style="font-weight: normal;">Tranding Products</label>
+									</div>
+								</div>
+								<div class="form-group clearfix">
+									<div class="icheck-primary d-inline">
+										<input type="radio" id="radioPrimary3" value="3" name="product_fall_in">
+										<label for="radioPrimary3" style="font-weight: normal;">Recently added</label>
+									</div>
+								</div>
+								<div class="form-group clearfix">
+									<div class="icheck-primary d-inline">
+										<input type="radio" id="radioPrimary4" value="3" name="product_fall_in">
+										<label for="radioPrimary4" style="font-weight: normal;">Top Rated</label>
+									</div>
+								</div>
 							</div>
 							<!-- /.card-body -->
 							<div class="card-footer">
