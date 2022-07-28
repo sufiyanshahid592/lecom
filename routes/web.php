@@ -32,6 +32,7 @@ Route::get("account-detail", "Dashboard_Controller@account_detail");
 
 Route::post("product-quick-view", "Home_Controller@product_quick_view");
 
+Route::get("{any}", "Category_Product_Controller@dynamic_pages");
 
 // Admin Routes
 Route::get("admin", "Admin_Controller@index");
