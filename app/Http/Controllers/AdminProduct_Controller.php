@@ -30,6 +30,9 @@ class AdminProduct_Controller extends BaseController
     	return view("admin/add-new-product", $data);
     }
     public function add_new_product_process(Request $request){
+        echo "<pre>";
+        print_r($_POST);
+        die();
         $data['product_title'] = $request->input("product_title");
         $data['product_slug'] = $request->input("product_slug");
         $data['product_meta_title'] = $request->input("product_meta_title");
