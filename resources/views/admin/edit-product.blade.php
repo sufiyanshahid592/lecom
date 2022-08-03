@@ -113,7 +113,7 @@
 												<div class="row">
 													<?php foreach(json_decode($value) as $v_key=>$v_value){ $gen_key = md5(rand(1, 100).time()); ?>
 													<span class="variation-title-value-content id-<?php echo $gen_key; ?>">
-														Small
+														<?php echo $v_value; ?>
 														<input type="hidden" name="<?php echo $key; ?>_variation_value[]" value="<?php echo $v_value; ?>">
 														<i class="fas fa-times remove-variation" data-id="<?php echo $gen_key; ?>"></i>
 													</span>
