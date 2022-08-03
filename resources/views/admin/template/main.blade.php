@@ -35,6 +35,7 @@
         <link rel="stylesheet" href="{{url('assets/admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
         <!-- Theme style -->
         <link rel="stylesheet" href="{{url('assets/admin/dist/css/adminlte.min.css')}}">
+        <link rel="stylesheet" href="{{url('assets/admin/dist/css/custom-style.css')}}">
     </head>
     <body class="hold-transition sidebar-mini layout-fixed">
         <div class="wrapper">

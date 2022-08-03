@@ -96,6 +96,14 @@
 									</div>
 								</div>
 								<div class="form-group">
+									<label>Product Variation</label>
+									<div class="form-control text-center variation-container" style="height: auto;">
+										<div class="variation-real-content"></div>
+										<div class="variation-input-content"></div>
+										<span class="btn btn-primary add-variation">Add Variation</span>
+									</div>
+								</div>
+								<div class="form-group">
 									<label>Select Category</label>
 									<select class="form-control select2" name="product_category" style="width: 100%;">
 										<option value="">-- Select Category --</option>

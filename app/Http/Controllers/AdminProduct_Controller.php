@@ -30,9 +30,6 @@ class AdminProduct_Controller extends BaseController
     	return view("admin/add-new-product", $data);
     }
     public function add_new_product_process(Request $request){
-        echo "<pre>";
-        print_r($_POST);
-        die();
         $data['product_title'] = $request->input("product_title");
         $data['product_slug'] = $request->input("product_slug");
         $data['product_meta_title'] = $request->input("product_meta_title");
@@ -54,6 +51,7 @@ class AdminProduct_Controller extends BaseController
             $file->move('assets/images/', $fileName);
             $data['product_hover_image'] = $fileName;
         }
+        $product_gallery = array();
         if($request->hasFile('product_gallery')){
             $i = 1;
             foreach($request->file('product_gallery') as $key=>$image){
@@ -72,6 +70,14 @@ class AdminProduct_Controller extends BaseController
         $data['product_label'] = $request->input("product_label");
         $data['product_fall_in'] = $request->input("product_fall_in");
         $data['related_product'] = json_encode($request->input("related_product"));
+        if(!empty($request->input("variation_title"))>0){
+            foreach($request->input("variation_title") as $key=>$value){
+                if(!empty($request->input($value."_variation_value"))){
+                    $variations[$value] = json_encode($request->input($value."_variation_value"));
+                }
+            }
+            $data['product_variations'] = json_encode($variations);
+        }
         $result = DB::table("products")->insert($data);
         if($result==1){
             Session::flash("success", "Product Added Successfully!...");
@@ -139,6 +145,14 @@ class AdminProduct_Controller extends BaseController
         $data['product_label'] = $request->input("product_label");
         $data['product_fall_in'] = $request->input("product_fall_in");
         $data['related_product'] = json_encode($request->input("related_product"));
+        if(!empty($request->input("variation_title"))>0){
+            foreach($request->input("variation_title") as $key=>$value){
+                if(!empty($request->input($value."_variation_value"))){
+                    $variations[$value] = json_encode($request->input($value."_variation_value"));
+                }
+            }
+            $data['product_variations'] = json_encode($variations);
+        }
         $result = DB::table("products")->where("product_id", $request->input("product_id"))->update($data);
         if($result==1){
             Session::flash("success", "Product Update Successfully!...");

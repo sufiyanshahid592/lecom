@@ -19,6 +19,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="assets/imgs/theme/favicon.svg')}}" />
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{url('assets/user/css/plugins/animate.min.css')}}" />
+    <link rel="stylesheet" href="{{url('assets/user/css/plugins/slider-range.css')}}" />
     <link rel="stylesheet" href="{{url('assets/user/css/main17e6.css')}}" />
     <link rel="stylesheet" href="{{url('assets/user/css/custom-style.css')}}" />
 </head>
@@ -1030,11 +1031,12 @@
     <script src="{{url('assets/user/js/vendor/bootstrap.bundle.min.js')}}"></script>
     <script src="{{url('assets/user/js/plugins/slick.js')}}"></script>
     <script src="{{url('assets/user/js/plugins/jquery.syotimer.min.js')}}"></script>
-    <script src="{{url('assets/user/js/plugins/waypoints.js')}}"></script>
     <script src="{{url('assets/user/js/plugins/wow.js')}}"></script>
+    <script src="{{url('assets/user/js/plugins/slider-range.js')}}"></script>
     <script src="{{url('assets/user/js/plugins/perfect-scrollbar.js')}}"></script>
     <script src="{{url('assets/user/js/plugins/magnific-popup.js')}}"></script>
     <script src="{{url('assets/user/js/plugins/select2.min.js')}}"></script>
+    <script src="{{url('assets/user/js/plugins/waypoints.js')}}"></script>
     <script src="{{url('assets/user/js/plugins/counterup.js')}}"></script>
     <script src="{{url('assets/user/js/plugins/jquery.countdown.min.js')}}"></script>
     <script src="{{url('assets/user/js/plugins/images-loaded.js')}}"></script>

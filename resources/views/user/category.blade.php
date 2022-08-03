@@ -131,9 +131,9 @@
                                         <span>$<?php echo number_format($value->product_discount_price, 2); ?></span>
                                     	<span class="old-price">$<?php echo number_format($value->product_sale_price, 2); ?></span>
                                     </div>
-                                    <div class="add-cart">
+                                    <!-- <div class="add-cart">
                                         <a class="add" href="shop-cart.html"><i class="fi-rs-shopping-cart mr-5"></i>Add </a>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -173,7 +173,7 @@
                                 <div class="product-img-action-wrap">
                                     <div class="product-img">
                                         <a href="shop-product-right.html">
-                                            <img src="assets/imgs/banner/banner-5.png" alt="" />
+                                            <img src="{{url('assets/user/imgs/banner/banner-5.png')}}" alt="" />
                                         </a>
                                     </div>
                                 </div>
@@ -210,7 +210,7 @@
                                 <div class="product-img-action-wrap">
                                     <div class="product-img">
                                         <a href="shop-product-right.html">
-                                            <img src="assets/imgs/banner/banner-6.png" alt="" />
+                                            <img src="{{url('assets/user/imgs/banner/banner-6.png')}}" alt="" />
                                         </a>
                                     </div>
                                 </div>
@@ -247,7 +247,7 @@
                                 <div class="product-img-action-wrap">
                                     <div class="product-img">
                                         <a href="shop-product-right.html">
-                                            <img src="assets/imgs/banner/banner-7.png" alt="" />
+                                            <img src="{{url('assets/user/imgs/banner/banner-7.png')}}" alt="" />
                                         </a>
                                     </div>
                                 </div>
@@ -284,7 +284,7 @@
                                 <div class="product-img-action-wrap">
                                     <div class="product-img">
                                         <a href="shop-product-right.html">
-                                            <img src="assets/imgs/banner/banner-8.png" alt="" />
+                                            <img src="{{url('assets/user/imgs/banner/banner-8.png')}}" alt="" />
                                         </a>
                                     </div>
                                 </div>
@@ -325,19 +325,19 @@
                     <h5 class="section-title style-1 mb-30">Category</h5>
                     <ul>
                         <li>
-                            <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-1.svg" alt="" />Milks & Dairies</a><span class="count">30</span>
+                            <a href="shop-grid-right.html"> <img src="{{url('assets/user/imgs/theme/icons/category-1.svg')}}" alt="" />Milks & Dairies</a><span class="count">30</span>
                         </li>
                         <li>
-                            <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-2.svg" alt="" />Clothing</a><span class="count">35</span>
+                            <a href="shop-grid-right.html"> <img src="{{url('assets/user/imgs/theme/icons/category-2.svg')}}" alt="" />Clothing</a><span class="count">35</span>
                         </li>
                         <li>
-                            <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-3.svg" alt="" />Pet Foods </a><span class="count">42</span>
+                            <a href="shop-grid-right.html"> <img src="{{url('assets/user/imgs/theme/icons/category-3.svg')}}" alt="" />Pet Foods </a><span class="count">42</span>
                         </li>
                         <li>
-                            <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-4.svg" alt="" />Baking material</a><span class="count">68</span>
+                            <a href="shop-grid-right.html"> <img src="{{url('assets/user/imgs/theme/icons/category-4.svg')}}" alt="" />Baking material</a><span class="count">68</span>
                         </li>
                         <li>
-                            <a href="shop-grid-right.html"> <img src="assets/imgs/theme/icons/category-5.svg" alt="" />Fresh Fruit</a><span class="count">87</span>
+                            <a href="shop-grid-right.html"> <img src="{{url('assets/user/imgs/theme/icons/category-5.svg')}}" alt="" />Fresh Fruit</a><span class="count">87</span>
                         </li>
                     </ul>
                 </div>
@@ -386,7 +386,7 @@
                     <h5 class="section-title style-1 mb-30">New products</h5>
                     <div class="single-post clearfix">
                         <div class="image">
-                            <img src="assets/imgs/shop/thumbnail-3.jpg" alt="#" />
+                            <img src="{{url('assets/user/imgs/shop/thumbnail-3.jpg')}}" alt="#" />
                         </div>
                         <div class="content pt-10">
                             <h5><a href="shop-product-detail.html">Chen Cardigan</a></h5>
@@ -398,7 +398,7 @@
                     </div>
                     <div class="single-post clearfix">
                         <div class="image">
-                            <img src="assets/imgs/shop/thumbnail-4.jpg" alt="#" />
+                            <img src="{{url('assets/user/imgs/shop/thumbnail-4.jpg')}}" alt="#" />
                         </div>
                         <div class="content pt-10">
                             <h6><a href="shop-product-detail.html">Chen Sweater</a></h6>
@@ -410,7 +410,7 @@
                     </div>
                     <div class="single-post clearfix">
                         <div class="image">
-                            <img src="assets/imgs/shop/thumbnail-5.jpg" alt="#" />
+                            <img src="{{url('assets/user/imgs/shop/thumbnail-5.jpg')}}" alt="#" />
                         </div>
                         <div class="content pt-10">
                             <h6><a href="shop-product-detail.html">Colorful Jacket</a></h6>
@@ -422,7 +422,7 @@
                     </div>
                 </div>
                 <div class="banner-img wow fadeIn mb-lg-0 animated d-lg-block d-none">
-                    <img src="assets/imgs/banner/banner-11.png" alt="" />
+                    <img src="{{url('assets/user/imgs/banner/banner-11.png')}}" alt="" />
                     <div class="banner-text">
                         <span>Oganic</span>
                         <h4>

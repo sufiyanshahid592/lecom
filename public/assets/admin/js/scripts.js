@@ -37,6 +37,7 @@ $(document).on("click", ".variation-title-value-input", function(){
 });
 $(document).on("click", ".add-variation-value", function(){
 	var variation_title = $(this).attr("data-id");
-	$("."+variation_title+"-Values-Content").after($("."+variation_title+"-Values input <input type='hidden' name=''").val());
+	var variation_title_value = $("."+variation_title+"-Values input").val();
+	$("."+variation_title+"-Values-Content").before("<span class='variation-title-value-content'>"+variation_title_value+"<input type='hidden' name='"+variation_title+"_variation_value[]' value='"+variation_title_value+"' /></span>");
 	$("."+variation_title+"-Values").html("");
 });

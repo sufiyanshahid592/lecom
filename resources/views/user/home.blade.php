@@ -232,9 +232,9 @@
                                             <span>$<?php echo number_format($value->product_discount_price, 2); ?></span>
                                             <span class="old-price">$<?php echo number_format($value->product_sale_price, 2); ?></span>
                                         </div>
-                                        <div class="add-cart">
+                                        <!-- <div class="add-cart">
                                             <a class="add" href="shop-cart.html"><i class="fi-rs-shopping-cart mr-5"></i>Add </a>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>

@@ -67,16 +67,16 @@
                                 <div class="short-desc mb-30">
                                     <p class="font-lg"><?php echo $get_product_by_id[0]->product_short_description; ?></p>
                                 </div>
+                                <?php foreach(json_decode($get_product_by_id[0]->product_variations) as $key=>$value){ ?>
                                 <div class="attr-detail attr-size mb-30">
-                                    <strong class="mr-10">Size / Weight: </strong>
+                                    <strong class="mr-10"><?php echo $key; ?>: </strong>
                                     <ul class="list-filter size-filter font-small">
-                                        <li><a href="#">50g</a></li>
-                                        <li class="active"><a href="#">60g</a></li>
-                                        <li><a href="#">80g</a></li>
-                                        <li><a href="#">100g</a></li>
-                                        <li><a href="#">150g</a></li>
+                                        <?php $i = 1; foreach(json_decode($value) as $key=>$v_value){ ?>
+                                        <li class="<?php if($i==1){echo "active";} ?>"><a href="#"><?php echo $v_value; ?></a></li>
+                                        <?php $i++; } ?>
                                     </ul>
                                 </div>
+                                <?php } ?>
                                 <div class="detail-extralink mb-50">
                                     <div class="detail-qty border radius">
                                         <a href="#" class="qty-down"><i class="fi-rs-angle-small-down"></i></a>
