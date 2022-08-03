@@ -111,10 +111,11 @@
 											</div>
 											<div class="card-body <?php echo $key; ?>-Parent">
 												<div class="row">
-													<?php foreach(json_decode($value) as $v_key=>$v_value){ ?>
-													<span class="variation-title-value-content">
+													<?php foreach(json_decode($value) as $v_key=>$v_value){ $gen_key = md5(rand(1, 100).time()); ?>
+													<span class="variation-title-value-content id-<?php echo $gen_key; ?>">
 														Small
 														<input type="hidden" name="<?php echo $key; ?>_variation_value[]" value="<?php echo $v_value; ?>">
+														<i class="fas fa-times remove-variation" data-id="<?php echo $gen_key; ?>"></i>
 													</span>
 													<?php } ?>
 													<div class="col-lg-12 Size-Values-Content">

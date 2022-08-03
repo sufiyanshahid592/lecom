@@ -41,9 +41,10 @@ $(document).on("click", ".variation-title-value-input", function(){
 	$("."+variation_title+"-Values").html('<div class="input-group input-group" style="margin: 10px 0;"><input type="text" class="form-control" placeholder="Enter '+variation_title+' Value"><span class="input-group-append"><button type="button" class="btn btn-primary btn-flat add-variation-value" data-id="'+variation_title+'">Add Value</button></span></div>');
 });
 $(document).on("click", ".add-variation-value", function(){
+	var gen_key = makeid();
 	var variation_title = $(this).attr("data-id");
 	var variation_title_value = $("."+variation_title+"-Values input").val();
-	$("."+variation_title+"-Values-Content").before("<span class='variation-title-value-content'>"+variation_title_value+"<input type='hidden' name='"+variation_title+"_variation_value[]' value='"+variation_title_value+"' /></span>");
+	$("."+variation_title+"-Values-Content").before("<span class='variation-title-value-content id-"+gen_key+"'>"+variation_title_value+"<input type='hidden' name='"+variation_title+"_variation_value[]' value='"+variation_title_value+"' /><i class='fas fa-times remove-variation' data-id='"+gen_key+"'></i></span>");
 	$("."+variation_title+"-Values").html("");
 });
 $(document).on("click", ".remove-variation", function(){
