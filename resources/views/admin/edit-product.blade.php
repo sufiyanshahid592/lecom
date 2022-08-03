@@ -99,6 +99,35 @@
 									<label>Product Variation</label>
 									<div class="form-control text-center variation-container" style="height: auto;">
 										<div class="variation-real-content"></div>
+										<?php foreach(json_decode($get_product_by_id[0]->product_variations) as $key=>$value){ $gen_key = md5(rand(1, 100).time()); ?>
+										<div class="card card-primary collapsed-card id-<?php echo $gen_key; ?>">
+											<div class="card-header">
+												<h3 class="card-title"><?php echo $key; ?></h3>
+												<input type="hidden" name="variation_title[]" value="Size">
+												<div class="card-tools">
+													<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+													<button type="button" class="btn btn-tool remove-variation" data-id="<?php echo $gen_key; ?>"><i class="fas fa-times"></i></button>
+												</div>
+											</div>
+											<div class="card-body <?php echo $key; ?>-Parent">
+												<div class="row">
+													<?php foreach(json_decode($value) as $v_key=>$v_value){ ?>
+													<span class="variation-title-value-content">
+														Small
+														<input type="hidden" name="<?php echo $key; ?>_variation_value[]" value="<?php echo $v_value; ?>">
+													</span>
+													<?php } ?>
+													<div class="col-lg-12 Size-Values-Content">
+														
+													</div>
+													<div class="col-lg-12 Size-Values">
+														
+													</div>
+												</div>
+												<span type="submit" class="btn btn-warning variation-title-value-input" data-id="Size">Add Size Value</span>
+											</div>
+										</div>
+										<?php } ?>
 										<div class="variation-input-content"></div>
 										<span class="btn btn-primary add-variation">Add Variation</span>
 									</div>
