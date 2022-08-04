@@ -15,6 +15,7 @@
 // User Routes
 Route::get('/', "Home_Controller@index");
 Route::get('page-privacy-policy', "Home_Controller@page_privacy_policy");
+Route::post('add-to-cart', "Cart_Controller@add_to_cart");
 
 Route::get('register', "User_Controller@register");
 Route::post('register-process', "User_Controller@register_process");

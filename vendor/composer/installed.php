@@ -3,7 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '07cc139ab43f08c717ee0466c304531fffb1841d',
+        'reference' => '04100d58aabd89aa358420ed6b7b25b8dda571ac',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -36,6 +36,15 @@
             'install_path' => __DIR__ . '/../beyondcode/laravel-dump-server',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'bumbummen99/shoppingcart' => array(
+            'pretty_version' => '4.2.0',
+            'version' => '4.2.0.0',
+            'reference' => '1c50fb564826b6ee748d2d9afad7447b6884166e',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../bumbummen99/shoppingcart',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'cordoval/hamcrest-php' => array(
             'dev_requirement' => true,
@@ -445,7 +454,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '07cc139ab43f08c717ee0466c304531fffb1841d',
+            'reference' => '04100d58aabd89aa358420ed6b7b25b8dda571ac',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
