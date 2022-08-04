@@ -160,3 +160,13 @@ $(document).ready(function(){
   		$(this).bootstrapSwitch('state', $(this).prop('checked'));
 	});
 });
+$(document).on("click", ".button-add-to-cart", function(){
+    var product_id = $(this).attr("data-product-id");
+    if($("div").hasClass("product-variations-row")){
+        $(".product-variations-row").each(function(){
+            var variation_title = $(this).find("li.active").attr("data-variation-title");
+            var variation_value = $(this).find("li.active a").html();
+            var variation_content = variation_title+": "+variation_value;
+        });
+    }
+});

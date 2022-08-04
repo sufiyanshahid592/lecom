@@ -68,11 +68,11 @@
                                     <p class="font-lg"><?php echo $get_product_by_id[0]->product_short_description; ?></p>
                                 </div>
                                 <?php foreach(json_decode($get_product_by_id[0]->product_variations) as $key=>$value){ ?>
-                                <div class="attr-detail attr-size mb-30">
+                                <div class="attr-detail attr-size mb-30 product-variations-row">
                                     <strong class="mr-10"><?php echo $key; ?>: </strong>
                                     <ul class="list-filter size-filter font-small">
-                                        <?php $i = 1; foreach(json_decode($value) as $key=>$v_value){ ?>
-                                        <li class="<?php if($i==1){echo "active";} ?>"><a href="#"><?php echo $v_value; ?></a></li>
+                                        <?php $i = 1; foreach(json_decode($value) as $v_key=>$v_value){ ?>
+                                        <li data-variation-title="<?php echo $key; ?>" class="<?php if($i==1){echo "active";} ?>"><a href="#"><?php echo $v_value; ?></a></li>
                                         <?php $i++; } ?>
                                     </ul>
                                 </div>
@@ -84,7 +84,7 @@
                                         <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
                                     </div>
                                     <div class="product-extra-link2">
-                                        <button type="submit" class="button button-add-to-cart"><i class="fi-rs-shopping-cart"></i>Add to cart</button>
+                                        <button type="submit" class="button button-add-to-cart" data-product-id="<?php echo $get_product_by_id[0]->product_id; ?>"><i class="fi-rs-shopping-cart"></i>Add to cart</button>
                                         <!-- <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
                                         <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a> -->
                                     </div>

@@ -105,7 +105,7 @@
 												<h3 class="card-title"><?php echo $key; ?></h3>
 												<input type="hidden" name="variation_title[]" value="Size">
 												<div class="card-tools">
-													<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+													<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
 													<button type="button" class="btn btn-tool remove-variation" data-id="<?php echo $gen_key; ?>"><i class="fas fa-times"></i></button>
 												</div>
 											</div>
