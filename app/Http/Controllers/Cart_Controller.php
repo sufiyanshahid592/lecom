@@ -16,10 +16,8 @@ class Cart_Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     
     public function add_to_cart(Request $request){
-        // Cart::destroy();
-        // $get_product_details_by_id = DB::table("products")->where("product_id", $request->input("product_id"))->get();
-        /*print_r($request->post("variation_content"));
-        die();*/
-        // Cart::add(['id'=>$request->input("product_id"), 'name'=>"First", 'qty'=>1, 'price'=>$get_product_details_by_id[0]->product_discount_price, 'variations'=>$product_variations, 'weight'=>1]);
+        /*echo "<pre>";
+        print_r($request->input());*/
+        Cart::add(['id'=>$request->input("product_id"), 'name'=>"First", 'qty'=>1, 'price'=>100, 'weight'=>24]);
     }
 }

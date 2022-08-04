@@ -69,7 +69,11 @@ class AdminProduct_Controller extends BaseController
         $data['product_discount_price'] = $request->input("product_discount_price");
         $data['product_label'] = $request->input("product_label");
         $data['product_fall_in'] = $request->input("product_fall_in");
-        $data['related_product'] = json_encode($request->input("related_product"));
+        if(!empty($request->input("related_product"))){
+            $data['related_product'] = json_encode($request->input("related_product"));
+        }else{
+            $data['related_product'] = [];
+        }
         if(!empty($request->input("variation_title"))>0){
             foreach($request->input("variation_title") as $key=>$value){
                 if(!empty($request->input($value."_variation_value"))){
@@ -144,7 +148,11 @@ class AdminProduct_Controller extends BaseController
         $data['product_discount_price'] = $request->input("product_discount_price");
         $data['product_label'] = $request->input("product_label");
         $data['product_fall_in'] = $request->input("product_fall_in");
-        $data['related_product'] = json_encode($request->input("related_product"));
+        if(!empty($request->input("related_product"))){
+            $data['related_product'] = json_encode($request->input("related_product"));
+        }else{
+            $data['related_product'] = [];
+        }
         if(!empty($request->input("variation_title"))>0){
             foreach($request->input("variation_title") as $key=>$value){
                 if(!empty($request->input($value."_variation_value"))){
