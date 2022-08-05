@@ -15,9 +15,15 @@ class Cart_Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     
+    public function cart(){
+    	$data = array();
+    	$data['get_cart_products'] = Cart::content();
+    	return view("user/cart", $data);
+    }
     public function add_to_cart(Request $request){
         /*echo "<pre>";
         print_r($request->input());*/
         Cart::add(['id'=>$request->input("product_id"), 'name'=>"First", 'qty'=>1, 'price'=>100, 'weight'=>24]);
+        // return Cart::content();
     }
 }

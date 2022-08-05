@@ -25,6 +25,9 @@ Route::get('login', "User_Controller@login");
 Route::post('login-process', "User_Controller@login_process");
 Route::get('logout', "User_Controller@logout");
 
+// Cart
+Route::get('cart', "Cart_Controller@cart");
+
 Route::get("dashboard", "Dashboard_Controller@dashboard");
 Route::get("orders", "Dashboard_Controller@orders");
 Route::get("track-orders", "Dashboard_Controller@track_orders");
