@@ -79,9 +79,9 @@
                                 <?php } ?>
                                 <div class="detail-extralink mb-50">
                                     <div class="detail-qty border radius">
-                                        <a href="#" class="qty-down"><i class="fi-rs-angle-small-down"></i></a>
-                                        <span class="qty-val">1</span>
-                                        <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
+                                        <a class="qty-down" data-row-id="<?php echo $get_product_by_id[0]->product_id; ?>"><i class="fi-rs-angle-small-down"></i></a>
+                                        <span class="qty-val qty-val-<?php echo $get_product_by_id[0]->product_id; ?>">1</span>
+                                        <a class="qty-up" data-row-id="<?php echo $get_product_by_id[0]->product_id; ?>"><i class="fi-rs-angle-small-up"></i></a>
                                     </div>
                                     <div class="product-extra-link2">
                                         <button type="submit" class="button button-add-to-cart" data-product-id="<?php echo $get_product_by_id[0]->product_id; ?>"><i class="fi-rs-shopping-cart"></i>Add to cart</button>

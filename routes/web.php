@@ -27,6 +27,11 @@ Route::get('logout', "User_Controller@logout");
 
 // Cart
 Route::get('cart', "Cart_Controller@cart");
+Route::post('update-cart', "Cart_Controller@update_cart");
+Route::get('update-cart-area', "Cart_Controller@update_cart_area");
+Route::post('count-cart', "Cart_Controller@count_cart");
+Route::get('checkout-total', "Cart_Controller@checkout_total");
+Route::get('destroy-cart', "Cart_Controller@destroy_cart");
 
 Route::get("dashboard", "Dashboard_Controller@dashboard");
 Route::get("orders", "Dashboard_Controller@orders");

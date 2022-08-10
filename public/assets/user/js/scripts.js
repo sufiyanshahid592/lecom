@@ -1,7 +1,40 @@
 jQuery.validator.addMethod("SpaceNotAllow", function(value, element) { 
   return value.indexOf(" ") < 0 && value != ""; 
 }, "No space please and don't leave it empty");
-
+function update_setting(){
+    $(".cart-row").each(function(){
+        var csrf_token = $('meta[name="csrf-token"]').attr('content');
+        var row_id = $(this).find(".qty-val").attr("data-row-id");
+        var product_price = $(this).find(".qty-val").attr("data-product-price");
+        var product_qty = $(this).find(".qty-val").html();
+        $.ajax({
+            url: "http://127.0.0.1:8000/update-cart",
+            method: "post",
+            data:{row_id:row_id, product_price:product_price, product_qty:product_qty, "_token":csrf_token},
+            success: function(success){
+            }
+        });
+    });
+    $.ajax({
+        url: "http://127.0.0.1:8000/update-cart-area",
+        success: function(success){
+            $(".home-cart-content-area").html(success);
+        }
+    });
+    $.ajax({
+        url: "http://127.0.0.1:8000/count-cart",
+        success: function(success){
+            $(".cart-page-counter").html(success);
+        }
+    });
+    $.ajax({
+        url: "http://127.0.0.1:8000/checkout-total",
+        success: function(success){
+            $(".sub-total").html(success);
+            $(".checkout-total").html(success);
+        }
+    });
+} 
 var productDetails = function () {
     $('.product-image-slider').slick({
         slidesToShow: 1,
@@ -204,7 +237,37 @@ $(document).on("click", ".button-add-to-cart", function(){
         method: "post",
         data:{product_id:product_id, variation_content:JSON.stringify(variation_content), "_token":csrf_token},
         success: function(success){
-            console.log(success);
+            update_setting();
         }
+    });
+});
+$(document).on("click", ".update-cart", function(){
+    var csrf_token = $('meta[name="csrf-token"]').attr('content');
+    $(".cart-row").each(function(){
+        var row_id = $(this).find(".qty-val").attr("data-row-id");
+        var product_price = $(this).find(".qty-val").attr("data-product-price");
+        var product_qty = $(this).find(".qty-val").html();
+        $.ajax({
+            url: "http://127.0.0.1:8000/update-cart",
+            method: "post",
+            data:{row_id:row_id, product_price:product_price, product_qty:product_qty, "_token":csrf_token},
+            success: function(success){
+                update_setting();
+                $(".disabled-checkout-btn").removeAttr("disabled");
+                $(".update-cart").attr("disabled", "disabled");
+            }
+        });
+    });
+});
+$(document).ready(function(){
+    $("#empty_cart").click(function(){
+        $.ajax({
+            url: "http://127.0.0.1:8000/destroy-cart",
+            async: false,
+            success: function(){
+                $(".cart-row").fadeOut();
+                update_setting();
+            }
+        });
     });
 });

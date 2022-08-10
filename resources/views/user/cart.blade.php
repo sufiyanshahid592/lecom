@@ -17,7 +17,7 @@
                 <h1 class="heading-2 mb-10">Your Cart</h1>
                 <div class="d-flex justify-content-between">
                     <h6 class="text-body">There are <span class="text-brand">3</span> products in your cart</h6>
-                    <h6 class="text-body"><a href="#" class="text-muted"><i class="fi-rs-trash mr-5"></i>Clear Cart</a></h6>
+                    <h6 class="text-body" id="empty_cart"><a class="text-muted"><i class="fi-rs-trash mr-5"></i>Clear Cart</a></h6>
                 </div>
             </div>
         </div>
@@ -39,8 +39,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach($get_cart_products as $key=>$value){ echo "<pre>"; print_r($value); echo "</pre>"; ?>
-                            <tr class="pt-30">
+                            <?php foreach($get_cart_products as $key=>$value){ //echo "<pre>"; print_r($value); echo "</pre>"; ?>
+                            <tr class="pt-30 cart-row <?php echo $value->rowId; ?>">
                                 <td class="custome-checkbox pl-30">
                                     <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox1" value="">
                                     <label class="form-check-label" for="exampleCheckbox1"></label>
@@ -62,14 +62,14 @@
                                 <td class="text-center detail-info" data-title="Stock">
                                     <div class="detail-extralink mr-15">
                                         <div class="detail-qty border radius">
-                                            <a href="#" class="qty-down"><i class="fi-rs-angle-small-down"></i></a>
-                                            <span class="qty-val">1</span>
-                                            <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
+                                            <a class="qty-down" data-row-id="<?php echo $value->rowId; ?>"><i class="fi-rs-angle-small-down"></i></a>
+                                            <span class="qty-val qty-val-<?php echo $value->rowId; ?>" data-row-id="<?php echo $value->rowId; ?>" data-product-price="<?php echo $value->price; ?>"><?php echo $value->qty; ?></span>
+                                            <a class="qty-up" data-row-id="<?php echo $value->rowId; ?>"><i class="fi-rs-angle-small-up"></i></a>
                                         </div>
                                     </div>
                                 </td>
                                 <td class="price" data-title="Price">
-                                    <h4 class="text-brand">$2.51 </h4>
+                                    <h4 class="text-brand">$<?php echo number_format($value->price, 2); ?> </h4>
                                 </td>
                                 <td class="action text-center" data-title="Remove"><a href="#" class="text-body"><i class="fi-rs-trash"></i></a></td>
                             </tr>
@@ -80,7 +80,7 @@
                 <div class="divider-2 mb-30"></div>
                 <div class="cart-action d-flex justify-content-between">
                     <a class="btn "><i class="fi-rs-arrow-left mr-10"></i>Continue Shopping</a>
-                    <a class="btn  mr-10 mb-sm-15"><i class="fi-rs-refresh mr-10"></i>Update Cart</a>
+                    <button disabled class="btn mr-10 mb-sm-15 update-cart disabled-update-cart"><i class="fi-rs-refresh mr-10"></i>Update Cart</button>
                 </div>
                 <div class="row mt-50">
                     <div class="col-lg-7">
@@ -376,7 +376,7 @@
                                         <h6 class="text-muted">Subtotal</h6>
                                     </td>
                                     <td class="cart_total_amount">
-                                        <h4 class="text-brand text-end">$12.31</h4>
+                                        <h4 class="text-brand text-end sub-total">$<?php echo number_format(Cart::total(), 2); ?></h4>
                                     </td>
                                 </tr>
                                 <tr>
@@ -389,12 +389,12 @@
                                         <h6 class="text-muted">Shipping</h6>
                                     </td>
                                     <td class="cart_total_amount">
-                                        <h5 class="text-heading text-end">Free</h4</td> </tr> <tr>
+                                        <h5 class="text-heading text-end">Free</h4></td> </tr> <tr>
                                     <td class="cart_total_label">
                                         <h6 class="text-muted">Estimate for</h6>
                                     </td>
                                     <td class="cart_total_amount">
-                                        <h5 class="text-heading text-end">United Kingdom</h4</td> </tr> <tr>
+                                        <h5 class="text-heading text-end">United Kingdom</h4></td> </tr> <tr>
                                     <td scope="col" colspan="2">
                                         <div class="divider-2 mt-10 mb-10"></div>
                                     </td>
@@ -404,13 +404,13 @@
                                         <h6 class="text-muted">Total</h6>
                                     </td>
                                     <td class="cart_total_amount">
-                                        <h4 class="text-brand text-end">$12.31</h4>
+                                        <h4 class="text-brand text-end checkout-total">$<?php echo number_format(Cart::total(), 2); ?></h4>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <a href="#" class="btn mb-20 w-100">Proceed To CheckOut<i class="fi-rs-sign-out ml-15"></i></a>
+                    <button onclick="location.href='<?php echo url('checkout'); ?>'" class="btn mb-20 w-100 disabled-checkout-btn">Proceed To CheckOut<i class="fi-rs-sign-out ml-15"></i></button>
                 </div>
             </div>
         </div>
