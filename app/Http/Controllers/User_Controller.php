@@ -18,7 +18,9 @@ class User_Controller extends BaseController
     	return view("user/register");
     }
     public function register_process(Request $request){
-    	$data['username'] = $request->username;
+    	$data['first_name'] = $request->first_name;
+        $data['last_name'] = $request->last_name;
+        $data['username'] = $request->username;
     	$data['email'] = $request->email;
     	$data['password'] = md5($request->password);
     	$result = DB::table("users")->insert($data);
@@ -65,6 +67,9 @@ class User_Controller extends BaseController
                 Session::put("user_login_id", $value[0]->user_id);
                 return redirect('dashboard');
             }
+        }else{
+            Session::flash("error", "Invalid Email/Username and Password");
+            return redirect('login');
         }
     }
     public function logout(){

@@ -25,6 +25,12 @@
                                     <form class="register-form" method="post" action="{{url('register-process')}}">
                                     	@csrf
                                         <div class="form-group">
+                                            <input type="text" required="" name="first_name" placeholder="First Name" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" required="" name="last_name" placeholder="Last Name" />
+                                        </div>
+                                        <div class="form-group">
                                             <input type="text" required="" name="username" placeholder="Username" />
                                         </div>
                                         <div class="form-group">

@@ -38,6 +38,7 @@ Route::get("orders", "Dashboard_Controller@orders");
 Route::get("track-orders", "Dashboard_Controller@track_orders");
 Route::get("address", "Dashboard_Controller@address");
 Route::get("account-detail", "Dashboard_Controller@account_detail");
+Route::post("update-profile", "Dashboard_Controller@update_profile");
 
 Route::post("product-quick-view", "Home_Controller@product_quick_view");
 

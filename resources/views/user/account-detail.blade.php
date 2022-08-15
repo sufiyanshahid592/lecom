@@ -162,39 +162,63 @@
                                             <h5>Account Details</h5>
                                         </div>
                                         <div class="card-body">
-                                            <p>Already have an account? <a href="page-login.html">Log in instead!</a></p>
-                                            <form method="post" name="enq">
+                                            <div class="ss-alert-section">
+                                                <p class="mb-30">Don't have an account? <a href="{{url('register')}}">Create here</a></p>
+                                                <?php if(Session::has('success')){ ?>
+                                                <div class="alert alert-success"><?php echo Session::get('success'); ?></div>
+                                                <?php } ?>
+                                                <?php if(Session::has('error')){ ?>
+                                                <div class="alert alert-danger"><?php echo Session::get('error'); ?></div>
+                                                <?php } ?>
+                                                <?php if(Session::has('warning')){ ?>
+                                                <div class="alert alert-warning"><?php echo Session::get('warning'); ?></div>
+                                                <?php } ?>
+                                            </div>
+                                            <?php //print_r($get_account_details); ?>
+                                            <form class="update-profile" action="{{url('update-profile')}}" method="post">
+                                                @csrf
                                                 <div class="row">
                                                     <div class="form-group col-md-6">
                                                         <label>First Name <span class="required">*</span></label>
-                                                        <input required="" class="form-control" name="name" type="text" />
+                                                        <input required="" class="form-control" name="first_name" type="text" value="<?php if(!empty($get_account_details[0]->first_name)){echo $get_account_details[0]->first_name;} ?>" />
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label>Last Name <span class="required">*</span></label>
-                                                        <input required="" class="form-control" name="phone" />
+                                                        <input required="" class="form-control" name="last_name" value="<?php if(!empty($get_account_details[0]->last_name)){echo $get_account_details[0]->last_name;} ?>" />
                                                     </div>
                                                     <div class="form-group col-md-12">
-                                                        <label>Display Name <span class="required">*</span></label>
-                                                        <input required="" class="form-control" name="dname" type="text" />
+                                                        <label>Username <span class="required">*</span></label>
+                                                        <input class="form-control" type="text" name="username" value="<?php if(!empty($get_account_details[0]->username)){echo $get_account_details[0]->username;} ?>" readonly />
                                                     </div>
                                                     <div class="form-group col-md-12">
                                                         <label>Email Address <span class="required">*</span></label>
-                                                        <input required="" class="form-control" name="email" type="email" />
+                                                        <input class="form-control" type="email" name="email" value="<?php if(!empty($get_account_details[0]->email)){echo $get_account_details[0]->email;} ?>" readonly />
                                                     </div>
-                                                    <div class="form-group col-md-12">
-                                                        <label>Current Password <span class="required">*</span></label>
-                                                        <input required="" class="form-control" name="password" type="password" />
+                                                    <div class="login_footer form-group mb-50">
+                                                        <div class="chek-form">
+                                                            <div class="custome-checkbox">
+                                                                <input class="form-check-input change-password-checkbox" type="checkbox" name="change_password" id="exampleCheckbox12" />
+                                                                <label class="form-check-label" for="exampleCheckbox12"><span>Change Password</span></label>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="form-group col-md-12">
-                                                        <label>New Password <span class="required">*</span></label>
-                                                        <input required="" class="form-control" name="npassword" type="password" />
-                                                    </div>
-                                                    <div class="form-group col-md-12">
-                                                        <label>Confirm Password <span class="required">*</span></label>
-                                                        <input required="" class="form-control" name="cpassword" type="password" />
+                                                    <div class="change-password-section" style="display: none;">
+                                                        <div class="form-group col-md-12">
+                                                            <label>Current Password <span class="required">*</span></label>
+                                                            <input class="form-control" name="old_password" type="password" />
+                                                        </div>
+                                                        <div class="form-group col-md-12">
+                                                            <label>New Password <span class="required">*</span></label>
+                                                            <input class="form-control" name="password" id="password" type="password" />
+                                                        </div>
+                                                        <div class="form-group col-md-12">
+                                                            <label>Confirm Password <span class="required">*</span></label>
+                                                            <input class="form-control" name="cpassword" type="password" />
+                                                        </div>
                                                     </div>
                                                     <div class="col-md-12">
-                                                        <button type="submit" class="btn btn-fill-out submit font-weight-bold" name="submit" value="Submit">Save Change</button>
+                                                        <input type="hidden" name="user_id" value="<?php echo $get_account_details[0]->user_id; ?>">
+                                                        <button type="submit" class="btn btn-fill-out submit font-weight-bold">Save Change</button>
                                                     </div>
                                                 </div>
                                             </form>

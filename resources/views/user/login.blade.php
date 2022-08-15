@@ -23,15 +23,17 @@
                                 <div class="padding_eight_all bg-white">
                                     <div class="heading_s1">
                                         <h1 class="mb-5">Login</h1>
-                                        <p class="mb-30">Don't have an account? <a href="{{url('register')}}">Create here</a></p>
-                                        <?php if(Session::has('success')){ ?>
-                                        <div class="alert alert-success"><?php echo Session::get('success'); ?></div>
-                                    	<?php } ?>
-                                    	<?php if(Session::has('error')){ ?>
-                                        <div class="alert alert-danger"><?php echo Session::get('error'); ?></div>
-                                    	<?php } ?>
+                                        <div class="ss-alert-section">
+                                            <p class="mb-30">Don't have an account? <a href="{{url('register')}}">Create here</a></p>
+                                            <?php if(Session::has('success')){ ?>
+                                            <div class="alert alert-success"><?php echo Session::get('success'); ?></div>
+                                        	<?php } ?>
+                                        	<?php if(Session::has('error')){ ?>
+                                            <div class="alert alert-danger"><?php echo Session::get('error'); ?></div>
+                                        	<?php } ?>
+                                        </div>
                                     </div>
-                                    <form method="post" action="{{url('login-process')}}">
+                                    <form class="login-form" method="post" action="{{url('login-process')}}">
                                     	@csrf
                                         <div class="form-group">
                                             <input type="text" required="" name="username_email" placeholder="Username or Email *" />

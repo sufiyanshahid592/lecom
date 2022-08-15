@@ -1,3 +1,6 @@
-.register-form .error{
+.register-form .error, .login-form .error, .update-profile .error{
 	color: red;
+}
+.register-form input.error, .login-form input.error, .update-profile input.error{
+	border: 1px solid red;
 }

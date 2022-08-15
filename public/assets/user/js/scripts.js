@@ -155,15 +155,21 @@ $(document).ready(function(){
 	var csrf_token = $('meta[name="csrf-token"]').attr('content');
 	$(".register-form").validate({
 		rules:{
-			username:{
-				required: true,
-				SpaceNotAllow: true,
-				remote:{
-					url: "http://127.0.0.1:8000/check-username-exist",
-					method: "post",
-					data:{"_token":csrf_token}
-				}
+			first_name:{
+				required: true
 			},
+            last_name:{
+                required: true
+            },
+            username:{
+                required: true,
+                SpaceNotAllow: true,
+                remote:{
+                    url: "http://127.0.0.1:8000/check-username-exist",
+                    method: "post",
+                    data:{"_token":csrf_token}
+                }
+            },
 			email:{
 				required: true,
 				email: true,
@@ -182,6 +188,12 @@ $(document).ready(function(){
 			}
 		},
 		messages:{
+            first_name:{
+                required: "First Name is Required"
+            },
+            last_name:{
+                required: "Last Name is Required"
+            },
 			username:{
 				required: "Username is Required",
 				SpaceNotAllow: "Space not allow in username",
@@ -201,6 +213,27 @@ $(document).ready(function(){
 			}
 		}
 	});
+});
+$(document).ready(function(){
+    $(".login-form").validate({
+        rules: {
+            username_email:{
+                required: true
+            },
+            password:{
+                required: true
+            }
+        },
+        messages:{
+            username_email:{
+                required: "Email/Username is Required"
+            },
+            password:{
+                required: "Password is Required"
+            }
+
+        }
+    });
 });
 $(document).on("click", ".quickViewModal", function(){
 	var csrf_token = $('meta[name="csrf-token"]').attr('content');
@@ -269,5 +302,42 @@ $(document).ready(function(){
                 update_setting();
             }
         });
+    });
+});
+$(document).ready(function(){
+    setTimeout(function(){
+        $('.ss-alert-section .alert').fadeOut();
+    }, 4000);
+});
+$(document).on("click", ".change-password-checkbox", function(){
+    if($(this).is(":checked")){
+        $(".change-password-section").fadeIn();
+    }else{
+        $(".change-password-section").fadeOut();
+    }
+});
+$(document).ready(function(){
+    $(".update-profile").validate({
+        rules:{
+            first_name:{
+                required: true
+            },
+            last_name:{
+                required: true
+            },
+            old_password:{
+                required: true
+            },
+            password:{
+                required: true
+            },
+            cpassword:{
+                required: true,
+                equalTo:  "#password"
+            }
+        },
+        messages:{
+
+        }
     });
 });
