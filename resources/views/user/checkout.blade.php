@@ -22,7 +22,7 @@
         </div>
         <div class="row">
             <div class="col-lg-7">
-                <div class="row mb-50">
+                <!-- <div class="row mb-50">
                     <div class="col-lg-6 mb-sm-15 mb-lg-0 mb-md-3">
                         <div class="toggle_info">
                             <span><i class="fi-rs-user mr-10"></i><span class="text-muted font-lg">Already have an account?</span> <a href="#loginform" data-bs-toggle="collapse" class="collapsed font-lg" aria-expanded="false">Click here to login</a></span>
@@ -59,7 +59,7 @@
                             <button class="btn  btn-md" name="login">Apply Coupon</button>
                         </form>
                     </div>
-                </div>
+                </div> -->
                 <div class="row">
                     <h4 class="mb-30">Billing Details</h4>
                     <form method="post">
