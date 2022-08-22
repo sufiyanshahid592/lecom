@@ -1,5 +1,6 @@
 <?php 
 use Illuminate\Support\Facades\DB;
+
 function get_category_product_count($category_id){
 	$result = DB::table("products")->where("product_category", $category_id)->get();
 	return count($result);

@@ -20,4 +20,7 @@ class Checkout_Controller extends BaseController
         }
     	return view("user/checkout");
     }
+    public function checkout_process(Request $request){
+    	print_r($request);
+    }
 }

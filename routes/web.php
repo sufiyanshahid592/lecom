@@ -35,6 +35,7 @@ Route::get('destroy-cart', "Cart_Controller@destroy_cart");
 
 // Checkout
 Route::get('checkout', "Checkout_Controller@checkout");
+Route::post('checkout-process', "Checkout_Controller@checkout_process");
 
 // Dashboard
 Route::get("dashboard", "Dashboard_Controller@dashboard");

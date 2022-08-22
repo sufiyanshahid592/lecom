@@ -19,6 +19,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\VerificationController' => $baseDir . '/app/Http/Controllers/Auth/VerificationController.php',
     'App\\Http\\Controllers\\Cart_Controller' => $baseDir . '/app/Http/Controllers/Cart_Controller.php',
     'App\\Http\\Controllers\\Category_Product_Controller' => $baseDir . '/app/Http/Controllers/Category_Product_Controller.php',
+    'App\\Http\\Controllers\\Checkout_Controller' => $baseDir . '/app/Http/Controllers/Checkout_Controller.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\Dashboard_Controller' => $baseDir . '/app/Http/Controllers/Dashboard_Controller.php',
     'App\\Http\\Controllers\\Home_Controller' => $baseDir . '/app/Http/Controllers/Home_Controller.php',

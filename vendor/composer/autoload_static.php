@@ -558,6 +558,7 @@ class ComposerStaticInit27ac8079b3dde4f0c84b99aaa9ff65bd
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Cart_Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Cart_Controller.php',
         'App\\Http\\Controllers\\Category_Product_Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Category_Product_Controller.php',
+        'App\\Http\\Controllers\\Checkout_Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Checkout_Controller.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\Dashboard_Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Dashboard_Controller.php',
         'App\\Http\\Controllers\\Home_Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Home_Controller.php',
