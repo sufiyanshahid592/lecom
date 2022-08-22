@@ -69,7 +69,7 @@
                                     </div>
                                 </td>
                                 <td class="price" data-title="Price">
-                                    <h4 class="text-brand">$<?php echo number_format($value->price, 2); ?> </h4>
+                                    <h4 class="text-brand">$<span class="product-sub-total"><?php echo number_format($value->price*$value->qty, 2); ?></span></h4>
                                 </td>
                                 <td class="action text-center" data-title="Remove"><a href="#" class="text-body"><i class="fi-rs-trash"></i></a></td>
                             </tr>
@@ -376,7 +376,7 @@
                                         <h6 class="text-muted">Subtotal</h6>
                                     </td>
                                     <td class="cart_total_amount">
-                                        <h4 class="text-brand text-end sub-total">$<?php echo number_format(Cart::total(), 2); ?></h4>
+                                        <h4 class="text-brand text-end sub-total">$<?php echo Cart::total(); ?></h4>
                                     </td>
                                 </tr>
                                 <tr>
@@ -404,7 +404,7 @@
                                         <h6 class="text-muted">Total</h6>
                                     </td>
                                     <td class="cart_total_amount">
-                                        <h4 class="text-brand text-end checkout-total">$<?php echo number_format(Cart::total(), 2); ?></h4>
+                                        <h4 class="text-brand text-end checkout-total">$<?php echo Cart::total(); ?></h4>
                                     </td>
                                 </tr>
                             </tbody>

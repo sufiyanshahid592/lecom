@@ -23,6 +23,8 @@ class Category_Product_Controller extends BaseController
         }elseif(count($data['get_product_by_id'])>0){
             $data['get_related_product'] = DB::table("products")->whereIn("product_id", json_decode($data['get_product_by_id'][0]->related_product))->get();
             return view("user/product", $data);
+        }else{
+            return view("user/404");
         }
     }
 }

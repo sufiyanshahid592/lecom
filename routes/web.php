@@ -33,6 +33,10 @@ Route::post('count-cart', "Cart_Controller@count_cart");
 Route::get('checkout-total', "Cart_Controller@checkout_total");
 Route::get('destroy-cart', "Cart_Controller@destroy_cart");
 
+// Checkout
+Route::get('checkout', "Checkout_Controller@checkout");
+
+// Dashboard
 Route::get("dashboard", "Dashboard_Controller@dashboard");
 Route::get("orders", "Dashboard_Controller@orders");
 Route::get("track-orders", "Dashboard_Controller@track_orders");
@@ -42,7 +46,6 @@ Route::post("update-profile", "Dashboard_Controller@update_profile");
 
 Route::post("product-quick-view", "Home_Controller@product_quick_view");
 
-Route::get("{any}", "Category_Product_Controller@dynamic_pages");
 
 // Admin Routes
 Route::get("admin", "Admin_Controller@index");
@@ -67,3 +70,5 @@ Route::get("admin/edit-product/{any}", "AdminProduct_Controller@edit_product");
 Route::post("admin/edit-product-process", "AdminProduct_Controller@edit_product_process");
 Route::get("admin/delete-product/{any}", "AdminProduct_Controller@delete_product");
 Route::get("admin/all-products", "AdminProduct_Controller@all_products");
+
+Route::get("{any}", "Category_Product_Controller@dynamic_pages");

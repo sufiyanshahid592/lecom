@@ -23,7 +23,7 @@ class Cart_Controller extends BaseController
     public function add_to_cart(Request $request){
         /*echo "<pre>";
         print_r($request->input());*/
-        Cart::add(['id'=>$request->input("product_id"), 'name'=>"First", 'qty'=>1, 'price'=>100, 'weight'=>24]);
+        Cart::add(['id'=>$request->input("product_id"), 'name'=>"First", 'qty'=>1, 'price'=>100, 'weight'=>0]);
         return Cart::content();
     }
     public function update_cart(Request $request){

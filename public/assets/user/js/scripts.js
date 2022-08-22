@@ -133,7 +133,10 @@ $(document).on("click", ".qty-up", function(){
     }
     $(".qty-val-"+row_id).html(final_qty);
     var product_qty = $(".qty-val-"+row_id).html();
-    $(".product-subtotal-"+row_id).html('<h4 class="text-brand">$'+parseFloat(product_price)*parseFloat(product_qty)+'</h4>');
+    if($("h4").hasClass("sub-total")){
+        var sub_total = parseFloat(product_qty)*parseFloat(product_price);
+        $("."+row_id+" .product-sub-total").html(sub_total.toFixed(2));
+    }
     $(".update-cart").removeAttr("disabled");
     $(".disabled-checkout-btn").attr("disabled", "disabled");
 });
@@ -147,7 +150,10 @@ $(document).on("click", ".qty-down", function(){
     }
     $(".qty-val-"+row_id).html(final_qty);
     var product_qty = $(".qty-val-"+row_id).html();
-    $(".product-subtotal-"+row_id).html('<h4 class="text-brand">$'+parseFloat(product_price)*parseFloat(product_qty)+'</h4>');
+    if($("h4").hasClass("sub-total")){
+        var sub_total = parseFloat(product_qty)*parseFloat(product_price);
+        $("."+row_id+" .product-sub-total").html(sub_total.toFixed(2));
+    }
     $(".update-cart").removeAttr("disabled");
     $(".disabled-checkout-btn").attr("disabled", "disabled");
 });
