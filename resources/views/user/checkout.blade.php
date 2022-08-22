@@ -74,7 +74,7 @@
                         </div>
                         <div class="row">
                             <div class="form-group col-lg-6">
-                                <input type="text" name="billing_address" required="" placeholder="Address *">
+                                <input type="text" name="billing_address1" required="" placeholder="Address *">
                             </div>
                             <div class="form-group col-lg-6">
                                 <input type="text" name="billing_address2" required="" placeholder="Address line2">
@@ -83,7 +83,7 @@
                         <div class="row shipping_calculator">
                             <div class="form-group col-lg-6">
                                 <div class="custom_select">
-                                    <select class="form-control select-active">
+                                    <select class="form-control select-active" name="country">
                                         <option value="">Select an option...</option>
                                         <option value="AX">Aland Islands</option>
                                         <option value="AF">Afghanistan</option>
@@ -344,16 +344,8 @@
                                 <input required="" type="text" name="phone" placeholder="Phone *">
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="form-group col-lg-6">
-                                <input required="" type="text" name="cname" placeholder="Company Name">
-                            </div>
-                            <div class="form-group col-lg-6">
-                                <input required="" type="text" name="email" placeholder="Email address *">
-                            </div>
-                        </div>
                         <div class="form-group mb-30">
-                            <textarea rows="5" placeholder="Additional information"></textarea>
+                            <textarea rows="5" name="additional_information" placeholder="Additional information"></textarea>
                         </div>
                     </div>
                 </div>
@@ -432,15 +424,15 @@
                         <h4 class="mb-30">Payment</h4>
                         <div class="payment_option">
                             <div class="custome-radio">
-                                <input class="form-check-input" required="" type="radio" name="payment_option" id="exampleRadios3" checked="">
+                                <input class="form-check-input" required="" type="radio" name="payment_option" value="1" id="exampleRadios3" >
                                 <label class="form-check-label" for="exampleRadios3" data-bs-toggle="collapse" data-target="#bankTranfer" aria-controls="bankTranfer">Direct Bank Transfer</label>
                             </div>
                             <div class="custome-radio">
-                                <input class="form-check-input" required="" type="radio" name="payment_option" id="exampleRadios4" checked="">
+                                <input class="form-check-input" required="" type="radio" name="payment_option" value="2" id="exampleRadios4">
                                 <label class="form-check-label" for="exampleRadios4" data-bs-toggle="collapse" data-target="#checkPayment" aria-controls="checkPayment">Cash on delivery</label>
                             </div>
                             <div class="custome-radio">
-                                <input class="form-check-input" required="" type="radio" name="payment_option" id="exampleRadios5" checked="">
+                                <input class="form-check-input" required="" type="radio" name="payment_option" value="3" id="exampleRadios5">
                                 <label class="form-check-label" for="exampleRadios5" data-bs-toggle="collapse" data-target="#paypal" aria-controls="paypal">Online Getway</label>
                             </div>
                         </div>
