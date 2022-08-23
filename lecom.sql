@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 23, 2022 at 12:07 PM
+-- Generation Time: Aug 23, 2022 at 07:28 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.27
 
@@ -84,6 +84,37 @@ INSERT INTO `categories` (`category_id`, `category_name`, `category_slug`, `cate
 (35, 'Fast food', 'fast-food', 'Fast food', 'Fast food', 'Fast food', 'cat-13.png', 'category-8.svg', NULL, '[\"1\",\"2\"]', NULL),
 (36, 'Vegetables', 'vegetables', 'Vegetables', 'Vegetables', 'Vegetables', 'cat-13.png', 'category-9.svg', NULL, '[\"1\",\"2\"]', NULL),
 (37, 'Bread and Juice', 'bread-and-juice', 'Bread and Juice', 'Bread and Juice', 'Bread and Juice', 'cat-13.png', 'category-10.svg', NULL, '[\"1\",\"2\"]', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `order_id` int(11) NOT NULL,
+  `fname` varchar(255) DEFAULT NULL,
+  `lname` varchar(255) DEFAULT NULL,
+  `billing_address1` varchar(255) DEFAULT NULL,
+  `billing_address2` varchar(255) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `zipcode` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `additional_information` varchar(255) DEFAULT NULL,
+  `payment_option` varchar(255) DEFAULT NULL,
+  `cart_product` varchar(255) DEFAULT NULL,
+  `order_total` varchar(255) DEFAULT NULL,
+  `order_date` varchar(255) DEFAULT NULL,
+  `payment_status` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `fname`, `lname`, `billing_address1`, `billing_address2`, `country`, `city`, `zipcode`, `phone`, `additional_information`, `payment_option`, `cart_product`, `order_total`, `order_date`, `payment_status`) VALUES
+(4, 'Sufiyan', 'Shahid', 'Gulshan Sardar Town', 'Ferozwala', 'PK', 'Lahore', '54000', '03014065723', 'this is first order', '2', '{\"ad715e924b0e24ed154b4d0d0c1cc647\":{\"rowId\":\"ad715e924b0e24ed154b4d0d0c1cc647\",\"id\":\"11\",\"name\":\"Seventh\",\"qty\":1,\"price\":25,\"weight\":0,\"options\":{\"image\":\"7.png\",\"product_variations\":\"{}\"},\"discount\":0,\"tax\":0,\"subtotal\":25}}', '25.00', '1661275613', '0');
 
 -- --------------------------------------------------------
 
@@ -170,6 +201,12 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`category_id`);
 
 --
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`order_id`);
+
+--
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -197,6 +234,12 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `categories`
   MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `products`

@@ -33,6 +33,12 @@ class Checkout_Controller extends BaseController
     	$data["additional_information"] = $request->input("additional_information");
     	$data["payment_option"] = $request->input("payment_option");
     	$data['cart_product'] = json_encode(Cart::content());
-        print_r($data);
+        $data['order_total'] = Cart::total();
+        $data['order_date'] = time();
+        $data['payment_status'] = 0;
+        $result = DB::table("orders")->insert($data);
+        if($result==1){
+            return redirect('orders');
+        }
     }
 }
