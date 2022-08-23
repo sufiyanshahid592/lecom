@@ -27,7 +27,7 @@ class Cart_Controller extends BaseController
         /*echo "<pre>";
         print_r($request->input());*/
         $get_product_details_by_id = DB::table("products")->where("product_id", $request->input("product_id"))->get();
-        Cart::add(['id'=>$request->input("product_id"), 'name'=>$get_product_details_by_id[0]->product_title, 'qty'=>1, 'image'=>$get_product_details_by_id[0]->product_image, 'price'=>$request->input("product_price_val"), 'taxRate'=>0, 'weight'=>0]);
+        Cart::add(['id'=>$request->input("product_id"), 'name'=>$get_product_details_by_id[0]->product_title, 'qty'=>1, 'price'=>$request->input("product_price_val"), 'taxRate'=>0, 'weight'=>0, 'options'=>['image'=>$get_product_details_by_id[0]->product_image]]);
         return Cart::content();
     }
     public function update_cart(Request $request){
@@ -45,7 +45,7 @@ class Cart_Controller extends BaseController
                 <?php foreach(Cart::content() as $key=>$value){ ?>
                 <li>
                     <div class="shopping-cart-img">
-                        <a href="shop-product-right.html"><img alt="Nest" src="<?php echo url('assets/uploads/products-images/'.$value->image); ?>" /></a>
+                        <a href="shop-product-right.html"><img alt="Nest" src="<?php echo url('assets/images/'.$value->options['image']); ?>" /></a>
                     </div>
                     <div class="shopping-cart-title">
                         <h4><a href="shop-product-right.html"><?php echo $value->name; ?></a></h4>
@@ -74,6 +74,9 @@ class Cart_Controller extends BaseController
     }
     public function checkout_total(){
         echo "$".Cart::total();
+    }
+    public function remove_cart(Request $request){
+        Cart::remove($request->input('id'));
     }
     public function destroy_cart(){
         Cart::destroy();

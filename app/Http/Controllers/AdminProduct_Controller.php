@@ -151,8 +151,9 @@ class AdminProduct_Controller extends BaseController
         if(!empty($request->input("related_product"))){
             $data['related_product'] = json_encode($request->input("related_product"));
         }else{
-            $data['related_product'] = [];
+            $data['related_product'] = json_encode([]);
         }
+        $data['product_variations'] = json_encode([]);
         if(!empty($request->input("variation_title"))>0){
             foreach($request->input("variation_title") as $key=>$value){
                 if(!empty($request->input($value."_variation_value"))){

@@ -1,3 +1,9 @@
+$(document).ajaxStart(function(){
+    $("#preloader-active").fadeIn();
+});
+$(document).ajaxComplete(function(){
+    $("#preloader-active").fadeOut();
+});
 jQuery.validator.addMethod("SpaceNotAllow", function(value, element) { 
   return value.indexOf(" ") < 0 && value != ""; 
 }, "No space please and don't leave it empty");
@@ -345,6 +351,20 @@ $(document).ready(function(){
         },
         messages:{
 
+        }
+    });
+});
+$(document).on("click", ".remove-from_cart", function(){
+    var id = $(this).attr("data-id");
+    var csrf_token = $('meta[name="csrf-token"]').attr('content');
+    $.ajax({
+        url: "http://127.0.0.1:8000/remove-cart",
+        method: "POST",
+        data: {id:id, "_token":csrf_token},
+        async: false,
+        success: function(succ){
+            update_setting();
+            $("."+id).remove();
         }
     });
 });

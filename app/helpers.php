@@ -90,9 +90,9 @@ function get_cart_content(){
     <div class="cart-dropdown-wrap cart-dropdown-hm2">
         <ul>
             <?php foreach(Cart::content() as $key=>$value){ ?>
-            <li>
+            <li class="<?php echo $value->rowId; ?>">
                 <div class="shopping-cart-img">
-                    <a href="shop-product-right.html"><img alt="Nest" src="<?php echo url('assets/uploads/products-images/'.$value->image); ?>" /></a>
+                    <a href="shop-product-right.html"><img alt="Nest" src="<?php echo url('assets/images/'.$value->options['image']); ?>" /></a>
                 </div>
                 <div class="shopping-cart-title">
                     <h4><a href="shop-product-right.html"><?php echo $value->name; ?></a></h4>

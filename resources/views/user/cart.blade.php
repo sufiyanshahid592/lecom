@@ -45,7 +45,7 @@
                                     <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox1" value="">
                                     <label class="form-check-label" for="exampleCheckbox1"></label>
                                 </td>
-                                <td class="image product-thumbnail pt-40"><img src="<?php echo url('assets/images/'.$value->image); ?>" alt="#"></td>
+                                <td class="image product-thumbnail pt-40"><img src="<?php echo url('assets/images/'.$value->options['image']); ?>" alt="#"></td>
                                 <td class="product-des product-name">
                                     <h6 class="mb-5"><a class="product-name mb-10 text-heading" href="shop-product-right.html"><?php echo $value->name; ?></a></h6>
                                     <div class="product-rate-cover">
@@ -71,7 +71,7 @@
                                 <td class="price" data-title="Price">
                                     <h4 class="text-brand">$<span class="product-sub-total"><?php echo number_format($value->price*$value->qty, 2); ?></span></h4>
                                 </td>
-                                <td class="action text-center" data-title="Remove"><a href="#" class="text-body"><i class="fi-rs-trash"></i></a></td>
+                                <td class="action text-center" data-title="Remove"><a class="text-body"><i class="fi-rs-trash remove-from_cart" data-id="<?php echo $value->rowId; ?>"></i></a></td>
                             </tr>
                             <?php } ?>
                         </tbody>
