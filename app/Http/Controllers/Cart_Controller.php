@@ -24,10 +24,8 @@ class Cart_Controller extends BaseController
     	return view("user/cart", $data);
     }
     public function add_to_cart(Request $request){
-        /*echo "<pre>";
-        print_r($request->input());*/
         $get_product_details_by_id = DB::table("products")->where("product_id", $request->input("product_id"))->get();
-        Cart::add(['id'=>$request->input("product_id"), 'name'=>$get_product_details_by_id[0]->product_title, 'qty'=>1, 'price'=>$request->input("product_price_val"), 'taxRate'=>0, 'weight'=>0, 'options'=>['image'=>$get_product_details_by_id[0]->product_image]]);
+        Cart::add(['id'=>$request->input("product_id"), 'name'=>$get_product_details_by_id[0]->product_title, 'qty'=>1, 'price'=>$request->input("product_price_val"), 'taxRate'=>0, 'weight'=>0, 'options'=>['image'=>$get_product_details_by_id[0]->product_image, 'product_variations'=>$request->input('variation_content')]]);
         return Cart::content();
     }
     public function update_cart(Request $request){

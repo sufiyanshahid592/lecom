@@ -28,10 +28,11 @@
                         <thead>
                             <tr class="main-heading">
                                 <th class="custome-checkbox start pl-30">
-                                    <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox11" value="">
-                                    <label class="form-check-label" for="exampleCheckbox11"></label>
+                                    <!-- <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox11" value="">
+                                    <label class="form-check-label" for="exampleCheckbox11"></label> -->
                                 </th>
                                 <th scope="col" colspan="2">Product</th>
+                                <th scope="col">Variations</th>
                                 <th scope="col">Unit Price</th>
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Subtotal</th>
@@ -42,8 +43,8 @@
                             <?php foreach($get_cart_products as $key=>$value){ //echo "<pre>"; print_r($value); echo "</pre>"; ?>
                             <tr class="pt-30 cart-row <?php echo $value->rowId; ?>">
                                 <td class="custome-checkbox pl-30">
-                                    <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox1" value="">
-                                    <label class="form-check-label" for="exampleCheckbox1"></label>
+                                    <!-- <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox1" value="">
+                                    <label class="form-check-label" for="exampleCheckbox1"></label> -->
                                 </td>
                                 <td class="image product-thumbnail pt-40"><img src="<?php echo url('assets/images/'.$value->options['image']); ?>" alt="#"></td>
                                 <td class="product-des product-name">
@@ -56,6 +57,7 @@
                                         <span class="font-small ml-5 text-muted"> (4.0)</span>
                                     </div>
                                 </td>
+                                <td><?php if(count((array)json_decode($value->options['product_variations']))==0){echo "None";} foreach(json_decode($value->options['product_variations']) as $v_key=>$v_value){echo $v_key.": ".$v_value."<br>";} ?></td>
                                 <td class="price" data-title="Price">
                                     <h4 class="text-body">$<?php echo $value->price; ?> </h4>
                                 </td>

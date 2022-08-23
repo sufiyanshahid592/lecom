@@ -390,13 +390,14 @@
                             </div>
                         </div>
                     </div>
+                    <?php if(count($get_related_product)>0){ ?>
                     <div class="row mt-60">
                         <div class="col-12">
                             <h2 class="section-title style-1 mb-30">Related products</h2>
                         </div>
                         <div class="col-12">
                             <div class="row related-products">
-                            	<?php if(!empty($get_related_product)){ foreach($get_related_product as $key=>$value){ ?>
+                            	<?php  foreach($get_related_product as $key=>$value){ ?>
                                 <div class="col-lg-3 col-md-4 col-12 col-sm-6">
                                     <div class="product-cart-wrap hover-up">
                                         <div class="product-img-action-wrap">
@@ -435,10 +436,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            	<?php } } ?>
+                            	<?php } ?>
                             </div>
                         </div>
                     </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
