@@ -69,27 +69,15 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        <?php foreach($get_all_order_by_user_id as $key=>$value){ ?>
                                                         <tr>
-                                                            <td>#1357</td>
-                                                            <td>March 45, 2020</td>
-                                                            <td>Processing</td>
-                                                            <td>$125.00 for 2 item</td>
+                                                            <td>#<?php echo $value->order_id; ?></td>
+                                                            <td><?php echo date("d M, Y", $value->order_date); ?></td>
+                                                            <td><?php if($value->payment_status==0){echo "Pending Payment";}elseif($value->payment_status==1){echo "Processing";}elseif($value->payment_status==2){echo "Completed";} ?></td>
+                                                            <td><?php echo "$".$value->order_total; ?> for <?php echo count((array)json_decode($value->cart_product)); ?> item</td>
                                                             <td><a href="#" class="btn-small d-block">View</a></td>
                                                         </tr>
-                                                        <tr>
-                                                            <td>#2468</td>
-                                                            <td>June 29, 2020</td>
-                                                            <td>Completed</td>
-                                                            <td>$364.00 for 5 item</td>
-                                                            <td><a href="#" class="btn-small d-block">View</a></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>#2366</td>
-                                                            <td>August 02, 2020</td>
-                                                            <td>Completed</td>
-                                                            <td>$280.00 for 3 item</td>
-                                                            <td><a href="#" class="btn-small d-block">View</a></td>
-                                                        </tr>
+                                                        <?php } ?>
                                                     </tbody>
                                                 </table>
                                             </div>
