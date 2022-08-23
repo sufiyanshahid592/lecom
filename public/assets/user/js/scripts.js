@@ -8,8 +8,8 @@ jQuery.validator.addMethod("SpaceNotAllow", function(value, element) {
   return value.indexOf(" ") < 0 && value != ""; 
 }, "No space please and don't leave it empty");
 function update_setting(){
+    var csrf_token = $('meta[name="csrf-token"]').attr('content');
     $(".cart-row").each(function(){
-        var csrf_token = $('meta[name="csrf-token"]').attr('content');
         var row_id = $(this).find(".qty-val").attr("data-row-id");
         var product_price = $(this).find(".qty-val").attr("data-product-price");
         var product_qty = $(this).find(".qty-val").html();
@@ -29,6 +29,8 @@ function update_setting(){
     });
     $.ajax({
         url: "http://127.0.0.1:8000/count-cart",
+        method: "post",
+        data: {"_token":csrf_token},
         success: function(success){
             $(".cart-page-counter").html(success);
         }

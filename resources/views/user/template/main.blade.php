@@ -983,7 +983,7 @@
         </div>
     </div>
     <!-- Vendor JS-->
-    <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <!-- <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> -->
     <script src="{{url('assets/user/js/vendor/modernizr-3.6.0.min.js')}}"></script>
     <script src="{{url('assets/user/js/vendor/jquery-3.6.0.min.js')}}"></script>
     <script src="{{url('assets/user/js/vendor/jquery-migrate-3.3.0.min.js')}}"></script>
