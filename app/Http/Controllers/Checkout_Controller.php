@@ -32,6 +32,7 @@ class Checkout_Controller extends BaseController
     	$data["phone"] = $request->input("phone");
     	$data["additional_information"] = $request->input("additional_information");
     	$data["payment_option"] = $request->input("payment_option");
-    	print_r(Cart::content());
+    	$data['cart_product'] = json_encode(Cart::content());
+        print_r($data);
     }
 }
