@@ -72,5 +72,6 @@ Route::get("admin/edit-product/{any}", "AdminProduct_Controller@edit_product");
 Route::post("admin/edit-product-process", "AdminProduct_Controller@edit_product_process");
 Route::get("admin/delete-product/{any}", "AdminProduct_Controller@delete_product");
 Route::get("admin/all-products", "AdminProduct_Controller@all_products");
+Route::post("admin/check-product-slug-exist", "AdminProduct_Controller@check_product_slug_exist");
 
 Route::get("{any}", "Category_Product_Controller@dynamic_pages");

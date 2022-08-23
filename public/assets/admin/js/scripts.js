@@ -51,3 +51,22 @@ $(document).on("click", ".remove-variation", function(){
 	var data_id = $(this).attr("data-id");
 	$(".id-"+data_id).remove();
 });
+$(document).ready(function(){
+	var csrf_token = $('meta[name="csrf-token"]').attr('content');
+	$(".admin-product-form").validate({
+		rules:{
+			product_slug:{
+				remote:{
+                    url: "http://127.0.0.1:8000/admin/check-product-slug-exist",
+                    method: "post",
+                    data:{"_token":csrf_token}
+                }
+			}
+		},
+		messages:{
+			product_slug:{
+				remote: "Product Slug Already Exist!..."
+			}
+		}
+	});
+});

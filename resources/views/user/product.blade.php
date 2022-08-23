@@ -45,7 +45,7 @@
                         </div>
                         <div class="col-md-6 col-sm-12 col-xs-12">
                             <div class="detail-info pr-30 pl-30">
-                                <span class="stock-status out-stock"> Sale Off </span>
+                                <!-- <span class="stock-status out-stock"> Sale Off </span> -->
                                 <h2 class="title-detail"><?php echo $get_product_by_id[0]->product_title; ?></h2>
                                 <div class="product-detail-rating">
                                     <div class="product-rate-cover text-end">

@@ -32,7 +32,7 @@
 						</div>
 						<!-- /.card-header -->
 						<!-- form start -->
-						<form action="{{url('admin/edit-product-process')}}" method="post" enctype="multipart/form-data">
+						<form class="admin-product-form" action="{{url('admin/edit-product-process')}}" method="post" enctype="multipart/form-data">
 							@csrf
 							<div class="card-body">
 								<div class="form-group">

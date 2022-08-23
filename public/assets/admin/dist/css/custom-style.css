@@ -17,3 +17,6 @@ span.variation-title-value-content i{
     border-radius: 2px;
     cursor: pointer;
 }
+form .error{
+    color: red !important;
+}

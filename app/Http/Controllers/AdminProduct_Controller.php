@@ -168,6 +168,14 @@ class AdminProduct_Controller extends BaseController
             return redirect('admin/all-products');
         }
     }
+    public function check_product_slug_exist(Request $request){
+        $result = DB::table("products")->where("product_slug", $request->input('product_slug'))->get();
+        if(count($result)==1){
+            return "false";
+        }else{
+            return "true";
+        }
+    }
     public function delete_product($id){
         DB::table('products')->where("product_id", $id)->delete();
         Session::flash("success", "Product Deleted Successfully");
