@@ -29,7 +29,7 @@ Route::get('logout', "User_Controller@logout");
 Route::get('cart', "Cart_Controller@cart");
 Route::post('update-cart', "Cart_Controller@update_cart");
 Route::get('update-cart-area', "Cart_Controller@update_cart_area");
-Route::post('count-cart', "Cart_Controller@count_cart");
+// Route::post('count-cart', "Cart_Controller@count_cart");
 Route::get('checkout-total', "Cart_Controller@checkout_total");
 Route::post('remove-cart', "Cart_Controller@remove_cart");
 Route::get('destroy-cart', "Cart_Controller@destroy_cart");

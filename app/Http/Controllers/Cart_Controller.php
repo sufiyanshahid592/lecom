@@ -68,7 +68,7 @@ class Cart_Controller extends BaseController
         <?php
     }
     public function count_cart(){
-        echo count($this->cart->contents());
+        echo count(Cart::content());
     }
     public function checkout_total(){
         echo "$".Cart::total();
