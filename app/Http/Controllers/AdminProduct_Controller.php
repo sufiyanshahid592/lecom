@@ -181,4 +181,8 @@ class AdminProduct_Controller extends BaseController
         Session::flash("success", "Product Deleted Successfully");
         return redirect("admin/all-products");
     }
+    public function attributes(){
+        $data = array();
+        return view('admin/attributes', $data);
+    }
 }

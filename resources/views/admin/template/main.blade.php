@@ -245,8 +245,8 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item <?php if(Request::segment(2)=="add-new-product" OR Request::segment(2)=="all-products"){echo "menu-open";} ?>">
-                                <a href="#" class="nav-link <?php if(Request::segment(2)=="add-new-product" OR Request::segment(2)=="all-products"){echo "active";} ?>">
+                            <li class="nav-item <?php if(Request::segment(2)=="add-new-product" OR Request::segment(2)=="all-products" OR Request::segment(2)=="attributes"){echo "menu-open";} ?>">
+                                <a href="#" class="nav-link <?php if(Request::segment(2)=="add-new-product" OR Request::segment(2)=="all-products" OR Request::segment(2)=="attributes"){echo "active";} ?>">
                                     <i class="nav-icon fas fa-tachometer-alt"></i>
                                     <p>
                                         Products
@@ -264,6 +264,12 @@
                                         <a href="{{url('admin/all-products')}}" class="nav-link <?php if(Request::segment(2)=="all-products"){echo "active";} ?>">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>All Products</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{url('admin/attributes')}}" class="nav-link <?php if(Request::segment(2)=="attributes"){echo "active";} ?>">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Attribues</p>
                                         </a>
                                     </li>
                                 </ul>
