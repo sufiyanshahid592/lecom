@@ -47,7 +47,7 @@ class Cart_Controller extends BaseController
                     </div>
                     <div class="shopping-cart-title">
                         <h4><a href="shop-product-right.html"><?php echo $value->name; ?></a></h4>
-                        <h4><span><?php echo $value->qty; ?> × </span>$<?php echo $value->price; ?>.00</h4>
+                        <h4><span><?php echo $value->qty; ?> × </span><?php echo website_currency()." ".$value->price; ?>.00</h4>
                     </div>
                     <div class="shopping-cart-delete">
                         <a><i class="fi-rs-cross-small remove-from_cart" data-id="<?php echo $value->rowId; ?>"></i></a>
@@ -57,7 +57,7 @@ class Cart_Controller extends BaseController
             </ul>
             <div class="shopping-cart-footer">
                 <div class="shopping-cart-total">
-                    <h4>Total <span>$<?php echo number_format(Cart::total(), 2); ?></span></h4>
+                    <h4>Total <span><?php echo website_currency()." ".number_format(Cart::total(), 2); ?></span></h4>
                 </div>
                 <div class="shopping-cart-button">
                     <a href="<?php echo url('cart'); ?>" class="outline">View cart</a>
@@ -71,7 +71,7 @@ class Cart_Controller extends BaseController
         echo count(Cart::content());
     }
     public function checkout_total(){
-        echo "$".Cart::total();
+        echo website_currency()." ".Cart::total();
     }
     public function remove_cart(Request $request){
         Cart::remove($request->input('id'));

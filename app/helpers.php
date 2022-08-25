@@ -1,6 +1,22 @@
 <?php 
 use Illuminate\Support\Facades\DB;
 
+function website_title(){
+    $website_setting = DB::table("setting")->where("setting_id", 1)->get();
+    if(Request::segment(1)=="admin" AND Request::segment(2)=="setting"){
+        return "Admin Setting | ".$website_setting[0]->website_title;
+    }elseif(Request::segment(1)=="cart"){
+        return "Cart | ".$website_setting[0]->website_title;
+    }elseif(Request::segment(1)=="checkout"){
+        return "Checkout | ".$website_setting[0]->website_title;
+    }else{
+        return $website_setting[0]->website_title;
+    }
+}
+function website_currency(){
+    $website_setting = DB::table("setting")->where("setting_id", 1)->get();
+    return $website_setting[0]->website_currency;
+}
 function get_category_product_count($category_id){
 	$result = DB::table("products")->where("product_category", $category_id)->get();
 	return count($result);
@@ -57,8 +73,8 @@ function get_popular_category_products($category_id){
                     </div> -->
                     <div class="product-card-bottom">
                         <div class="product-price">
-                            <span>$<?php echo number_format($value->product_discount_price, 2); ?></span>
-                            <span class="old-price">$<?php echo number_format($value->product_sale_price, 2); ?></span>
+                            <span><?php echo website_currency()." ".number_format($value->product_discount_price, 2); ?></span>
+                            <span class="old-price"><?php echo website_currency()." ".number_format($value->product_sale_price, 2); ?></span>
                         </div>
                         <div class="add-cart">
                             <a class="add" href="shop-cart.html"><i class="fi-rs-shopping-cart mr-5"></i>Add </a>

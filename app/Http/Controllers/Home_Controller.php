@@ -78,10 +78,10 @@ class Home_Controller extends BaseController
                                 </div>
                                 <div class="clearfix product-price-cover">
                                     <div class="product-price primary-color float-left">
-                                        <span class="current-price text-brand">$<?php echo number_format($get_product_by_id[0]->product_discount_price, 2); ?></span>
+                                        <span class="current-price text-brand"><?php echo website_currency()." ".number_format($get_product_by_id[0]->product_discount_price, 2); ?></span>
                                         <span>
                                             <span class="save-price font-md color3 ml-15"><?php echo get_discount_percentage($get_product_by_id[0]->product_sale_price, $get_product_by_id[0]->product_discount_price); ?>% Off</span>
-                                            <span class="old-price font-md ml-15">$<?php echo number_format($get_product_by_id[0]->product_sale_price, 2); ?></span>
+                                            <span class="old-price font-md ml-15"><?php echo website_currency()." ".number_format($get_product_by_id[0]->product_sale_price, 2); ?></span>
                                         </span>
                                     </div>
                                 </div>

@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{csrf_token()}}">
-        <title>AdminLTE 3 | Dashboard</title>
+        <title><?php echo website_title(); ?></title>
         <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
         <!-- Font Awesome -->
@@ -267,6 +267,15 @@
                                         </a>
                                     </li>
                                 </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{url('admin/setting')}}" class="nav-link <?php if(Request::segment(2)=="setting"){echo "active";} ?>">
+                                    <i class="nav-icon fas fa-th"></i>
+                                    <p>
+                                        Setting
+                                        <!-- <span class="right badge badge-danger">New</span> -->
+                                    </p>
+                                </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{url('admin/logout')}}" class="nav-link">

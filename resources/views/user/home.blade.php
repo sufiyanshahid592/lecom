@@ -229,8 +229,8 @@
                                     </div> -->
                                     <div class="product-card-bottom">
                                         <div class="product-price">
-                                            <span>$<?php echo number_format($value->product_discount_price, 2); ?></span>
-                                            <span class="old-price">$<?php echo number_format($value->product_sale_price, 2); ?></span>
+                                            <span><?php echo website_currency()." ".number_format($value->product_discount_price, 2); ?></span>
+                                            <span class="old-price"><?php echo website_currency()." ".number_format($value->product_sale_price, 2); ?></span>
                                         </div>
                                         <!-- <div class="add-cart">
                                             <a class="add" href="shop-cart.html"><i class="fi-rs-shopping-cart mr-5"></i>Add </a>
@@ -1127,8 +1127,8 @@
                                     <span class="font-small ml-5 text-muted"> (4.0)</span>
                                 </div>
                                 <div class="product-price">
-                                    <span>$<?php echo number_format($value->product_discount_price, 2); ?></span>
-                                    <span class="old-price">$<?php echo number_format($value->product_sale_price, 2); ?></span>
+                                    <span><?php echo website_currency()." ".number_format($value->product_discount_price, 2); ?></span>
+                                    <span class="old-price"><?php echo website_currency()." ".number_format($value->product_sale_price, 2); ?></span>
                                 </div>
                             </div>
                         </article>
@@ -1154,8 +1154,8 @@
                                     <span class="font-small ml-5 text-muted"> (4.0)</span>
                                 </div>
                                 <div class="product-price">
-                                    <span>$<?php echo number_format($value->product_discount_price, 2); ?></span>
-                                    <span class="old-price">$<?php echo number_format($value->product_sale_price, 2); ?></span>
+                                    <span><?php echo website_currency()." ".number_format($value->product_discount_price, 2); ?></span>
+                                    <span class="old-price"><?php echo website_currency()." ".number_format($value->product_sale_price, 2); ?></span>
                                 </div>
                             </div>
                         </article>
@@ -1181,8 +1181,8 @@
                                     <span class="font-small ml-5 text-muted"> (4.0)</span>
                                 </div>
                                 <div class="product-price">
-                                    <span>$<?php echo number_format($value->product_discount_price, 2); ?></span>
-                                    <span class="old-price">$<?php echo number_format($value->product_sale_price, 2); ?></span>
+                                    <span><?php echo website_currency()." ".number_format($value->product_discount_price, 2); ?></span>
+                                    <span class="old-price"><?php echo website_currency()." ".number_format($value->product_sale_price, 2); ?></span>
                                 </div>
                             </div>
                         </article>
@@ -1208,8 +1208,8 @@
                                     <span class="font-small ml-5 text-muted"> (4.0)</span>
                                 </div>
                                 <div class="product-price">
-                                    <span>$<?php echo number_format($value->product_discount_price, 2); ?></span>
-                                    <span class="old-price">$<?php echo number_format($value->product_sale_price, 2); ?></span>
+                                    <span><?php echo website_currency()." ".number_format($value->product_discount_price, 2); ?></span>
+                                    <span class="old-price"><?php echo website_currency()." ".number_format($value->product_sale_price, 2); ?></span>
                                 </div>
                             </div>
                         </article>

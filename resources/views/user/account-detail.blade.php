@@ -163,7 +163,6 @@
                                         </div>
                                         <div class="card-body">
                                             <div class="ss-alert-section">
-                                                <p class="mb-30">Don't have an account? <a href="{{url('register')}}">Create here</a></p>
                                                 <?php if(Session::has('success')){ ?>
                                                 <div class="alert alert-success"><?php echo Session::get('success'); ?></div>
                                                 <?php } ?>
