@@ -87,7 +87,7 @@ Route::get("admin/edit-attributie-value/{any}", "AdminProduct_Controller@edit_at
 Route::post("admin/edit-attributes-value-process", "AdminProduct_Controller@edit_attributes_value_process");
 Route::get("admin/delete-attribute-value/{any}", "AdminProduct_Controller@delete_attribute_value");
 
-
+Route::post("admin/admin-variation-modal", "AdminProduct_Controller@admin_variation_modal");
 Route::get("admin/setting", "Admin_Setting@setting");
 Route::post("admin/update-setting-process", "Admin_Setting@update_setting_process");
 Route::get("{any}", "Category_Product_Controller@dynamic_pages");

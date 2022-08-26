@@ -314,6 +314,26 @@
             <!-- /.control-sidebar -->
         </div>
         <!-- ./wrapper -->
+        <div class="admin-variation-modal modal fade" id="modal-xl">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Product Variation</h4>
+                        <button type="button" class="close close-modal" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default close-modal" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal -->
         <!-- jQuery -->
         <script src="{{url('assets/admin/plugins/jquery/jquery.min.js')}}"></script>
         <!-- jQuery UI 1.11.4 -->

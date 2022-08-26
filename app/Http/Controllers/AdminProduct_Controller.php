@@ -258,4 +258,44 @@ class AdminProduct_Controller extends BaseController
         Session::flash("success", "Attribute Successfully Deleted!...");
         return redirect()->back();
     }
+    public function admin_variation_modal(){
+        $get_all_attributes = DB::table("attributes")->get();
+        ?>
+        <div class="card-body">
+            <ul class="nav nav-tabs" id="custom-content-below-tab" role="tablist">
+                <?php $i = 1; foreach($get_all_attributes as $key=>$value){ ?>
+                <li class="nav-item">
+                    <a class="nav-link <?php if($i==1){echo "active";} ?>" id="<?php echo str_replace(" ", "-", $value->attribute_title); ?>-tab" data-toggle="pill" href="#<?php echo str_replace(" ", "-", $value->attribute_title); ?>" role="tab" aria-controls="<?php echo str_replace(" ", "-", $value->attribute_title); ?>" aria-selected="<?php if($i==1){echo "true";}else{echo "false";} ?>"><?php echo $value->attribute_title; ?></a>
+                </li>
+                <?php $i++; } ?>
+            </ul>
+            <div class="tab-content" id="custom-content-below-tabContent">
+                <?php $i = 1; foreach($get_all_attributes as $key=>$attribute_title){ ?>
+                <div class="tab-pane fade <?php if($i==1){echo "active show";} ?>" id="<?php echo str_replace(" ", "-", $attribute_title->attribute_title); ?>" role="tabpanel" aria-labelledby="<?php echo str_replace(" ", "-", $attribute_title->attribute_title); ?>-tab">
+                    <?php 
+                        $get_attribute_value_by_id = DB::table("attributes_value")->where("attribute_id", $attribute_title->attribute_id)->get();
+                    ?>
+                    <div class="row" style="padding: 20px;">
+                        <div class="col-lg-12">
+                            <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                                <input type="checkbox" class="custom-control-input" id="customSwitch3">
+                                <label class="custom-control-label" for="customSwitch3"> <?php echo $attribute_title->attribute_title; ?> Variation ON</label>
+                            </div>
+                        </div>
+                    <?php
+                        foreach($get_attribute_value_by_id as $key=>$attribute_value){
+                    ?>
+                        <div class="col-lg-4">
+                            <input type="checkbox" class="variation-">
+                            <?php echo $attribute_value->attribute_value_title; ?>
+                        </div>
+                    <?php } ?>
+                    </div>
+                </div>
+                <?php $i++; } ?>
+            </div>
+            <h4 class="mt-5 ">Variation Price</h4>
+        </div>
+        <?php
+    }
 }

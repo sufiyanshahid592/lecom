@@ -28,8 +28,33 @@ $(document).on("click", ".delete-product-gallery-image", function(){
 	data_id = $(this).attr("data-id");
 	$(".product-gallery-image-"+data_id).remove();
 });
+$(document).on("click", ".close-modal", function(){
+	$(".modal").removeClass("show");
+	$(".modal").css("display", "");
+	$(".modal").css("padding-right", "");
+	$(".modal").removeAttr("aria-modal", "true");
+	$(".modal").removeAttr("role", "dialog");
+	$("body").removeClass("modal-open");
+	$("body").css("padding-right", "");
+});
 $(document).on("click", ".add-variation", function(){
-    $(".variation-input-content").html('<div class="input-group input-group" style="margin: 10px 0;"><input type="text" class="form-control variation-title-value" placeholder="Enter Variation Title"><span class="input-group-append"><button type="button" class="btn btn-primary btn-flat add-variation-title">Add Variation</button></span></div>');
+	$(".admin-variation-modal").addClass("show");
+	$(".admin-variation-modal").css("display", "block");
+	$(".admin-variation-modal").css("padding-right", "17px");
+	$(".admin-variation-modal").attr("aria-modal", "true");
+	$(".admin-variation-modal").attr("role", "dialog");
+	$("body").addClass("modal-open");
+	$("body").css("padding-right", "17px");
+	var csrf_token = $('meta[name="csrf-token"]').attr('content');
+	$.ajax({
+		url: "http://127.0.0.1:8000/admin/admin-variation-modal",
+		method: "post",
+		data:{"_token":csrf_token},
+		success: function(data){
+			$(".admin-variation-modal .modal-body").html(data);
+		}
+	});
+    // $(".variation-input-content").html('<div class="input-group input-group" style="margin: 10px 0;"><input type="text" class="form-control variation-title-value" placeholder="Enter Variation Title"><span class="input-group-append"><button type="button" class="btn btn-primary btn-flat add-variation-title">Add Variation</button></span></div>');
 });
 $(document).on("click", ".add-variation-title", function(){
 	var gen_key = makeid();
