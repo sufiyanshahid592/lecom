@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 26, 2022 at 06:23 AM
+-- Generation Time: Aug 26, 2022 at 07:05 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.27
 
@@ -58,6 +58,30 @@ CREATE TABLE `attributes` (
 INSERT INTO `attributes` (`attribute_id`, `attribute_title`) VALUES
 (5, 'Size'),
 (6, 'Qty');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `attributes_value`
+--
+
+CREATE TABLE `attributes_value` (
+  `attribute_value_id` int(11) NOT NULL,
+  `attribute_value_title` varchar(255) DEFAULT NULL,
+  `attribute_id` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `attributes_value`
+--
+
+INSERT INTO `attributes_value` (`attribute_value_id`, `attribute_value_title`, `attribute_id`) VALUES
+(3, '10', '6'),
+(4, 'Small', '5'),
+(5, 'Medium', '5'),
+(6, 'Large', '5'),
+(7, '20', '6'),
+(8, '30', '6');
 
 -- --------------------------------------------------------
 
@@ -240,6 +264,12 @@ ALTER TABLE `attributes`
   ADD PRIMARY KEY (`attribute_id`);
 
 --
+-- Indexes for table `attributes_value`
+--
+ALTER TABLE `attributes_value`
+  ADD PRIMARY KEY (`attribute_value_id`);
+
+--
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
@@ -285,6 +315,12 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `attributes`
   MODIFY `attribute_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `attributes_value`
+--
+ALTER TABLE `attributes_value`
+  MODIFY `attribute_value_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `categories`

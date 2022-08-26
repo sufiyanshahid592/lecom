@@ -218,4 +218,44 @@ class AdminProduct_Controller extends BaseController
         Session::flash("success", "Attribute Successfully Deleted!...");
         return redirect("admin/attributes");
     }
+    public function attribute_values($id){
+        $data = array();
+        $data['get_attribute_by_id'] = DB::table("attributes")->where("attribute_id", $id)->get();
+        $data['get_attribute_value_by_id'] = DB::table("attributes_value")->where("attribute_id", $id)->get();
+        return view('admin/attribute-values', $data);
+    }
+    public function add_new_attributie_value($id){
+        $data = array();
+        $data['get_attribute_by_id'] = DB::table("attributes")->where("attribute_id", $id)->get();
+        return view("admin/add-new-attribute-value", $data);
+    }
+    public function add_new_attribute_value_process(Request $request){
+        $data['attribute_value_title'] = $request->input('attribute_value_title');
+        $data['attribute_id'] = $request->input('attribute_id');
+        $result = DB::table("attributes_value")->insert($data);
+        if($result==1){
+            Session::flash("success", "Attribute Value Successfully Added!...");
+            return redirect("admin/attribute-values/".$request->input('attribute_id'));
+        }
+    }
+    public function edit_attributie_value($id){
+        $data = array();
+        $data['get_attribute_value_by_id'] = DB::table("attributes_value")->leftJoin("attributes","attributes.attribute_id","=","attributes_value.attribute_id")->where("attribute_value_id", $id)->get();
+        return view("admin/edit-attribute-value", $data);
+    }
+    public function edit_attributes_value_process(Request $request){
+        $data['attribute_value_title'] = $request->input('attribute_value_title');
+        $result = DB::table("attributes_value")->where("attribute_value_id", $request->input("attribute_value_id"))->update($data);
+        if($result==1){
+            Session::flash("success", "Attribute Successfully Updated!...");
+            return redirect("admin/attribute-values/".$request->input('attribute_id'));
+        }else{
+            return redirect("admin/attributes");
+        }
+    }
+    public function delete_attribute_value($id){
+        DB::table("attributes_value")->where("attribute_value_id", $id)->delete();
+        Session::flash("success", "Attribute Successfully Deleted!...");
+        return redirect()->back();
+    }
 }

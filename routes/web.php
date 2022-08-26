@@ -77,8 +77,16 @@ Route::get("admin/attributes", "AdminProduct_Controller@attributes");
 Route::get("admin/add-new-attribute", "AdminProduct_Controller@add_new_attribute");
 Route::post("admin/add-new-attribute-process", "AdminProduct_Controller@add_new_attribute_process");
 Route::get("admin/edit-attributie/{any}", "AdminProduct_Controller@edit_attributie");
+Route::post("admin/add-new-attribute-process", "AdminProduct_Controller@add_new_attribute_process");
 Route::post("admin/edit-attributes-process", "AdminProduct_Controller@edit_attributes_process");
 Route::get("admin/delete-attribute/{any}", "AdminProduct_Controller@delete_attribute");
+Route::get("admin/attribute-values/{any}", "AdminProduct_Controller@attribute_values");
+Route::get("admin/add-new-attribute-value/{any}", "AdminProduct_Controller@add_new_attributie_value");
+Route::post("admin/add-new-attribute-value-process", "AdminProduct_Controller@add_new_attribute_value_process");
+Route::get("admin/edit-attributie-value/{any}", "AdminProduct_Controller@edit_attributie_value");
+Route::post("admin/edit-attributes-value-process", "AdminProduct_Controller@edit_attributes_value_process");
+Route::get("admin/delete-attribute-value/{any}", "AdminProduct_Controller@delete_attribute_value");
+
 
 Route::get("admin/setting", "Admin_Setting@setting");
 Route::post("admin/update-setting-process", "Admin_Setting@update_setting_process");
