@@ -183,6 +183,39 @@ class AdminProduct_Controller extends BaseController
     }
     public function attributes(){
         $data = array();
+        $data['get_all_attributes'] = DB::table("attributes")->get();
         return view('admin/attributes', $data);
+    }
+    public function add_new_attribute(){
+        $data = array();
+        return view('admin/add-new-attribute');
+    }
+    public function add_new_attribute_process(Request $request){
+        $data['attribute_title'] = $request->input('attribute_title');
+        $result = DB::table("attributes")->insert($data);
+        if($result==1){
+            Session::flash("success", "Attribute Successfully Added!...");
+            return redirect("admin/attributes");
+        }
+    }
+    public function edit_attributie($id){
+        $data = array();
+        $data['get_attribute_by_id'] = DB::table("attributes")->where("attribute_id", $id)->get();
+        return view("admin/edit-attributes", $data);
+    }
+    public function edit_attributes_process(Request $request){
+        $data['attribute_title'] = $request->input('attribute_title');
+        $result = DB::table("attributes")->where("attribute_id", $request->input("attribute_id"))->update($data);
+        if($result==1){
+            Session::flash("success", "Attribute Successfully Updated!...");
+            return redirect("admin/attributes");
+        }else{
+            return redirect("admin/attributes");
+        }
+    }
+    public function delete_attribute($id){
+        DB::table("attributes")->where("attribute_id", $id)->delete();
+        Session::flash("success", "Attribute Successfully Deleted!...");
+        return redirect("admin/attributes");
     }
 }

@@ -32,6 +32,9 @@
 			</div>
 			<?php } ?>
 			<div class="row">
+				<div class="col-lg-12">
+					<a class="btn btn-primary" style="margin-bottom: 20px;" href="{{url('admin/add-new-attribute')}}">Add New Attribute</a>
+				</div>
 				<div class="col-12">
 					<div class="card">
 						<div class="card-header">
@@ -42,17 +45,24 @@
 							<table id="example1" class="table table-bordered table-striped">
 								<thead>
 									<tr>
-										<th>#</th>
 										<th width="50%">Title</th>
-										<th>Image</th>
 										<th>Action</th>
 									</tr>
 								</thead>
+								<tbody>
+									<?php foreach($get_all_attributes as $key=>$value){ ?>
+									<tr>
+										<td><?php echo $value->attribute_title; ?></td>
+										<td>
+											<a href="{{url('admin/edit-attributie/'.$value->attribute_id)}}"  onclick="return confirm('Are you sure you want to edit this attribute')" class="btn btn-warning">Edit</a>
+											<a href="{{url('admin/delete-attribute/'.$value->attribute_id)}}" onclick="return confirm('Are you sure you want to delete this attribute')" class="btn btn-danger">Delete</a>
+										</td>
+									</tr>
+									<?php } ?>
+								</tbody>
 								<tfoot>
 								<tr>
-									<th>#</th>
 									<th>Title</th>
-									<th>Image</th>
 									<th>Action</th>
 								</tr>
 								</tfoot>

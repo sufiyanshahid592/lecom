@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 23, 2022 at 07:28 PM
+-- Generation Time: Aug 26, 2022 at 06:23 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.27
 
@@ -39,6 +39,25 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`admin_id`, `admin_email`, `admin_password`) VALUES
 (1, 'sufiyanshahid592@gmail.com', 'c63967a4dd011e9272dd3e273fc8f8a3');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `attributes`
+--
+
+CREATE TABLE `attributes` (
+  `attribute_id` int(11) NOT NULL,
+  `attribute_title` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `attributes`
+--
+
+INSERT INTO `attributes` (`attribute_id`, `attribute_title`) VALUES
+(5, 'Size'),
+(6, 'Qty');
 
 -- --------------------------------------------------------
 
@@ -164,6 +183,26 @@ INSERT INTO `products` (`product_id`, `product_title`, `product_slug`, `product_
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `setting`
+--
+
+CREATE TABLE `setting` (
+  `setting_id` int(11) NOT NULL,
+  `website_title` varchar(255) DEFAULT NULL,
+  `website_currency` varchar(255) DEFAULT NULL,
+  `website_logo` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `setting`
+--
+
+INSERT INTO `setting` (`setting_id`, `website_title`, `website_currency`, `website_logo`) VALUES
+(1, 'First Website 1', 'Rs', '11.png');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -195,6 +234,12 @@ ALTER TABLE `admin`
   ADD UNIQUE KEY `admin_email` (`admin_email`);
 
 --
+-- Indexes for table `attributes`
+--
+ALTER TABLE `attributes`
+  ADD PRIMARY KEY (`attribute_id`);
+
+--
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
@@ -211,6 +256,12 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`product_id`);
+
+--
+-- Indexes for table `setting`
+--
+ALTER TABLE `setting`
+  ADD PRIMARY KEY (`setting_id`);
 
 --
 -- Indexes for table `users`
@@ -230,6 +281,12 @@ ALTER TABLE `admin`
   MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `attributes`
+--
+ALTER TABLE `attributes`
+  MODIFY `attribute_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
@@ -246,6 +303,12 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `products`
   MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `setting`
+--
+ALTER TABLE `setting`
+  MODIFY `setting_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
