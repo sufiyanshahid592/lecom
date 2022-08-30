@@ -273,20 +273,14 @@ class AdminProduct_Controller extends BaseController
                 <?php $i = 1; foreach($get_all_attributes as $key=>$attribute_title){ ?>
                 <div class="tab-pane fade <?php if($i==1){echo "active show";} ?>" id="<?php echo str_replace(" ", "-", $attribute_title->attribute_title); ?>" role="tabpanel" aria-labelledby="<?php echo str_replace(" ", "-", $attribute_title->attribute_title); ?>-tab">
                     <?php 
-                        $get_attribute_value_by_id = DB::table("attributes_value")->where("attribute_id", $attribute_title->attribute_id)->get();
+                        $get_attribute_value_by_id = DB::table("attributes_value")->leftJoin("attributes","attributes.attribute_id","=","attributes_value.attribute_id")->where("attributes_value.attribute_id", $attribute_title->attribute_id)->get();
                     ?>
                     <div class="row" style="padding: 20px;">
-                        <div class="col-lg-12">
-                            <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-                                <input type="checkbox" class="custom-control-input" id="customSwitch3">
-                                <label class="custom-control-label" for="customSwitch3"> <?php echo $attribute_title->attribute_title; ?> Variation ON</label>
-                            </div>
-                        </div>
                     <?php
                         foreach($get_attribute_value_by_id as $key=>$attribute_value){
                     ?>
                         <div class="col-lg-4">
-                            <input type="checkbox" class="variation-">
+                            <input type="checkbox" class="attribute-value" value="<?php echo $attribute_value->attribute_value_title ?>" data-variation-title="<?php echo $attribute_value->attribute_title; ?>" data-variation-id="<?php echo $attribute_value->attribute_id; ?>">
                             <?php echo $attribute_value->attribute_value_title; ?>
                         </div>
                     <?php } ?>
@@ -295,6 +289,14 @@ class AdminProduct_Controller extends BaseController
                 <?php $i++; } ?>
             </div>
             <h4 class="mt-5 ">Variation Price</h4>
+            <table class="table table-bordred">
+                <thead class="variation-table-header">
+                    <tr class="variation-table-header-row"></tr>
+                </thead>
+                <tbody class="variation-table-body">
+                    <tr class="variation-table-body-row"></tr>
+                </tbody>
+            </table>
         </div>
         <?php
     }

@@ -56,6 +56,22 @@ $(document).on("click", ".add-variation", function(){
 	});
     // $(".variation-input-content").html('<div class="input-group input-group" style="margin: 10px 0;"><input type="text" class="form-control variation-title-value" placeholder="Enter Variation Title"><span class="input-group-append"><button type="button" class="btn btn-primary btn-flat add-variation-title">Add Variation</button></span></div>');
 });
+$(document).on("click", ".attribute-value", function(){
+	var attribute_value_title = $(this).val();
+	var attribute_title = $(this).attr("data-variation-title");
+	if($(this).is(":checked")){
+		if(!$("th").hasClass(attribute_title+"-head")){
+			$(".variation-table-header-row").append("<th class='"+attribute_title+"-head'>"+attribute_title+"</th>");
+			$(".variation-table-body-row").append("<td class='"+attribute_title+"-body'>"+attribute_value_title+"</td>");
+		}else{
+			$(".variation-table-body").append("<tr class'variation-table-header-row'><td class='"+attribute_title+"-body'>"+attribute_value_title+"</td></tr>");
+		}
+	}else{
+		$(".variation-table-header ."+attribute_title+"-head").remove();
+		$(".variation-table-body ."+attribute_title+"-body").remove();
+	}
+
+});
 $(document).on("click", ".add-variation-title", function(){
 	var gen_key = makeid();
 	$(".variation-real-content").after('<div class="card card-primary collapsed-card id-'+gen_key+'"><div class="card-header"><h3 class="card-title">'+$(".variation-title-value").val()+'</h3><input type="hidden" name="variation_title[]" value="'+$(".variation-title-value").val()+'" /><div class="card-tools"><button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button><button type="button" class="btn btn-tool remove-variation" data-id="'+gen_key+'"><i class="fas fa-times"></i></button></div></div><div class="card-body '+$(".variation-title-value").val()+'-Parent" style="display: none;"><div class="row"><div class="col-lg-12 '+$(".variation-title-value").val()+'-Values-Content"></div><div class="col-lg-12 '+$(".variation-title-value").val()+'-Values"></div></div><span type="submit" class="btn btn-warning variation-title-value-input" data-id="'+$(".variation-title-value").val()+'">Add '+$(".variation-title-value").val()+' Value</span></div></div>');
