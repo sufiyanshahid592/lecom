@@ -27,9 +27,13 @@ class AdminProduct_Controller extends BaseController
         }
         $data['get_all_categories'] = DB::table("categories")->get();
         $data['get_all_products'] = DB::table("products")->get();
+        $data['get_all_attributes'] = DB::table("attributes")->get();
     	return view("admin/add-new-product", $data);
     }
     public function add_new_product_process(Request $request){
+        /*echo "<pre>";
+        print_r($_POST);
+        die();*/
         $data['product_title'] = $request->input("product_title");
         $data['product_slug'] = $request->input("product_slug");
         $data['product_meta_title'] = $request->input("product_meta_title");
@@ -82,11 +86,22 @@ class AdminProduct_Controller extends BaseController
             }
             $data['product_variations'] = json_encode($variations);
         }
-        $result = DB::table("products")->insert($data);
-        if($result==1){
+        $data['product_variations'] = json_encode($request->input("product_variations"));
+        $result = DB::table("products")->insertGetId($data);
+        if(!empty($result)){
             Session::flash("success", "Product Added Successfully!...");
-            return redirect('admin/all-products');
+            // return redirect('admin/all-products');
+            return redirect("admin/product-variations/".$result);
         }
+    }
+    public function product_variations($id){
+        $data = array();
+        $data['get_product_by_id'] = DB::table("products")->where("product_id", $id)->get();
+        $data['get_product_variations'] = DB::table("attributes")->whereIn("attribute_id", json_decode($data['get_product_by_id'][0]->product_variations))->get();
+        /*echo "<pre>";
+        print_r($data['get_product_variations']);
+        die();*/
+        return view("admin/product-variations", $data);
     }
     public function edit_product($id){
         if(empty(Session::get("admin_login_id"))){

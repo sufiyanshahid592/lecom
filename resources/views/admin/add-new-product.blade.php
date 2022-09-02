@@ -37,55 +37,64 @@
 							<div class="card-body">
 								<div class="form-group">
 									<label>Product Title</label>
-									<input type="text" name="product_title" class="form-control" placeholder="Enter Product Name">
+									<input type="text" name="product_title" class="form-control" placeholder="Enter Product Name" required>
 								</div>
 								<div class="form-group">
 									<label>Product Slug</label>
-									<input type="text" name="product_slug" class="form-control" placeholder="Enter Product Meta Title">
+									<input type="text" name="product_slug" class="form-control" placeholder="Enter Product Meta Title" required>
 								</div>
 								<div class="form-group">
 									<label>Product Meta Title</label>
-									<input type="text" name="product_meta_title" class="form-control" placeholder="Enter Product Meta Title">
+									<input type="text" name="product_meta_title" class="form-control" placeholder="Enter Product Meta Title" required>
 								</div>
 								<div class="form-group">
 									<label>Product Meta Keyword</label>
-									<input type="text" name="product_meta_keyword" class="form-control" placeholder="Enter Product Meta Keyword">
+									<input type="text" name="product_meta_keyword" class="form-control" placeholder="Enter Product Meta Keyword" required>
 								</div>
 								<div class="form-group">
 									<label>Product Meta Description</label>
-									<input type="text" name="product_meta_description" class="form-control" placeholder="Enter Product Meta Description">
+									<input type="text" name="product_meta_description" class="form-control" placeholder="Enter Product Meta Description" required>
 								</div>
 								<div class="form-group">
 									<label>Product Short Description</label>
-									<textarea class="summernote" name="product_short_description"  placeholder="Enter Product Long Description"></textarea>
+									<textarea class="summernote" name="product_short_description"  placeholder="Enter Product Long Description" required></textarea>
 								</div>
 								<div class="form-group">
 									<label>Product Long Description</label>
-									<textarea class="summernote" name="product_long_description"  placeholder="Enter Product Long Description"></textarea>
+									<textarea class="summernote" name="product_long_description"  placeholder="Enter Product Long Description" required></textarea>
 								</div>
 								<div class="form-group">
 									<label>Product Image</label>
-									<input type="file" name="product_image" class="form-control" placeholder="Enter Product Meta Description">
+									<input type="file" name="product_image" class="form-control" placeholder="Enter Product Meta Description" required>
 								</div>
 								<div class="form-group">
 									<label>Product Hover Image</label>
-									<input type="file" name="product_hover_image" class="form-control" placeholder="Enter Product Meta Description">
+									<input type="file" name="product_hover_image" class="form-control" placeholder="Enter Product Meta Description" required>
 								</div>
 								<div class="form-group">
 									<label>Product Gallery</label>
-									<input type="file" name="product_gallery[]" multiple class="form-control" placeholder="Enter Product Meta Description">
+									<input type="file" name="product_gallery[]" multiple class="form-control" placeholder="Enter Product Meta Description" required>
 								</div>
 								<div class="form-group">
+									<label>Product Variation</label>
+									<select class="form-control select2" data-placeholder="Select Category Placement" name="product_variations[]" style="width: 100%;" multiple required>
+										<?php foreach($get_all_attributes as $key=>$value){ ?>
+											<option value="<?php echo $value->attribute_id; ?>"><?php echo $value->attribute_title; ?></option>
+										<?php } ?>
+									</select>
+									<!-- <input type="text" name="product_variations" class="form-control" placeholder="Enter Product Variations (Size, Qty, Cotting)"> -->
+								</div>
+								<!-- <div class="form-group">
 									<label>Product Variation</label>
 									<div class="form-control text-center variation-container" style="height: auto;">
 										<div class="variation-real-content"></div>
 										<div class="variation-input-content"></div>
 										<span class="btn btn-primary add-variation">Add Variation</span>
 									</div>
-								</div>
+								</div> -->
 								<div class="form-group">
 									<label>Select Category</label>
-									<select class="form-control select2" name="product_category" style="width: 100%;">
+									<select class="form-control select2" name="product_category" style="width: 100%;" required>
 										<option value="">-- Select Category --</option>
 										<?php foreach($get_all_categories as $key=>$value){ ?>
 										<option value="<?php echo $value->category_id; ?>"><?php echo $value->category_name; ?></option>
@@ -94,15 +103,15 @@
 								</div>
 								<div class="form-group">
 									<label>Product Sale Price</label>
-									<input type="text" name="product_sale_price" class="form-control" placeholder="Enter Product Meta Keyword">
+									<input type="text" name="product_sale_price" class="form-control" placeholder="Enter Product Meta Keyword" required>
 								</div>
 								<div class="form-group">
 									<label>Product Discount Price</label>
-									<input type="text" name="product_discount_price" class="form-control" placeholder="Enter Product Meta Keyword">
+									<input type="text" name="product_discount_price" class="form-control" placeholder="Enter Product Meta Keyword" required>
 								</div>
 								<div class="form-group">
 									<label>Select Product Label</label>
-									<select class="form-control select2" name="product_label" style="width: 100%;">
+									<select class="form-control select2" name="product_label" style="width: 100%;" required>
 										<option value="">-- Select Product Label --</option>
 										<option value="1">Hot</option>
 										<option value="2">Sale</option>
@@ -139,7 +148,7 @@
 								</div>
 								<div class="form-group">
 									<label>Select Related Product</label>
-									<select class="form-control select2" data-placeholder="Select Category Placement" name="related_product[]" style="width: 100%;" multiple>
+									<select class="form-control select2" data-placeholder="Select Category Placement" name="related_product[]" style="width: 100%;" multiple required>
 										<?php foreach($get_all_products as $key=>$value){ ?>
 										<option value="<?php echo $value->product_id; ?>"><?php echo $value->product_title; ?></option>
 										<?php } ?>
@@ -148,7 +157,7 @@
 							</div>
 							<!-- /.card-body -->
 							<div class="card-footer">
-								<button type="submit" class="btn btn-primary">Submit</button>
+								<button type="submit" class="btn btn-primary">Next</button>
 							</div>
 						</form>
 					</div>
