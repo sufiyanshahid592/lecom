@@ -45,6 +45,9 @@
 										</div>
 										<?php } ?>
 										<div class="form-group">
+											<input type="text" class="form-control add-new-variation-price" placeholder="Price" name="price">
+										</div>
+										<div class="form-group">
 											<input type="hidden" name="product_id" value="<?php echo Request::segment(3); ?>">
 											<input type="submit" value="Add New Row" class="btn btn-primary">
 										</div>

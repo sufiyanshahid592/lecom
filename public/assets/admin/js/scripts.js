@@ -115,10 +115,30 @@ $(document).ready(function(){
 	$(".add-new-variation").validate({
 		submitHandler: function(data){
 			var variation_data = [];
+			var add_variation_row = "<tr>";
 			$(".variation-value").each(function(){
-				variation_data[$(this).attr("name")] = $(this).val();
+				if($(this).val()!=""){
+					variation_data[$(this).attr("name")] = $(this).val();
+					add_variation_row += "<td><input type='text' class='form-control' name='"+$(this).attr('name')+"' value='"+$(this).val()+"' /></td>";
+				}else{
+					$(".add-new-variation").after("<span class='error'>Please "+$(this).attr("name")+" Value.</span>");
+					exit();
+				}
 			});
+			if(data.price.value!=""){
+				add_variation_row += "<td><input type='text' class='form-control add-new-variation-price' name='price' value='"+data.price.value+"' /></td>";
+			}else{
+				$(".add-new-variation").after("<span class='error'>Please Price Value.</span>");
+				exit();
+			}
+			add_variation_row += "<td><a class='btn btn-danger'>Delete</a></td>";
+			add_variation_row += "</tr>";
 			var product_id = data.product_id.value;
+			console.log(add_variation_row);
+			$("tbody").append(add_variation_row);
 		}
 	});
 });
+$(document).on("keyup", ".variation-value, .add-new-variation-price", function(){
+	$(".error").remove();
+})
