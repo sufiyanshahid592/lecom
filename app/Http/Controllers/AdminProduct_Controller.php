@@ -103,6 +103,17 @@ class AdminProduct_Controller extends BaseController
         die();*/
         return view("admin/product-variations", $data);
     }
+    public function update_product_variations(Request $request, $id){
+        echo "<pre>";
+        $i = 0;
+        $data = array();
+        foreach($request->input() as $key=>$value){
+            if($key!="_token"){
+                // echo $key;
+                
+            }
+        }
+    }
     public function edit_product($id){
         if(empty(Session::get("admin_login_id"))){
             return redirect('admin/login');

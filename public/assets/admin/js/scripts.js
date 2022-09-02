@@ -114,31 +114,40 @@ $(document).ready(function(){
 $(document).ready(function(){
 	$(".add-new-variation").validate({
 		submitHandler: function(data){
+			var result           = '';
+			var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+			var charactersLength = characters.length;
+			var length = 10;
+			for ( var i = 0; i < length; i++ ) {
+				result += characters.charAt(Math.floor(Math.random() * charactersLength));
+			}
 			var variation_data = [];
-			var add_variation_row = "<tr>";
-			$(".variation-value").each(function(){
+			var add_variation_row = "<tr class='"+result+"'>";
+			$(".variation-value").each(function(vdata){
 				if($(this).val()!=""){
 					variation_data[$(this).attr("name")] = $(this).val();
 					add_variation_row += "<td><input type='text' class='form-control' name='"+$(this).attr('name')+"' value='"+$(this).val()+"' /></td>";
 				}else{
-					$(".add-new-variation").after("<span class='error'>Please "+$(this).attr("name")+" Value.</span>");
+					$(".add-new-variation-error").html("<span style='color: red; font-weight: bold;'>Please Enter "+$(this).attr("name")+" Value.</span>");
 					exit();
 				}
 			});
 			if(data.price.value!=""){
-				add_variation_row += "<td><input type='text' class='form-control add-new-variation-price' name='price' value='"+data.price.value+"' /></td>";
+				add_variation_row += "<td><input type='text' class='form-control add-new-variation-price' name='price[]' value='"+data.price.value+"' /></td>";
 			}else{
-				$(".add-new-variation").after("<span class='error'>Please Price Value.</span>");
+				$(".add-new-variation-error").html("<span  style='color: red; font-weight: bold;'>Please Price Value.</span>");
 				exit();
 			}
-			add_variation_row += "<td><a class='btn btn-danger'>Delete</a></td>";
+			add_variation_row += "<td><a class='btn btn-danger delete-variation' data-row-id='"+result+"'>Delete</a></td>";
 			add_variation_row += "</tr>";
 			var product_id = data.product_id.value;
-			console.log(add_variation_row);
 			$("tbody").append(add_variation_row);
 		}
 	});
 });
 $(document).on("keyup", ".variation-value, .add-new-variation-price", function(){
-	$(".error").remove();
+	$(".add-new-variation-error").html("");
 })
+$(document).on("click", ".delete-variation", function(){
+	$("."+$(this).attr("data-row-id")).remove();
+});

@@ -26,32 +26,37 @@
 				<!-- left column -->
 				<div class="col-md-12">
 					<!-- general form elements -->
+					<form class="form-inline add-new-variation" onsubmit="return false;">
+						<?php foreach($get_product_variations as $key=>$value){ ?>
+						<div class="form-group">
+							<select class="form-control variation-value select2" name="<?php echo $value->attribute_title; ?>[]">
+								<option value="">Select <?php echo $value->attribute_title; ?></option>
+								<?php echo get_attributes_value_by_id($value->attribute_id); ?>
+							</select>
+							<!-- <input type="text" class="form-control variation-value" placeholder="<?php //echo $value->attribute_title; ?>" name="<?php //echo $value->attribute_title; ?>"> -->
+						</div>
+						<?php } ?>
+						<div class="form-group">
+							<input type="text" class="form-control add-new-variation-price" placeholder="Price" name="price">
+						</div>
+						<div class="form-group">
+							<input type="hidden" name="product_id" value="<?php echo Request::segment(3); ?>">
+							<input type="submit" value="Add New Row" class="btn btn-primary">
+						</div>
+						<div class="form-group add-new-variation-error"></div>
+					</form>
 					<div class="card card-primary">
 						<div class="card-header">
 							<h3 class="card-title">Manage Product Variations</h3>
 						</div>
 						<!-- /.card-header -->
 						<!-- form start -->
-						<!-- <form action="{{url('admin/add-new-product-process')}}" method="post" enctype="multipart/form-data"> -->
-							<!-- @csrf -->
+						<form action="{{url('admin/update-product-variations/'.Request::segment(3))}}" method="post" enctype="multipart/form-data">
+							@csrf
 							<div class="card-body">
 								<div class="form-group">
 									<label>Manage Product Variations</label>
 									
-									<form class="form-inline add-new-variation" onsubmit="return false;">
-										<?php foreach($get_product_variations as $key=>$value){ ?>
-										<div class="form-group">
-											<input type="text" class="form-control variation-value" placeholder="<?php echo $value->attribute_title; ?>" name="<?php echo $value->attribute_title; ?>">
-										</div>
-										<?php } ?>
-										<div class="form-group">
-											<input type="text" class="form-control add-new-variation-price" placeholder="Price" name="price">
-										</div>
-										<div class="form-group">
-											<input type="hidden" name="product_id" value="<?php echo Request::segment(3); ?>">
-											<input type="submit" value="Add New Row" class="btn btn-primary">
-										</div>
-									</form>
 									<table class="table table-bordered">
 										<thead>
 											<tr>
@@ -72,7 +77,7 @@
 							<div class="card-footer">
 								<button type="submit" class="btn btn-primary">Submit</button>
 							</div>
-						<!-- </form> -->
+						</form>
 					</div>
 					<!-- /.card -->
 				</div>

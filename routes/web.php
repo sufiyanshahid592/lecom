@@ -77,6 +77,7 @@ Route::get("admin/attributes", "AdminProduct_Controller@attributes");
 Route::get("admin/add-new-attribute", "AdminProduct_Controller@add_new_attribute");
 Route::post("admin/add-new-attribute-process", "AdminProduct_Controller@add_new_attribute_process");
 Route::get("admin/product-variations/{any}", "AdminProduct_Controller@product_variations");
+Route::post("admin/update-product-variations/{any}", "AdminProduct_Controller@update_product_variations");
 Route::get("admin/edit-attributie/{any}", "AdminProduct_Controller@edit_attributie");
 Route::post("admin/add-new-attribute-process", "AdminProduct_Controller@add_new_attribute_process");
 Route::post("admin/edit-attributes-process", "AdminProduct_Controller@edit_attributes_process");

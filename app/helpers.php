@@ -132,5 +132,13 @@ function get_cart_content(){
     </div>
     <?php
 }
+function get_attributes_value_by_id($attribute_id){
+    $get_attributes_value_by_id = DB::table("attributes_value")->where("attribute_id", $attribute_id)->get();
+    foreach($get_attributes_value_by_id as $key=>$value){
+        ?>
+        <option value="<?php echo $value->attribute_value_title; ?>"><?php echo $value->attribute_value_title; ?></option>
+        <?php
+    }
+}
 
 ?>

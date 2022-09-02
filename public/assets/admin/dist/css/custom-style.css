@@ -20,3 +20,9 @@ span.variation-title-value-content i{
 form .error{
     color: red !important;
 }
+.add-new-variation{
+    margin-bottom: 20px;
+}
+.add-new-variation input, .add-new-variation select{
+    margin-right: 10px;
+}
