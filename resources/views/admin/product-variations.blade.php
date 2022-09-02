@@ -29,7 +29,7 @@
 					<form class="form-inline add-new-variation" onsubmit="return false;">
 						<?php foreach($get_product_variations as $key=>$value){ ?>
 						<div class="form-group">
-							<select class="form-control variation-value select2" name="<?php echo $value->attribute_title; ?>[]">
+							<select class="form-control variation-value select2" name="<?php echo $value->attribute_title; ?>">
 								<option value="">Select <?php echo $value->attribute_title; ?></option>
 								<?php echo get_attributes_value_by_id($value->attribute_id); ?>
 							</select>

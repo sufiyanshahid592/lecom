@@ -105,14 +105,19 @@ class AdminProduct_Controller extends BaseController
     }
     public function update_product_variations(Request $request, $id){
         echo "<pre>";
+        unset($_POST['_token']);
+        unset($_POST['price']);
         $i = 0;
-        $data = array();
-        foreach($request->input() as $key=>$value){
-            if($key!="_token"){
-                // echo $key;
-                
+        foreach($_POST as $key=>$value){
+            // print_r($_POST[$key][$i]);
+            echo $i;
+            if(count($_POST[$key])>$i){
+                $i++;
+            }else{
+                echo "yes";
             }
         }
+        
     }
     public function edit_product($id){
         if(empty(Session::get("admin_login_id"))){

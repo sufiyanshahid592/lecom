@@ -122,18 +122,19 @@ $(document).ready(function(){
 				result += characters.charAt(Math.floor(Math.random() * charactersLength));
 			}
 			var variation_data = [];
-			var add_variation_row = "<tr class='"+result+"'>";
+			var product_variation_length = $(".product-variation-row").length;
+			var add_variation_row = "<tr class='product-variation-row "+result+"'>";
 			$(".variation-value").each(function(vdata){
 				if($(this).val()!=""){
 					variation_data[$(this).attr("name")] = $(this).val();
-					add_variation_row += "<td><input type='text' class='form-control' name='"+$(this).attr('name')+"' value='"+$(this).val()+"' /></td>";
+					add_variation_row += "<td><input type='text' class='form-control' name='"+$(this).attr('name')+"["+product_variation_length+"]' value='"+$(this).val()+"' /></td>";
 				}else{
 					$(".add-new-variation-error").html("<span style='color: red; font-weight: bold;'>Please Enter "+$(this).attr("name")+" Value.</span>");
 					exit();
 				}
 			});
 			if(data.price.value!=""){
-				add_variation_row += "<td><input type='text' class='form-control add-new-variation-price' name='price[]' value='"+data.price.value+"' /></td>";
+				add_variation_row += "<td><input type='text' class='form-control add-new-variation-price' name='price["+product_variation_length+"]' value='"+data.price.value+"' /></td>";
 			}else{
 				$(".add-new-variation-error").html("<span  style='color: red; font-weight: bold;'>Please Price Value.</span>");
 				exit();
