@@ -103,20 +103,17 @@ class AdminProduct_Controller extends BaseController
         die();*/
         return view("admin/product-variations", $data);
     }
-    public function update_product_variations(Request $request, $id){
-        echo "<pre>";
-        unset($_POST['_token']);
-        unset($_POST['price']);
-        $i = 0;
-        foreach($_POST as $key=>$value){
-            // print_r($_POST[$key][$i]);
-            echo $i;
-            if(count($_POST[$key])>$i){
-                $i++;
-            }else{
-                echo "yes";
-            }
-        }
+    public function update_product_variations(Request $request){
+        $data['product_variation_data'] = $request->input("variation_data");
+        $data['product_variation_price'] = $request->input("product_variation_price");
+        $data['product_id'] = $request->input("product_id");
+        $result = DB::table("product_variations")->insertGetId($data);
+        print_r($result);
+        ?>
+            <tr>
+                <td>saddf</td>
+            </tr>
+        <?php
         
     }
     public function edit_product($id){
