@@ -149,11 +149,8 @@ $(document).ready(function(){
 			$.ajax({
 				url: "http://127.0.0.1:8000/admin/update-product-variations",
                 method: "post",
-                dataType: "json",
                 data: {"_token":csrf_token, variation_data:JSON.stringify(variation_data), product_variation_price:data.price.value, product_id:product_id},
                 success: function(data){
-                	alert("yes");
-                	console.log("yes");
                 	$("tbody").append(data);
                 }
 			});

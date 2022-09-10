@@ -69,7 +69,7 @@
 										</thead>
 										<tbody>
 											<?php $i = 1; foreach($get_product_variations_data as $key=>$value){ ?>
-											<tr>
+											<tr class="product-variation-row <?php echo $i; ?>">
 												<?php foreach(json_decode($value->product_variation_data) as $v_key=>$v_value){ ?>
 												<td><?php echo $v_value; ?></td>
 												<?php } ?>

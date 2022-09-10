@@ -109,13 +109,19 @@ class AdminProduct_Controller extends BaseController
         $data['product_variation_price'] = $request->input("product_variation_price");
         $data['product_id'] = $request->input("product_id");
         $result = DB::table("product_variations")->insertGetId($data);
-        print_r($result);
+        if(!empty($result)){
         ?>
-            <tr>
-                <td>saddf</td>
+            <tr class="product-variation-row <?php echo $result; ?>">
+                <?php foreach(json_decode($data['product_variation_data']) as $v_key=>$v_value){ ?>
+                <td><?php echo $v_value; ?></td>
+                <?php } ?>
+                <td><?php echo $data['product_variation_price']; ?></td>
+                <td>
+                    <a class='btn btn-danger delete-variation' data-row-id='<?php echo $result; ?>'>Delete</a></td>
+                </td>
             </tr>
         <?php
-        
+        }
     }
     public function edit_product($id){
         if(empty(Session::get("admin_login_id"))){
