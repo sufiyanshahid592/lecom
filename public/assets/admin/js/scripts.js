@@ -161,5 +161,20 @@ $(document).on("keyup", ".variation-value, .add-new-variation-price", function()
 	$(".add-new-variation-error").html("");
 })
 $(document).on("click", ".delete-variation", function(){
-	$("."+$(this).attr("data-row-id")).remove();
+	var csrf_token = $('meta[name="csrf-token"]').attr('content');
+	var product_variation_id = $(this).attr("data-row-id");
+	if(confirm("Are you sure you want to to delete this variation row.")){
+		$.ajax({
+			url: "http://127.0.0.1:8000/admin/delete-product-variation-row",
+	        method: "post",
+	        data: {"_token":csrf_token, product_variation_id:product_variation_id},
+	        success: function(data){
+	        	console.log(product_variation_id);
+				$("."+product_variation_id).remove();
+	        }
+		});
+
+	}else{
+
+	}
 });

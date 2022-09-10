@@ -335,4 +335,7 @@ class AdminProduct_Controller extends BaseController
         </div>
         <?php
     }
+    public function delete_product_variation_row(Request $request){
+        DB::table("product_variations")->where("product_variation_id", $request->input("product_variation_id"))->delete();
+    }
 }
