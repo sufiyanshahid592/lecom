@@ -68,7 +68,17 @@
 											</tr>
 										</thead>
 										<tbody>
-											
+											<?php $i = 1; foreach($get_product_variations_data as $key=>$value){ ?>
+											<tr>
+												<?php foreach(json_decode($value->product_variation_data) as $v_key=>$v_value){ ?>
+												<td><?php echo $v_value; ?></td>
+												<?php } ?>
+												<td><?php echo $value->product_variation_price; ?></td>
+												<td>
+													<a class='btn btn-danger delete-variation' data-row-id='<?php echo $i; ?>'>Delete</a></td>
+												</td>
+											</tr>
+											<?php $i++; } ?>
 										</tbody>
 									</table>
 								</div>

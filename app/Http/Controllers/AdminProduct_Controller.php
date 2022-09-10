@@ -98,6 +98,7 @@ class AdminProduct_Controller extends BaseController
         $data = array();
         $data['get_product_by_id'] = DB::table("products")->where("product_id", $id)->get();
         $data['get_product_variations'] = DB::table("attributes")->whereIn("attribute_id", json_decode($data['get_product_by_id'][0]->product_variations))->get();
+        $data['get_product_variations_data'] = DB::table("product_variations")->where("product_id", $id)->get();
         /*echo "<pre>";
         print_r($data['get_product_variations']);
         die();*/
