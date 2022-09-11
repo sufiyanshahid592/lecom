@@ -123,6 +123,10 @@ class AdminProduct_Controller extends BaseController
         <?php
         }
     }
+    public function product_finish_step(){
+        Session::flash("success", "Product Update Successfully!...");
+        return redirect('admin/all-products');
+    }
     public function edit_product($id){
         if(empty(Session::get("admin_login_id"))){
             return redirect('admin/login');

@@ -51,7 +51,7 @@
 						</div>
 						<!-- /.card-header -->
 						<!-- form start -->
-						<form action="{{url('admin/update-product-variations/'.Request::segment(3))}}" method="post" enctype="multipart/form-data">
+						<form action="{{url('admin/product-finish-step')}}" method="post" enctype="multipart/form-data">
 							@csrf
 							<div class="card-body">
 								<div class="form-group">
