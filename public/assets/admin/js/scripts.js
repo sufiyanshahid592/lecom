@@ -38,7 +38,7 @@ $(document).on("click", ".close-modal", function(){
 	$("body").css("padding-right", "");
 });
 $(document).on("click", ".add-variation", function(){
-	/*$(".admin-variation-modal").addClass("show");
+	$(".admin-variation-modal").addClass("show");
 	$(".admin-variation-modal").css("display", "block");
 	$(".admin-variation-modal").css("padding-right", "17px");
 	$(".admin-variation-modal").attr("aria-modal", "true");
@@ -53,7 +53,7 @@ $(document).on("click", ".add-variation", function(){
 		success: function(data){
 			$(".admin-variation-modal .modal-body").html(data);
 		}
-	});*/
+	});
     $(".variation-input-content").html('<div class="input-group input-group" style="margin: 10px 0;"><input type="text" class="form-control variation-title-value" placeholder="Enter Variation Title"><span class="input-group-append"><button type="button" class="btn btn-primary btn-flat add-variation-title">Add Variation</button></span></div>');
 });
 $(document).on("click", ".attribute-value", function(){

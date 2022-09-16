@@ -1,9 +1,9 @@
-$(document).ajaxStart(function(){
+/*$(document).ajaxStart(function(){
     $("#preloader-active").fadeIn();
 });
 $(document).ajaxComplete(function(){
     $("#preloader-active").fadeOut();
-});
+});*/
 jQuery.validator.addMethod("SpaceNotAllow", function(value, element) { 
   return value.indexOf(" ") < 0 && value != ""; 
 }, "No space please and don't leave it empty");
@@ -286,6 +286,26 @@ $(document).on("click", ".button-add-to-cart", function(){
         data:{product_id:product_id, variation_content:JSON.stringify(variation_content), product_price_val:product_price_val, "_token":csrf_token},
         success: function(success){
             update_setting();
+        }
+    });
+});
+$(document).on("click", ".product-variations-price", function(){
+    var csrf_token = $('meta[name="csrf-token"]').attr('content');
+    var product_id = $(this).attr("data-product-id");
+    var variation_content = {};
+    if($("div").hasClass("product-variations-row")){
+        $(".product-variations-row").each(function(){
+            var variation_title = $(this).find("li.active").attr("data-variation-title");
+            var variation_value = $(this).find("li.active a").html();
+            variation_content[variation_title] = variation_value;
+        });
+    }
+    $.ajax({
+        url: "http://127.0.0.1:8000/product-variations-price",
+        method: "post",
+        data:{product_id:product_id, variation_content:JSON.stringify(variation_content), "_token":csrf_token},
+        success: function(success){
+            $(".product-price-val").html(success);
         }
     });
 });

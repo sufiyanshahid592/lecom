@@ -132,7 +132,20 @@ function get_cart_content(){
     </div>
     <?php
 }
-function get_attributes_value_by_id($attribute_id){
+function get_attributes_value_by_id($attribute_id, $product_id){
+    $get_attributes_by_id = DB::table("attributes")->where("attribute_id", $attribute_id)->get();
+    $get_attributes_value_by_id = DB::table("attributes_value")->where("attribute_id", $attribute_id)->get();
+    $get_product_detail_by_id = DB::table("products")->where("product_id", $product_id)->get();
+    $product_variation = json_decode($get_product_detail_by_id[0]->product_variations_values);
+    $variation_title = $get_attributes_by_id[0]->attribute_title;
+    foreach($get_attributes_value_by_id as $key=>$value){
+        ?>
+        <option <?php if(!empty($product_variation)){if(in_array($value->attribute_value_title,$product_variation->$variation_title)){echo "selected";}} ?> value="<?php echo $value->attribute_value_title; ?>"><?php echo $value->attribute_value_title; ?></option>
+        <?php
+    }
+}
+function get_attributes_value_by_id_second($attribute_id){
+    $get_attributes_by_id = DB::table("attributes")->where("attribute_id", $attribute_id)->get();
     $get_attributes_value_by_id = DB::table("attributes_value")->where("attribute_id", $attribute_id)->get();
     foreach($get_attributes_value_by_id as $key=>$value){
         ?>

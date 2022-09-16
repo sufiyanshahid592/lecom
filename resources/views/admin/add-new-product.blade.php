@@ -84,14 +84,14 @@
 									</select>
 									<!-- <input type="text" name="product_variations" class="form-control" placeholder="Enter Product Variations (Size, Qty, Cotting)"> -->
 								</div>
-								<!-- <div class="form-group">
+								<div class="form-group">
 									<label>Product Variation</label>
 									<div class="form-control text-center variation-container" style="height: auto;">
 										<div class="variation-real-content"></div>
 										<div class="variation-input-content"></div>
 										<span class="btn btn-primary add-variation">Add Variation</span>
 									</div>
-								</div> -->
+								</div>
 								<div class="form-group">
 									<label>Select Category</label>
 									<select class="form-control select2" name="product_category" style="width: 100%;" required>

@@ -30,4 +30,14 @@ class Category_Product_Controller extends BaseController
             return view("user/404");
         }
     }
+    public function product_variations_price(Request $request){
+        $product_id = $request->input("product_id");
+        $product_variation_data = $request->input("variation_content");
+        $result = DB::table("product_variations")->where("product_id", $product_id)->where("product_variation_data", $product_variation_data)->get();
+        if(count($result)>0){
+            return number_format($result[0]->product_variation_price, 2);
+        }else{
+            echo "Not Available";
+        }
+    }
 }

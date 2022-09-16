@@ -47,7 +47,7 @@ Route::get("account-detail", "Dashboard_Controller@account_detail");
 Route::post("update-profile", "Dashboard_Controller@update_profile");
 
 Route::post("product-quick-view", "Home_Controller@product_quick_view");
-
+Route::post("product-variations-price", "Category_Product_Controller@product_variations_price");
 
 // Admin Routes
 Route::get("admin", "Admin_Controller@index");
@@ -92,6 +92,8 @@ Route::post("admin/edit-attributes-value-process", "AdminProduct_Controller@edit
 Route::get("admin/delete-attribute-value/{any}", "AdminProduct_Controller@delete_attribute_value");
 
 Route::post("admin/admin-variation-modal", "AdminProduct_Controller@admin_variation_modal");
+Route::post("admin/save-product-variations", "AdminProduct_Controller@save_product_variations");
+Route::get("admin/add-product-variation-price/{any}", "AdminProduct_Controller@add_product_variation_price");
 Route::get("admin/setting", "Admin_Setting@setting");
 Route::post("admin/update-setting-process", "Admin_Setting@update_setting_process");
 Route::get("{any}", "Category_Product_Controller@dynamic_pages");

@@ -97,27 +97,36 @@
 								</div>
 								<div class="form-group">
 									<label>Product Variation</label>
+									<select class="form-control select2" data-placeholder="Select Category Placement" name="product_variations[]" style="width: 100%;" multiple required>
+										<?php foreach($get_all_attributes as $key=>$value){ ?>
+											<option <?php if(in_array($value->attribute_id, json_decode($get_product_by_id[0]->product_variations))){echo "selected";} ?> value="<?php echo $value->attribute_id; ?>"><?php echo $value->attribute_title; ?></option>
+										<?php } ?>
+									</select>
+									<!-- <input type="text" name="product_variations" class="form-control" placeholder="Enter Product Variations (Size, Qty, Cotting)"> -->
+								</div>
+								<!-- <div class="form-group">
+									<label>Product Variation</label>
 									<div class="form-control text-center variation-container" style="height: auto;">
 										<div class="variation-real-content"></div>
-										<?php foreach(json_decode($get_product_by_id[0]->product_variations) as $key=>$value){ $gen_key = md5(rand(1, 100).time()); ?>
-										<div class="card card-primary collapsed-card id-<?php echo $gen_key; ?>">
+										<?php //foreach(json_decode($get_product_by_id[0]->product_variations) as $key=>$value){ $gen_key = md5(rand(1, 100).time()); ?>
+										<div class="card card-primary collapsed-card id-<?php //echo $gen_key; ?>">
 											<div class="card-header">
-												<h3 class="card-title"><?php echo $key; ?></h3>
+												<h3 class="card-title"><?php //echo $key; ?></h3>
 												<input type="hidden" name="variation_title[]" value="Size">
 												<div class="card-tools">
 													<button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
-													<button type="button" class="btn btn-tool remove-variation" data-id="<?php echo $gen_key; ?>"><i class="fas fa-times"></i></button>
+													<button type="button" class="btn btn-tool remove-variation" data-id="<?php //echo $gen_key; ?>"><i class="fas fa-times"></i></button>
 												</div>
 											</div>
-											<div class="card-body <?php echo $key; ?>-Parent">
+											<div class="card-body <?php //echo $key; ?>-Parent">
 												<div class="row">
-													<?php foreach(json_decode($value) as $v_key=>$v_value){ $gen_key = md5(rand(1, 100).time()); ?>
-													<span class="variation-title-value-content id-<?php echo $gen_key; ?>">
-														<?php echo $v_value; ?>
-														<input type="hidden" name="<?php echo $key; ?>_variation_value[]" value="<?php echo $v_value; ?>">
-														<i class="fas fa-times remove-variation" data-id="<?php echo $gen_key; ?>"></i>
+													<?php //foreach(json_decode($value) as $v_key=>$v_value){ $gen_key = md5(rand(1, 100).time()); ?>
+													<span class="variation-title-value-content id-<?php //echo $gen_key; ?>">
+														<?php //echo $v_value; ?>
+														<input type="hidden" name="<?php //echo $key; ?>_variation_value[]" value="<?php //echo $v_value; ?>">
+														<i class="fas fa-times remove-variation" data-id="<?php //echo $gen_key; ?>"></i>
 													</span>
-													<?php } ?>
+													<?php //} ?>
 													<div class="col-lg-12 Size-Values-Content">
 														
 													</div>
@@ -128,11 +137,11 @@
 												<span type="submit" class="btn btn-warning variation-title-value-input" data-id="Size">Add Size Value</span>
 											</div>
 										</div>
-										<?php } ?>
+										<?php //} ?>
 										<div class="variation-input-content"></div>
 										<span class="btn btn-primary add-variation">Add Variation</span>
 									</div>
-								</div>
+								</div> -->
 								<div class="form-group">
 									<label>Select Category</label>
 									<select class="form-control select2" name="product_category" style="width: 100%;">
@@ -200,7 +209,7 @@
 							<!-- /.card-body -->
 							<div class="card-footer">
 								<input type="hidden" name="product_id" value="<?php echo $get_product_by_id[0]->product_id; ?>">
-								<button type="submit" class="btn btn-primary">Submit</button>
+								<button type="submit" class="btn btn-primary">Next</button>
 							</div>
 						</form>
 					</div>
