@@ -94,13 +94,14 @@ $(document).on("click", ".remove-variation", function(){
 });
 $(document).ready(function(){
 	var csrf_token = $('meta[name="csrf-token"]').attr('content');
+	var product_id = $("input[name=product_id]").val();
 	$(".admin-product-form").validate({
 		rules:{
 			product_slug:{
 				remote:{
                     url: "http://127.0.0.1:8000/admin/check-product-slug-exist",
                     method: "post",
-                    data:{"_token":csrf_token}
+                    data:{"_token":csrf_token, product_id, product_id}
                 }
 			}
 		},

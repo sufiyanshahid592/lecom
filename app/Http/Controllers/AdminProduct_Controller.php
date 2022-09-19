@@ -225,10 +225,17 @@ class AdminProduct_Controller extends BaseController
             }else{
                 return redirect("admin/product-variations/".$request->input("product_id"));
             }
+        }elseif($result==0){
+            Session::flash("success", "Product Update Successfully!...");
+            if($data['product_variations']=="null"){
+                return redirect('admin/all-products');
+            }else{
+                return redirect("admin/product-variations/".$request->input("product_id"));
+            }
         }
     }
     public function check_product_slug_exist(Request $request){
-        $result = DB::table("products")->where("product_slug", $request->input('product_slug'))->get();
+        $result = DB::table("products")->where("product_slug", $request->input('product_slug'))->where("product_id", "!=", $request->input('product_id'))->get();
         if(count($result)==1){
             return "false";
         }else{
