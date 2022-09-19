@@ -196,6 +196,12 @@
 										<label for="radioPrimary4" style="font-weight: normal;">Top Rated</label>
 									</div>
 								</div>
+								<div class="form-group clearfix">
+									<div class="icheck-primary d-inline">
+										<input type="radio" id="radioPrimary5" value="none" <?php if($get_product_by_id[0]->product_fall_in=="none"){echo "checked";} ?> name="product_fall_in">
+										<label for="radioPrimary5" style="font-weight: normal;">None</label>
+									</div>
+								</div>
 								<div class="form-group">
 									<label>Select Related Product</label>
 
