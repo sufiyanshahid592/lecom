@@ -77,7 +77,7 @@
 								</div>
 								<div class="form-group">
 									<label>Product Variation</label>
-									<select class="form-control select2" data-placeholder="Select Category Placement" name="product_variations[]" style="width: 100%;" multiple required>
+									<select class="form-control select2" data-placeholder="Select Category Placement" name="product_variations[]" style="width: 100%;" multiple>
 										<?php foreach($get_all_attributes as $key=>$value){ ?>
 											<option value="<?php echo $value->attribute_id; ?>"><?php echo $value->attribute_title; ?></option>
 										<?php } ?>

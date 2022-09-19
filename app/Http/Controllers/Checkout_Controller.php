@@ -19,7 +19,8 @@ class Checkout_Controller extends BaseController
         if(empty(Session::get("user_login_id"))){
             return redirect('login');
         }
-    	return view("user/checkout");
+        $data['get_cart_products'] = Cart::content();
+    	return view("user/checkout", $data);
     }
     public function checkout_process(Request $request){
     	$data["fname"] = $request->input("fname");

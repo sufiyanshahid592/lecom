@@ -207,7 +207,7 @@ class AdminProduct_Controller extends BaseController
         }else{
             $data['related_product'] = json_encode([]);
         }
-        $data['product_variations'] = json_encode([]);
+        /*$data['product_variations'] = json_encode([]);
         if(!empty($request->input("variation_title"))>0){
             foreach($request->input("variation_title") as $key=>$value){
                 if(!empty($request->input($value."_variation_value"))){
@@ -215,13 +215,16 @@ class AdminProduct_Controller extends BaseController
                 }
             }
             $data['product_variations'] = json_encode($variations);
-        }
+        }*/
         $data['product_variations'] = json_encode($request->input("product_variations"));
         $result = DB::table("products")->where("product_id", $request->input("product_id"))->update($data);
         if($result==1){
             Session::flash("success", "Product Update Successfully!...");
-            // return redirect('admin/all-products');
-            return redirect("admin/product-variations/".$request->input("product_id"));
+            if($data['product_variations']=="null"){
+                return redirect('admin/all-products');
+            }else{
+                return redirect("admin/product-variations/".$request->input("product_id"));
+            }
         }
     }
     public function check_product_slug_exist(Request $request){

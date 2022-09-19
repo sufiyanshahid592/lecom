@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 02, 2022 at 01:04 PM
+-- Generation Time: Sep 19, 2022 at 02:26 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.27
 
@@ -148,7 +148,7 @@ CREATE TABLE `orders` (
   `phone` varchar(255) DEFAULT NULL,
   `additional_information` varchar(255) DEFAULT NULL,
   `payment_option` varchar(255) DEFAULT NULL,
-  `cart_product` varchar(255) DEFAULT NULL,
+  `cart_product` text DEFAULT NULL,
   `order_total` varchar(255) DEFAULT NULL,
   `order_date` varchar(255) DEFAULT NULL,
   `payment_status` varchar(255) DEFAULT NULL
@@ -159,7 +159,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `fname`, `lname`, `billing_address1`, `billing_address2`, `country`, `city`, `zipcode`, `phone`, `additional_information`, `payment_option`, `cart_product`, `order_total`, `order_date`, `payment_status`) VALUES
-(4, 'Sufiyan', 'Shahid', 'Gulshan Sardar Town', 'Ferozwala', 'PK', 'Lahore', '54000', '03014065723', 'this is first order', '2', '{\"ad715e924b0e24ed154b4d0d0c1cc647\":{\"rowId\":\"ad715e924b0e24ed154b4d0d0c1cc647\",\"id\":\"11\",\"name\":\"Seventh\",\"qty\":1,\"price\":25,\"weight\":0,\"options\":{\"image\":\"7.png\",\"product_variations\":\"{}\"},\"discount\":0,\"tax\":0,\"subtotal\":25}}', '25.00', '1661275613', '0');
+(4, 'Sufiyan', 'Shahid', 'Gulshan Sardar Town', 'Ferozwala', 'PK', 'Lahore', '54000', '03014065723', 'this is first order', '2', '{\"ad715e924b0e24ed154b4d0d0c1cc647\":{\"rowId\":\"ad715e924b0e24ed154b4d0d0c1cc647\",\"id\":\"11\",\"name\":\"Seventh\",\"qty\":1,\"price\":25,\"weight\":0,\"options\":{\"image\":\"7.png\",\"product_variations\":\"{}\"},\"discount\":0,\"tax\":0,\"subtotal\":25}}', '25.00', '1661275613', '0'),
+(5, 'Sufiyan', 'Shahid', 'Gulshan Sardar', 'Ferozwala', 'AF', 'Lahore', '54000', '03014065723', 'this is my first order', '1', '{\"9ab04229e081c9b0610f9c1507bda897\":{\"rowId\":\"9ab04229e081c9b0610f9c1507bda897\",\"id\":\"5\",\"name\":\"First\",\"qty\":1,\"price\":25,\"weight\":0,\"options\":{\"image\":\"1.png\",\"product_variations\":\"{\\\"Size\\\":\\\"Small\\\",\\\"Qty\\\":\\\"10\\\"}\"},\"discount\":0,\"tax\":0,\"subtotal\":25}}', '25.00', '1663588639', '0');
 
 -- --------------------------------------------------------
 
@@ -185,27 +186,28 @@ CREATE TABLE `products` (
   `product_label` varchar(255) DEFAULT NULL,
   `product_fall_in` varchar(255) DEFAULT NULL,
   `related_product` text DEFAULT NULL,
-  `product_variations` text DEFAULT NULL
+  `product_variations` text DEFAULT NULL,
+  `product_variations_values` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`product_id`, `product_title`, `product_slug`, `product_category`, `product_meta_title`, `product_meta_keyword`, `product_meta_description`, `product_short_description`, `product_long_description`, `product_image`, `product_hover_image`, `product_gallery`, `product_sale_price`, `product_discount_price`, `product_label`, `product_fall_in`, `related_product`, `product_variations`) VALUES
-(5, 'First', 'first', '8', 'First', 'First', 'First', '<b>First 1</b>', 'First', '1.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '25', '1', '1', '[\"6\",\"7\",\"8\"]', '[\"5\",\"6\",\"7\"]'),
-(6, 'Second', 'second', '9', 'Second', 'Second', 'Second', '<b>Second 1</b>', 'First', '2.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '15', '3', '1', '[]', '[\"5\", \"7\"]'),
-(7, 'Third', 'third', '8', 'Third', 'Third', 'Third', '<b>Third</b><br>', 'Third', '3.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '25', '1', '1', '[]', '[\"5\", \"6\"]'),
-(8, 'Fourth', 'fourth', '9', 'Fourth', 'Fourth', 'Fourth', '<b>Fourth</b><br>', 'Fourth', '4.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '15', '3', '2', '[]', '[\"5\",\"6\",\"7\"]'),
-(9, 'Fifth', 'fifth', '8', 'Fifth', 'Fifth', 'Fifth', '<b>Fifth</b><br>', 'Fifth', '5.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '25', '1', '2', '[]', '[\"5\", \"7\"]'),
-(10, 'Sixth', 'sixth', '9', 'Sixth', 'Sixth', 'Sixth', '<b>Sixth</b><br>', 'Sixth', '6.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '15', '3', '2', '[]', '[\"5\", \"7\"]'),
-(11, 'Seventh', 'seventh', '8', 'Seventh', 'Seventh', 'Seventh', '<b>Seventh</b><br>', 'Seventh', '7.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '25', '1', '3', '[]', '[\"5\", \"6\"]'),
-(12, 'Eight', 'eight', '9', 'Eight', 'Eight', 'Eight', '<b>Eight</b><br>', 'Eight', '8.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '15', '3', '3', '[]', '[\"5\",\"6\",\"7\"]'),
-(13, 'Ninth', 'ninth', '8', 'Ninth', 'Ninth', 'Ninth', '<b>Ninth</b><br>', 'Ninth', '9.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '25', '1', '3', '[]', '[\"5\", \"6\"]'),
-(14, 'Tenth', 'tenth', '9', 'Tenth', 'Tenth', 'Tenth', '<b>Tenth</b><br>', 'Tenth', '10.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '15', '3', '4', '[]', '[\"5\",\"6\",\"7\"]'),
-(15, 'Eleventh', 'eleventh', '8', 'Eleventh', 'Eleventh', 'Eleventh', '<b>Eleventh</b><br>', 'Eleventh', '11.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '25', '1', '4', '[]', '[\"5\", \"7\"]'),
-(16, 'Twelveth', 'twelveth', '9', 'Twelveth', 'Twelveth', 'Twelveth', '<b>Twelveth</b><br>', 'Twelveth', '12.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '15', '3', '4', '[]', '[\"5\", \"7\"]'),
-(23, 'Last', 'last', '8', 'last', 'last', 'last', '<p>last<br></p>', '<p>last<br></p>', '9.png', '10.png', '{\"product_gallery_1\":\"image-1.png\",\"product_gallery_2\":\"image-2.png\",\"product_gallery_3\":\"image-3.png\",\"product_gallery_4\":\"image-4.png\",\"product_gallery_5\":\"image-5.png\"}', '20', '12', '2', '1', '[\"7\",\"8\"]', '[\"5\",\"6\",\"7\"]');
+INSERT INTO `products` (`product_id`, `product_title`, `product_slug`, `product_category`, `product_meta_title`, `product_meta_keyword`, `product_meta_description`, `product_short_description`, `product_long_description`, `product_image`, `product_hover_image`, `product_gallery`, `product_sale_price`, `product_discount_price`, `product_label`, `product_fall_in`, `related_product`, `product_variations`, `product_variations_values`) VALUES
+(5, 'First', 'first1', '8', 'First', 'First', 'First', '<b>First 1</b>', 'First', '1.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '25', '1', '1', '[\"6\",\"7\",\"8\"]', '[\"5\",\"6\"]', '{\"Size\":[\"Small\",\"Medium\",\"Large\"],\"Qty\":[\"10\",\"20\",\"30\"]}'),
+(6, 'Second', 'second', '9', 'Second', 'Second', 'Second', '<b>Second 1</b>', 'First', '2.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '15', '3', '1', '[]', '[\"5\",\"7\"]', '{\"Size\":[\"Small\",\"Medium\",\"Large\"],\"Coting\":[\"Yes\"]}'),
+(7, 'Third', 'third1', '8', 'Third', 'Third', 'Third', '<b>Third</b><br>', 'Third', '3.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '25', '1', '1', '[]', 'null', NULL),
+(8, 'Fourth', 'fourth', '9', 'Fourth', 'Fourth', 'Fourth', '<b>Fourth</b><br>', 'Fourth', '4.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '15', '3', '2', '[]', '[\"5\",\"6\",\"7\"]', NULL),
+(9, 'Fifth', 'fifth', '8', 'Fifth', 'Fifth', 'Fifth', '<b>Fifth</b><br>', 'Fifth', '5.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '25', '1', '2', '[]', '[\"5\", \"7\"]', NULL),
+(10, 'Sixth', 'sixth', '9', 'Sixth', 'Sixth', 'Sixth', '<b>Sixth</b><br>', 'Sixth', '6.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '15', '3', '2', '[]', '[\"5\", \"7\"]', NULL),
+(11, 'Seventh', 'seventh', '8', 'Seventh', 'Seventh', 'Seventh', '<b>Seventh</b><br>', 'Seventh', '7.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '25', '1', '3', '[]', '[\"5\", \"6\"]', NULL),
+(12, 'Eight', 'eight', '9', 'Eight', 'Eight', 'Eight', '<b>Eight</b><br>', 'Eight', '8.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '15', '3', '3', '[]', '[\"5\",\"6\",\"7\"]', NULL),
+(13, 'Ninth', 'ninth', '8', 'Ninth', 'Ninth', 'Ninth', '<b>Ninth</b><br>', 'Ninth', '9.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '25', '1', '3', '[]', '[\"5\", \"6\"]', NULL),
+(14, 'Tenth', 'tenth', '9', 'Tenth', 'Tenth', 'Tenth', '<b>Tenth</b><br>', 'Tenth', '10.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '15', '3', '4', '[]', '[\"5\",\"6\",\"7\"]', NULL),
+(15, 'Eleventh', 'eleventh', '8', 'Eleventh', 'Eleventh', 'Eleventh', '<b>Eleventh</b><br>', 'Eleventh', '11.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '25', '1', '4', '[]', '[\"5\", \"7\"]', NULL),
+(16, 'Twelveth', 'twelveth', '9', 'Twelveth', 'Twelveth', 'Twelveth', '<b>Twelveth</b><br>', 'Twelveth', '12.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '15', '3', '4', '[]', '[\"5\", \"7\"]', NULL),
+(23, 'Last', 'last', '8', 'last', 'last', 'last', '<p>last<br></p>', '<p>last<br></p>', '9.png', '10.png', '{\"product_gallery_1\":\"image-1.png\",\"product_gallery_2\":\"image-2.png\",\"product_gallery_3\":\"image-3.png\",\"product_gallery_4\":\"image-4.png\",\"product_gallery_5\":\"image-5.png\"}', '20', '12', '2', '1', '[\"7\",\"8\"]', '[\"5\",\"6\",\"7\"]', NULL);
 
 -- --------------------------------------------------------
 
@@ -219,6 +221,24 @@ CREATE TABLE `product_variations` (
   `product_variation_price` varchar(255) DEFAULT NULL,
   `product_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `product_variations`
+--
+
+INSERT INTO `product_variations` (`product_variation_id`, `product_variation_data`, `product_variation_price`, `product_id`) VALUES
+(4, '{\"Size\":\"Small\",\"Coting\":\"Yes\"}', '10', 6),
+(5, '{\"Size\":\"Medium\",\"Coting\":\"Yes\"}', '20', 6),
+(6, '{\"Size\":\"Large\",\"Coting\":\"Yes\"}', '30', 6),
+(25, '{\"Size\":\"Small\",\"Qty\":\"10\"}', '10', 5),
+(26, '{\"Size\":\"Small\",\"Qty\":\"20\"}', '20', 5),
+(27, '{\"Size\":\"Small\",\"Qty\":\"30\"}', '30', 5),
+(28, '{\"Size\":\"Medium\",\"Qty\":\"10\"}', '40', 5),
+(29, '{\"Size\":\"Medium\",\"Qty\":\"20\"}', '50', 5),
+(30, '{\"Size\":\"Medium\",\"Qty\":\"30\"}', '60', 5),
+(31, '{\"Size\":\"Large\",\"Qty\":\"10\"}', '70', 5),
+(32, '{\"Size\":\"Large\",\"Qty\":\"20\"}', '80', 5),
+(33, '{\"Size\":\"Large\",\"Qty\":\"30\"}', '90', 5);
 
 -- --------------------------------------------------------
 
@@ -354,7 +374,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -366,7 +386,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `product_variations`
 --
 ALTER TABLE `product_variations`
-  MODIFY `product_variation_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `product_variation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `setting`
