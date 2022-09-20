@@ -66,11 +66,42 @@
 								<td><?php echo $get_order_detail_by_id[0]->additional_information; ?></td>
 							</tr>
 						</table>
+					</div>
+					<!-- /.card -->
+				</div>
+				<div class="col-md-12">
+					<!-- general form elements -->
+					<div class="card card-primary">
+						<div class="card-header">
+							<h3 class="card-title">Product List</h3>
+						</div>
+						<table class="table">
+							<tr>
+								<th>Name</th>
+								<th>Variation</th>
+								<th>Price</th>
+							</tr>
+							<?php //echo "<pre>"; print_r(json_decode($get_order_detail_by_id[0]->cart_product)); ?>
+							<?php foreach(json_decode($get_order_detail_by_id[0]->cart_product) as $key=>$value){ ?>
+							<tr>
+								<td><?php echo $value->name; ?></td>
+								<td><?php foreach(json_decode($value->options->product_variations) as $key1=>$value1){echo "<b>".$key1.":</b> ".$value1.", ";} ?></td>
+								<td><?php echo $value->price; ?></td>
+							</tr>
+							<?php } ?>
+						</table>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<!-- general form elements -->
+					<div class="card card-primary">
+						<div class="card-header">
+							<h3 class="card-title">Payment Status</h3>
+						</div>
 						<form action="{{url('admin/edit-order-process')}}" method="post" enctype="multipart/form-data">
 							@csrf
 							<div class="card-body">
 								<div class="form-group">
-									<label>Product Title</label>
 									<select name="payment_status" class="form-control">
 										<option <?php if($get_order_detail_by_id[0]->payment_status==0){echo "selected";} ?> value="0">Pending Payment</option>
 										<option <?php if($get_order_detail_by_id[0]->payment_status==1){echo "selected";} ?> value="1">Processing</option>
@@ -85,7 +116,6 @@
 							</div>
 						</form>
 					</div>
-					<!-- /.card -->
 				</div>
 			</div>
 		</div>
