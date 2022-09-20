@@ -111,6 +111,7 @@
 							</div>
 							<!-- /.card-body -->
 							<div class="card-footer">
+								<input type="hidden" name="redirect_page" value="{{$redirect_page}}">
 								<input type="hidden" name="order_id" value="<?php echo $get_order_detail_by_id[0]->order_id; ?>" >
 								<button type="submit" class="btn btn-primary">Next</button>
 							</div>

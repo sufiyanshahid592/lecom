@@ -53,7 +53,7 @@
                       <td><?php echo $value->fname." ".$value->lname; ?></td>
                       <td><?php echo "$".$value->order_total; ?> for <?php echo count((array)json_decode($value->cart_product)); ?> item</td>
                       <td><?php if($value->payment_status==0){echo "Pending Payment";}elseif($value->payment_status==1){echo "Processing";}elseif($value->payment_status==2){echo "Completed";} ?></td>
-                      <td><a href="{{url('admin/edit-order/'.$value->order_id)}}" class="btn btn-primary">Edit Order</a></td>
+                      <td><a href="{{url('admin/edit-order/'.$value->order_id.'?redirect_page=all-orders')}}" class="btn btn-primary">Edit Order</a></td>
                     </tr>
                     <?php } ?>
                   </tbody>
