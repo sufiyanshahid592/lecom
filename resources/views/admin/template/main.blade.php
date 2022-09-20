@@ -274,6 +274,41 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li class="nav-item <?php if(Request::segment(2)=="all-orders" OR Request::segment(2)=="pending-orders" OR Request::segment(2)=="process-orders" OR Request::segment(2)=="delivered-orders"){echo "menu-open";} ?>">
+                                <a href="#" class="nav-link <?php if(Request::segment(2)=="all-orders" OR Request::segment(2)=="pending-orders" OR Request::segment(2)=="process-orders" OR Request::segment(2)=="delivered-orders"){echo "active";} ?>">
+                                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                                    <p>
+                                        Orders
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="{{url('admin/all-orders')}}" class="nav-link <?php if(Request::segment(2)=="all-orders"){echo "active";} ?>">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>All Orders</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{url('admin/pending-orders')}}" class="nav-link <?php if(Request::segment(2)=="pending-orders"){echo "active";} ?>">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Pending Orders</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{url('admin/process-orders')}}" class="nav-link <?php if(Request::segment(2)=="process-orders"){echo "active";} ?>">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Process Orders</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{url('admin/delivered-orders')}}" class="nav-link <?php if(Request::segment(2)=="delivered-orders"){echo "active";} ?>">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Delivered Orders</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                             <li class="nav-item">
                                 <a href="{{url('admin/setting')}}" class="nav-link <?php if(Request::segment(2)=="setting"){echo "active";} ?>">
                                     <i class="nav-icon fas fa-th"></i>

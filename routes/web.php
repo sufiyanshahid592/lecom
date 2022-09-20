@@ -91,6 +91,17 @@ Route::get("admin/edit-attributie-value/{any}", "AdminProduct_Controller@edit_at
 Route::post("admin/edit-attributes-value-process", "AdminProduct_Controller@edit_attributes_value_process");
 Route::get("admin/delete-attribute-value/{any}", "AdminProduct_Controller@delete_attribute_value");
 
+
+// Admin Orders
+
+Route::get("admin/all-orders", "AdminOrders_Controller@all_orders");
+Route::get("admin/pending-orders", "AdminOrders_Controller@pending_orders");
+Route::get("admin/process-orders", "AdminOrders_Controller@process_orders");
+Route::get("admin/delivered-orders", "AdminOrders_Controller@delivered_orders");
+Route::get("admin/edit-order/{any}", "AdminOrders_Controller@edit_order");
+Route::post("admin/edit-order-process", "AdminOrders_Controller@edit_order_process");
+
+
 Route::post("admin/admin-variation-modal", "AdminProduct_Controller@admin_variation_modal");
 Route::post("admin/save-product-variations", "AdminProduct_Controller@save_product_variations");
 Route::get("admin/add-product-variation-price/{any}", "AdminProduct_Controller@add_product_variation_price");
