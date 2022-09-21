@@ -84,14 +84,14 @@
 									</select>
 									<!-- <input type="text" name="product_variations" class="form-control" placeholder="Enter Product Variations (Size, Qty, Cotting)"> -->
 								</div>
-								<div class="form-group">
+								<!-- <div class="form-group">
 									<label>Product Variation</label>
 									<div class="form-control text-center variation-container" style="height: auto;">
 										<div class="variation-real-content"></div>
 										<div class="variation-input-content"></div>
 										<span class="btn btn-primary add-variation">Add Variation</span>
 									</div>
-								</div>
+								</div> -->
 								<div class="form-group">
 									<label>Select Category</label>
 									<select class="form-control select2" name="product_category" style="width: 100%;" required>
@@ -148,7 +148,7 @@
 								</div>
 								<div class="form-group">
 									<label>Select Related Product</label>
-									<select class="form-control select2" data-placeholder="Select Category Placement" name="related_product[]" style="width: 100%;" multiple required>
+									<select class="form-control select2" data-placeholder="Select Related Products" name="related_product[]" style="width: 100%;" multiple required>
 										<?php foreach($get_all_products as $key=>$value){ ?>
 										<option value="<?php echo $value->product_id; ?>"><?php echo $value->product_title; ?></option>
 										<?php } ?>

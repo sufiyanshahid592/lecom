@@ -92,7 +92,7 @@ function get_all_category_for_dropdown(){
     $get_all_categories = DB::table("categories")->get();
     foreach($get_all_categories as $key=>$value){ 
     ?>
-    <option value="<?php echo $value->category_id; ?>"><?php echo $value->category_name; ?></option>
+    <option value="<?php echo $value->category_slug; ?>"><?php echo $value->category_name; ?></option>
     <?php 
     }
 }

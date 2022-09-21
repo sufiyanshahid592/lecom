@@ -1070,7 +1070,7 @@ button.submit, button[type='submit'] {
 }
 
 button.submit:hover, button[type='submit']:hover {
-  background-color: #29A56C !important;
+  /*background-color: #29A56C !important;*/
 }
 
 .btn-brand:hover {
@@ -7605,7 +7605,7 @@ h6.post-title {
   width: 100%;
   max-width: 683px;
   font-size: 14px;
-  background-image: url(../imgs/theme/icons/search.png);
+  /*background-image: url(../imgs/theme/icons/search.png);*/
   background-repeat: no-repeat;
   background-position: center right;
   padding-left: 0;
@@ -7613,7 +7613,12 @@ h6.post-title {
   line-height: 50px;
   font-size: 14px;
 }
+.search-style-2 form button{
 
+}
+.search-style-2 form button img{
+  
+}
 .search-style-2 form input::-moz-input-placeholder {
   opacity: 1;
 }

@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
-
-
-<!-- Mirrored from adomi.app/index-5 by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 05 Jul 2022 06:11:21 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="utf-8" />
-    <title><?php echo website_title(); ?></title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <title><?php if(!empty($title)){echo $title." | ".website_title();}else{echo website_title();} ?></title>
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta name="description" content="" />
+    <meta name="keywords" content="<?php echo $meta_keywords; ?>" />
+    <meta name="description" content="<?php echo $meta_description; ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta property="og:title" content="" />
     <meta property="og:type" content="" />
@@ -197,12 +195,15 @@
                     </div>
                     <div class="header-right">
                         <div class="search-style-2">
-                            <form action="#">
-                                <select class="select-active" name="product_category">
+                            <form action="{{url('search')}}">
+                                <!-- <select class="select-active" name="product_category">
                                     <option value="">All Categories</option>
-                                    <?php get_all_category_for_dropdown(); ?>
-                                </select>
-                                <input type="text" name="" placeholder="Search for items..." />
+                                    <?php //get_all_category_for_dropdown(); ?>
+                                </select> -->
+                                <input type="text" name="search_value" placeholder="Search for items..." />
+                                <button type="submit">
+                                    <img src="{{url('assets/user/imgs/theme/icons/search.png')}}" alt="">
+                                </button>
                             </form>
                         </div>
                         <div class="header-action-right">
@@ -869,7 +870,7 @@
                     <div class="col">
                         <div class="widget-about font-md mb-md-3 mb-lg-3 mb-xl-0 wow animate__animated animate__fadeInUp" data-wow-delay="0">
                             <div class="logo mb-30">
-                                <a href="index.html" class="mb-15"><img src="{{url('assets/user/imgs/theme/logo.svg')}}" alt="logo" /></a>
+                                <a href="{{url('')}}" class="mb-15"><img src="{{url('assets/user/imgs/theme/logo.svg')}}" alt="logo" /></a>
                                 <p class="font-lg text-heading">Awesome grocery store website template</p>
                             </div>
                             <ul class="contact-infor">
