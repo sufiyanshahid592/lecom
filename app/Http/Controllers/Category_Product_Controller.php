@@ -20,9 +20,6 @@ class Category_Product_Controller extends BaseController
         if(request()->segment(1)=="search"){
             $data = array();
             $data['get_product_by_search_value'] = DB::table("products")->leftJoin('categories', 'categories.category_id', '=', 'products.product_category')->where("products.product_title", "like", "%".$_GET['search_value']."%")->get();
-            echo "<pre>";
-            print_r($data['get_product_by_search_value']);
-            die();
             return view("user/search", $data);
         }elseif(count($data['get_category_by_id'])>0){
             $data['get_product_by_category_id'] = DB::table("products")->leftJoin('categories', 'categories.category_id', '=', 'products.product_category')->where("product_category", $data['get_category_by_id'][0]->category_id)->get();

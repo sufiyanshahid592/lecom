@@ -153,5 +153,64 @@ function get_attributes_value_by_id_second($attribute_id){
         <?php
     }
 }
+function main_menu_category(){
+    $get_all_parent_category = DB::table("categories")->limit(5)->where("parent_category")->get();
+    foreach($get_all_parent_category as $key=>$value){
+        $get_sub_category = DB::table("categories")->where("parent_category", $value->category_id)->get();
+        ?>
+        <li>
+            <a class="active" href="<?php echo $value->category_slug; ?>"><?php echo $value->category_name; ?> 
+            <?php if(count($get_sub_category)){ ?><i class="fi-rs-angle-down"></i></a> 
+            <ul class="sub-menu">
+                <?php foreach($get_sub_category as $key1=>$value1){ ?>
+                <li><a href="<?php echo $value1->category_slug; ?>"><?php echo $value1->category_name; ?></a></li>
+                <?php } ?>
+            </ul>
+            <?php } ?>
+        </li>
+        <?php
+    }
+}
+function dropdown_category(){
+    $get_all_parent_category = DB::table("categories")->where("parent_category")->get();
+    $i = 1;
+    ?><div class="d-flex categori-dropdown-inner"> <ul> <?php
+    foreach($get_all_parent_category as $key=>$value){
+        if($i<=5){
+        ?>
+            <li>
+                <a href="<?php echo $value->category_slug; ?>"> <img src="<?php echo url('assets/images/'.$value->category_icon); ?>" alt="" /><?php echo $value->category_name; ?></a>
+            </li>
+        <?php $i++; }
+    }
+    ?> </ul><ul> <?php $i = 1;
+    foreach($get_all_parent_category as $key=>$value){
+        if($i>=6 AND $i<=10){
+        ?>
+            <li>
+                <a href="<?php echo $value->category_slug; ?>"> <img src="<?php echo url('assets/images/'.$value->category_icon); ?>" alt="" /><?php echo $value->category_name; ?></a>
+            </li>
+        <?php } $i++; 
+    }
+    ?> </ul></div><div class="more_slide_open" style="display: none"><div class="d-flex categori-dropdown-inner"><ul> <?php $i = 1;
+    foreach($get_all_parent_category as $key=>$value){
+        if($i>10 AND $i % 2 != 0){
+        ?>
+            <li>
+                <a href="<?php echo $value->category_slug; ?>"> <img src="<?php echo url('assets/images/'.$value->category_icon); ?>" alt="" /><?php echo $value->category_name; ?></a>
+            </li>
+        <?php  }$i++;
+    }
+    ?> </ul><ul> <?php $i = 1;
+    foreach($get_all_parent_category as $key=>$value){
+        if($i>10 AND $i % 2 == 0){
+        ?>
+            <li>
+                <a href="<?php echo $value->category_slug; ?>"> <img src="<?php echo url('assets/images/'.$value->category_icon); ?>" alt="" /><?php echo $value->category_name; ?></a>
+            </li>
+        <?php } $i++; 
+    }
+    ?> </div></div> <?php
+}
 
 ?>
