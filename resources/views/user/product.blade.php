@@ -67,16 +67,16 @@
                                 <div class="short-desc mb-30">
                                     <p class="font-lg"><?php echo $get_product_by_id[0]->product_short_description; ?></p>
                                 </div>
-                                <?php if($get_product_by_id[0]->product_variations_values=="null"){foreach(json_decode($get_product_by_id[0]->product_variations_values) as $key=>$value){ ?>
+                                <?php if($get_product_by_id[0]->product_variations_values!="null"){foreach(json_decode($get_product_by_id[0]->product_variations_values) as $key=>$value){ ?>
                                 <div class="attr-detail attr-size mb-30 product-variations-row">
                                     <strong class="mr-10"><?php echo $key; ?>: </strong>
                                     <ul class="list-filter size-filter font-small">
                                         <?php $i = 1; foreach($value as $v_key=>$v_value){ ?>
                                         <li data-variation-title="<?php echo $key; ?>" data-product-id="<?php echo $get_product_by_id[0]->product_id; ?>" class="product-variations-price <?php if($i==1){echo "active";} ?>"><a href="#"><?php echo $v_value; ?></a></li>
-                                        <?php $i++; }} ?>
+                                        <?php $i++; } ?>
                                     </ul>
                                 </div>
-                                <?php } ?>
+                                <?php }} ?>
                                 <div class="detail-extralink mb-50">
                                     <div class="detail-qty border radius">
                                         <a class="qty-down" data-row-id="<?php echo $get_product_by_id[0]->product_id; ?>"><i class="fi-rs-angle-small-down"></i></a>

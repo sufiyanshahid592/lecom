@@ -109,13 +109,20 @@ class AdminProduct_Controller extends BaseController
         $data['product_variation_price'] = $request->input("product_variation_price");
         $data['product_id'] = $request->input("product_id");
         $result = DB::table("product_variations")->insertGetId($data);
+        $random_key = md5(rand(223,234234));
         if(!empty($result)){
         ?>
             <tr class="product-variation-row <?php echo $result; ?>">
                 <?php foreach(json_decode($data['product_variation_data']) as $v_key=>$v_value){ ?>
-                <td><?php echo $v_value; ?></td>
+                <td>
+                    <?php echo $v_value; ?>
+                    <input type="hidden" name="<?php echo "row_".$random_key."[".$v_key."]"; ?>" value="<?php echo $v_value; ?>" >
+                </td>
                 <?php } ?>
-                <td><?php echo $data['product_variation_price']; ?></td>
+                <td>
+                    <?php echo $data['product_variation_price']; ?>
+                    <input type="hidden" name="row_<?php echo $random_key; ?>[price]" value="<?php echo $data['product_variation_price']; ?>" />
+                </td>
                 <td>
                     <a class='btn btn-danger delete-variation' data-row-id='<?php echo $result; ?>'>Delete</a></td>
                 </td>

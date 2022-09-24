@@ -99,7 +99,7 @@
 									<label>Product Variation</label>
 									<select class="form-control select2" data-placeholder="Select Category Placement" name="product_variations[]" style="width: 100%;" multiple>
 										<?php foreach($get_all_attributes as $key=>$value){ ?>
-											<option <?php if(json_decode($get_product_by_id[0]->product_variations)=="null"){if(in_array($value->attribute_id, json_decode($get_product_by_id[0]->product_variations))){echo "selected";}} ?> value="<?php echo $value->attribute_id; ?>"><?php echo $value->attribute_title; ?></option>
+											<option <?php if(is_array(json_decode($get_product_by_id[0]->product_variations))){if(in_array($value->attribute_id, json_decode($get_product_by_id[0]->product_variations))){echo "selected";}else{echo "yes 1";}}else{echo "yes 2";} ?> value="<?php echo $value->attribute_id; ?>"><?php echo $value->attribute_title; ?></option>
 										<?php } ?>
 									</select>
 									<!-- <input type="text" name="product_variations" class="form-control" placeholder="Enter Product Variations (Size, Qty, Cotting)"> -->
