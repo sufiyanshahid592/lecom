@@ -76,4 +76,16 @@ class User_Controller extends BaseController
         Session::forget("user_login_id");
         return redirect("/");
     }
+    public function forgot_password(){
+        $data = array();
+        return view("user/forgot-password", $data);
+    }
+    public function forgot_password_process(Request $request){
+        if($request->input("random_number")==$request->input("hidden_random_number")){
+            echo "yes";
+        }else{
+            Session::put("error", "Security Code is not matched!...");
+            return redirect('forgot-password');
+        }
+    }
 }

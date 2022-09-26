@@ -191,7 +191,7 @@
             <div class="container">
                 <div class="header-wrap">
                     <div class="logo logo-width-1">
-                        <a href="{{url('/')}}"><img src="{{url('assets/user/imgs/theme/logo.svg')}}" alt="logo" /></a>
+                        <a href="{{url('/')}}"><img src="{{url('assets/images/'.website_logo())}}" alt="logo" /></a>
                     </div>
                     <div class="header-right">
                         <div class="search-style-2">
@@ -283,7 +283,7 @@
             <div class="container">
                 <div class="header-wrap header-space-between position-relative">
                     <div class="logo logo-width-1 d-block d-lg-none">
-                        <a href="{{url('/')}}"><img src="{{url('assets/user/imgs/theme/logo.svg')}}" alt="logo" /></a>
+                        <a href="{{url('/')}}"><img src="{{url('assets/images/'.website_logo())}}" alt="logo" /></a>
                     </div>
                     <div class="header-nav d-none d-lg-flex">
                         <div class="main-categori-wrap d-none d-lg-block">
@@ -534,7 +534,7 @@
         <div class="mobile-header-wrapper-inner">
             <div class="mobile-header-top">
                 <div class="mobile-header-logo">
-                    <a href="index.html"><img src="{{url('assets/user/imgs/theme/logo.svg')}}" alt="logo" /></a>
+                    <a href="index.html"><img src="{{url('assets/images/'.website_logo())}}" alt="logo" /></a>
                 </div>
                 <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
                     <button class="close-style search-close">
@@ -815,7 +815,7 @@
                     <div class="col">
                         <div class="widget-about font-md mb-md-3 mb-lg-3 mb-xl-0 wow animate__animated animate__fadeInUp" data-wow-delay="0">
                             <div class="logo mb-30">
-                                <a href="{{url('')}}" class="mb-15"><img src="{{url('assets/user/imgs/theme/logo.svg')}}" alt="logo" /></a>
+                                <a href="{{url('')}}" class="mb-15"><img src="{{url('assets/images/'.website_logo())}}" alt="logo" /></a>
                                 <p class="font-lg text-heading">Awesome grocery store website template</p>
                             </div>
                             <ul class="contact-infor">

@@ -23,6 +23,8 @@ Route::post('check-email-exist', "User_Controller@check_email_exist");
 Route::get('login', "User_Controller@login");
 Route::post('login-process', "User_Controller@login_process");
 Route::get('logout', "User_Controller@logout");
+Route::get('forgot-password', "User_Controller@forgot_password");
+Route::post('forgot-password-process', "User_Controller@forgot_password_process");
 
 // Cart
 Route::get('cart', "Cart_Controller@cart");

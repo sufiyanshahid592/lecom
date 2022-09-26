@@ -13,6 +13,10 @@ function website_title(){
         return $website_setting[0]->website_title;
     }
 }
+function website_logo(){
+    $website_setting = DB::table("setting")->where("setting_id", 1)->get();
+    return $website_setting[0]->website_logo;
+}
 function website_currency(){
     $website_setting = DB::table("setting")->where("setting_id", 1)->get();
     return $website_setting[0]->website_currency;
@@ -150,24 +154,6 @@ function get_attributes_value_by_id_second($attribute_id){
     foreach($get_attributes_value_by_id as $key=>$value){
         ?>
         <option value="<?php echo $value->attribute_value_title; ?>"><?php echo $value->attribute_value_title; ?></option>
-        <?php
-    }
-}
-function main_menu_category(){
-    $get_all_parent_category = DB::table("categories")->limit(5)->where("parent_category")->get();
-    foreach($get_all_parent_category as $key=>$value){
-        $get_sub_category = DB::table("categories")->where("parent_category", $value->category_id)->get();
-        ?>
-        <li>
-            <a class="active" href="<?php echo $value->category_slug; ?>"><?php echo $value->category_name; ?> 
-            <?php if(count($get_sub_category)){ ?><i class="fi-rs-angle-down"></i></a> 
-            <ul class="sub-menu">
-                <?php foreach($get_sub_category as $key1=>$value1){ ?>
-                <li><a href="<?php echo $value1->category_slug; ?>"><?php echo $value1->category_name; ?></a></li>
-                <?php } ?>
-            </ul>
-            <?php } ?>
-        </li>
         <?php
     }
 }
