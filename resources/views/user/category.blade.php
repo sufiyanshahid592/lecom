@@ -85,7 +85,7 @@
                     </div>
                 </div>
                 <div class="row product-grid">
-                	<?php foreach($get_product_by_category_id as $key=>$value){ ?>
+                	<?php foreach($pagination as $key=>$value){ ?>
                     <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                         <div class="product-cart-wrap mb-30">
                             <div class="product-img-action-wrap">
@@ -142,23 +142,23 @@
                     <!--end product card-->
                 </div>
                 <!--product grid-->
+                <?php if(count($pagination)>=$perpage){ ?>
                 <div class="pagination-area mt-20 mb-20">
                     <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-start">
                             <li class="page-item">
-                                <a class="page-link" href="#"><i class="fi-rs-arrow-small-left"></i></a>
+                                <a class="page-link" href="{{url(Request::segment(1))}}"><i class="fi-rs-arrow-small-left"></i></a>
                             </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link dot" href="#">...</a></li>
-                            <li class="page-item"><a class="page-link" href="#">6</a></li>
+                            <?php for($i = 1; $i<=$pagination->lastPage(); $i++){ ?>
+                            <li class="page-item <?php if($pagination->currentPage()==$i){echo "active";} ?>"><a class="page-link" href="{{url(Request::segment(1).'?page='.$i)}}"><?php echo $i; ?></a></li>
+                            <?php } ?>
                             <li class="page-item">
-                                <a class="page-link" href="#"><i class="fi-rs-arrow-small-right"></i></a>
+                                <a class="page-link" href="{{url(Request::segment(1).'?page='.$pagination->lastPage())}}"><i class="fi-rs-arrow-small-right"></i></a>
                             </li>
                         </ul>
                     </nav>
                 </div>
+                <?php } ?>
                 <section class="section-padding pb-5">
                     <div class="section-title">
                         <h3 class="">Deals Of The Day</h3>

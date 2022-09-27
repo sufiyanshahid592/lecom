@@ -10,7 +10,7 @@
             </div>
         </div>
     </div>
-    <div class="page-content pt-150 pb-150">
+    <div class="page-content pt-30 pb-30">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 m-auto">

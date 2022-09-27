@@ -22,6 +22,11 @@ class Dashboard_Controller extends BaseController
         $data['get_all_order_by_user_id'] = DB::table("orders")->get();
     	return view("user/orders", $data);
     }
+    public function order_details($id){
+        $data = array();
+        $data['get_order_details_by_id'] = DB::table("orders")->where("order_id", $id)->get();
+        return view("user/order-details", $data);
+    }
     public function track_orders(){
     	return view("user/track-orders");
     }

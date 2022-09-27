@@ -39,6 +39,7 @@ class Checkout_Controller extends BaseController
         $data['payment_status'] = 0;
         $result = DB::table("orders")->insert($data);
         if($result==1){
+            Cart::destroy();
             return redirect('orders');
         }
     }

@@ -43,6 +43,7 @@ Route::post('checkout-process', "Checkout_Controller@checkout_process");
 // Dashboard
 Route::get("dashboard", "Dashboard_Controller@dashboard");
 Route::get("orders", "Dashboard_Controller@orders");
+Route::get("order-details/{any}", "Dashboard_Controller@order_details");
 Route::get("track-orders", "Dashboard_Controller@track_orders");
 Route::get("address", "Dashboard_Controller@address");
 Route::get("account-detail", "Dashboard_Controller@account_detail");

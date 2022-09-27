@@ -10,7 +10,7 @@
             </div>
         </div>
     </div>
-    <div class="page-content pt-150 pb-150">
+    <div class="page-content pt-30 pb-30">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 m-auto">
@@ -75,7 +75,7 @@
                                                             <td><?php echo date("d M, Y", $value->order_date); ?></td>
                                                             <td><?php if($value->payment_status==0){echo "Pending Payment";}elseif($value->payment_status==1){echo "Processing";}elseif($value->payment_status==2){echo "Completed";} ?></td>
                                                             <td><?php echo "$".$value->order_total; ?> for <?php echo count((array)json_decode($value->cart_product)); ?> item</td>
-                                                            <td><a href="#" class="btn-small d-block">View</a></td>
+                                                            <td><a href="{{url('order-details/'.$value->order_id)}}" class="btn-small d-block">View</a></td>
                                                         </tr>
                                                         <?php } ?>
                                                     </tbody>
