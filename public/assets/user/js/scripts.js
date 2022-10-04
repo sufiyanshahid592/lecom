@@ -390,3 +390,7 @@ $(document).on("click", ".remove-from_cart", function(){
         }
     });
 });
+/*$(document).on("click", ".sort-by-link", function(){
+    var sort_by_value = $(this).attr("data-id");
+    window.location.replace(window.location.href+"?sortby="+sort_by_value);
+});*/

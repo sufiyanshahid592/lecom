@@ -44,6 +44,7 @@ class AdminCategory_Controller extends BaseController
         $data['parent_category'] = $request->input("parent_category");
         $data['category_placement'] = json_encode($request->input("category_placement"));
         $data['popular_product'] = $request->input("popular_product");
+        $data['daily_best_sells'] = $request->input("daily_best_sells");
         $result = DB::table("categories")->insert($data);
         if($result==1){
             Session::flash("success", "Category Added Successfully!...");
@@ -89,6 +90,7 @@ class AdminCategory_Controller extends BaseController
         $data['parent_category'] = $request->input("parent_category");
         $data['category_placement'] = json_encode($request->input("category_placement"));
         $data['popular_product'] = $request->input("popular_product");
+        $data['daily_best_sells'] = $request->input("daily_best_sells");
         $result = DB::table("categories")->where("category_id", $request->input("category_id"))->update($data);
         if($result==1){
             Session::flash("success", "Category Update Successfully!...");

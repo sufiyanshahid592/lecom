@@ -65,7 +65,9 @@ function get_popular_category_products($category_id){
                     <div class="product-category">
                         <a href="<?php echo $value->category_slug; ?>"><?php echo $value->category_name; ?></a>
                     </div>
-                    <h2><a href="<?php echo $value->product_slug; ?>"><?php echo $value->product_title; ?></a></h2>
+                    <h2>
+                        <a href="<?php echo $value->product_slug; ?>"><?php echo $value->product_title; ?></a>
+                    </h2>
                     <div class="product-rate-cover">
                         <div class="product-rate d-inline-block">
                             <div class="product-rating" style="width: 90%"></div>
@@ -91,6 +93,66 @@ function get_popular_category_products($category_id){
         <!--end product card-->
     </div>
 	<?php
+}
+function get_daily_best_sells_products($category_id){
+    $get_product_by_id = DB::table("products")->limit(10)->leftJoin('categories', 'categories.category_id', '=', 'products.product_category')->where("category_id", $category_id)->get();
+    ?>
+    <div class="carausel-4-columns-cover arrow-center position-relative">
+        <div class="slider-arrow slider-arrow-2 carausel-4-columns-arrow" id="carausel-4-columns-arrows"></div>
+        <div class="carausel-4-columns carausel-arrow-center" id="carausel-4-columns">
+            <?php foreach($get_product_by_id as $key=>$value){ ?>
+            <div class="product-cart-wrap">
+                <div class="product-img-action-wrap">
+                    <div class="product-img product-img-zoom">
+                        <a href="shop-product-right.html">
+                            <img class="default-img" src="<?php echo url('assets/images/'.$value->product_image); ?>" alt="" />
+                            <img class="hover-img" src="<?php echo url('assets/images/'.$value->product_hover_image); ?>" alt="" />
+                        </a>
+                    </div>
+                    <!-- <div class="product-action-1">
+                        <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"> <i class="fi-rs-eye"></i></a>
+                        <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
+                        <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
+                    </div> -->
+                    <div class="product-badges product-badges-position product-badges-mrg">
+                        <?php if($value->product_label==1){ ?>
+                            <span class="hot">Hot</span>
+                        <?php }elseif($value->product_label==2){ ?>
+                            <span class="sale">Sale</span>
+                        <?php }elseif($value->product_label==3){ ?>
+                            <span class="best">Best sale</span>
+                        <?php }elseif($value->product_label==4){ ?>
+                            <span class="new">New</span>
+                        <?php } ?>
+                    </div>
+                </div>
+                <div class="product-content-wrap">
+                    <div class="product-category">
+                        <a href="<?php echo $value->category_slug; ?>"><?php echo $value->category_name; ?></a>
+                    </div>
+                    <h2>
+                        <a href="<?php echo $value->product_slug; ?>"><?php echo $value->product_title; ?></a>
+                    </h2>
+                    <div class="product-rate d-inline-block">
+                        <div class="product-rating" style="width: 80%"></div>
+                    </div>
+                    <div class="product-price mt-10">
+                        <span>$238.85 </span>
+                        <span class="old-price">$245.8</span>
+                    </div>
+                    <div class="sold mt-15 mb-15">
+                        <div class="progress mb-5">
+                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <span class="font-xs text-heading"> Sold: 90/120</span>
+                    </div>
+                    <a href="shop-cart.html" class="btn w-100 hover-up"><i class="fi-rs-shopping-cart mr-5"></i>Add To Cart</a>
+                </div>
+            </div>
+            <?php } ?>
+        </div>
+    </div>
+    <?php
 }
 function get_all_category_for_dropdown(){
     $get_all_categories = DB::table("categories")->get();
@@ -144,7 +206,7 @@ function get_attributes_value_by_id($attribute_id, $product_id){
     $variation_title = $get_attributes_by_id[0]->attribute_title;
     foreach($get_attributes_value_by_id as $key=>$value){
         ?>
-        <option <?php if(!empty($product_variation)){if(in_array($value->attribute_value_title,$product_variation->$variation_title)){echo "selected";}} ?> value="<?php echo $value->attribute_value_title; ?>"><?php echo $value->attribute_value_title; ?></option>
+        <option <?php foreach($product_variation as $key1=>$value1){if($variation_title==$key1){if(!empty($product_variation)){if(in_array($value->attribute_value_title,$product_variation->$variation_title)){echo "selected";}}}} ?> value="<?php echo $value->attribute_value_title; ?>"><?php echo $value->attribute_value_title; ?></option>
         <?php
     }
 }

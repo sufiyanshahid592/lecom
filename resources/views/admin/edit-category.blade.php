@@ -90,6 +90,12 @@
 											<label for="checkboxPrimary1">Add to Popular Products Section</label>
 										</div>
 									</div>
+									<div class="form-group">
+										<div class="icheck-primary d-inline">
+											<input type="checkbox" name="daily_best_sells" value="1" <?php if($get_category_by_id[0]->daily_best_sells==1){echo "checked";} ?> id="checkboxPrimary2" >
+											<label for="checkboxPrimary2">Add to Daily Best Sells Section</label>
+										</div>
+									</div>
 								</div>
 								<!-- /.card-body -->
 								<div class="card-footer">

@@ -6,14 +6,15 @@
         <div class="container">
             <div class="archive-header">
                 <div class="row align-items-center">
-                    <div class="col-xl-3">
+                    <div class="col-xl-12 text-center">
                         <h1 class="mb-15"><?php echo $get_category_by_id[0]->category_name; ?></h1>
                         <div class="breadcrumb">
                             <a href="{{url('/')}}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
                             <span></span> <?php echo $get_category_by_id[0]->category_name; ?>
+                            <p><?php //echo str_replace(url()->current(), "", url()->full()); ?></p>
                         </div>
                     </div>
-                    <div class="col-xl-9 text-end d-none d-xl-block">
+                    <!-- <div class="col-xl-7 text-end d-none d-xl-block">
                         <ul class="tags-list">
                             <li class="hover-up">
                                 <a href="blog-category-grid.html"><i class="fi-rs-cross mr-10"></i>Cabbage</a>
@@ -31,7 +32,7 @@
                                 <a href="blog-category-grid.html"><i class="fi-rs-cross mr-10"></i>Spinach</a>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -41,7 +42,7 @@
             <div class="col-lg-4-5">
                 <div class="shop-product-fillter">
                     <div class="totall-product">
-                        <p>We found <strong class="text-brand"><?php echo count($get_product_by_category_id); ?></strong> items for you!</p>
+                        <p>We found <strong class="text-brand"><?php echo count($get_product_by_category_id); ?></strong> items But Showing <strong class="text-brand"><?php echo $perpage; ?></strong> for you!</p>
                     </div>
                     <div class="sort-by-product-area">
                         <div class="sort-by-cover mr-10">
@@ -74,11 +75,8 @@
                             </div>
                             <div class="sort-by-dropdown">
                                 <ul>
-                                    <li><a class="active" href="#">Featured</a></li>
-                                    <li><a href="#">Price: Low to High</a></li>
-                                    <li><a href="#">Price: High to Low</a></li>
-                                    <li><a href="#">Release Date</a></li>
-                                    <li><a href="#">Avg. Rating</a></li>
+                                    <li><a href="<?php echo url(Request::segment(1)."?sortby=low-to-high"); ?>" class="sort-by-link" data-id="low-to-high">Price: Low to High</a></li>
+                                    <li><a href="<?php echo url(Request::segment(1)."?sortby=high-to-low"); ?>" class="sort-by-link" data-id="high-to-low">Price: High to Low</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -142,19 +140,22 @@
                     <!--end product card-->
                 </div>
                 <!--product grid-->
-                <?php if(count($pagination)>=$perpage){ ?>
+                <?php /*echo "<pre>"; print_r($pagination); echo "</pre>";*/ /*echo $pagination->links();*/ if(count($get_product_by_category_id)>=$perpage){ ?>
                 <div class="pagination-area mt-20 mb-20">
                     <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-start">
+                            <?php if(isset($_GET['page'])){ ?>
                             <li class="page-item">
                                 <a class="page-link" href="{{url(Request::segment(1))}}"><i class="fi-rs-arrow-small-left"></i></a>
                             </li>
-                            <?php for($i = 1; $i<=$pagination->lastPage(); $i++){ ?>
-                            <li class="page-item <?php if($pagination->currentPage()==$i){echo "active";} ?>"><a class="page-link" href="{{url(Request::segment(1).'?page='.$i)}}"><?php echo $i; ?></a></li>
                             <?php } ?>
+                            <?php for($i = 1; $i<=$pagination->lastPage(); $i++){ ?>
+                            <li class="page-item <?php if($pagination->currentPage()==$i){echo "active";} ?>"><a class="page-link" href="<?php if($i==1){echo url(Request::segment(1));}else{echo url(Request::segment(1).'?page='.$i);} ?>"><?php echo $i; ?></a></li>
+                            <?php } if($pagination->lastPage()!=$pagination->currentPage()){ ?>
                             <li class="page-item">
                                 <a class="page-link" href="{{url(Request::segment(1).'?page='.$pagination->lastPage())}}"><i class="fi-rs-arrow-small-right"></i></a>
                             </li>
+                            <?php } ?>
                         </ul>
                     </nav>
                 </div>

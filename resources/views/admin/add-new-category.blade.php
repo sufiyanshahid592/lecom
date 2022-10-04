@@ -79,9 +79,17 @@
 										<option value="2">Home Page Carousel</option>
 									</select>
 								</div>
-								<div class="icheck-primary d-inline">
-									<input type="checkbox" name="popular_product" value="1" id="checkboxPrimary1" >
-									<label for="checkboxPrimary1">Add to Popular Products Section</label>
+								<div class="form-group">
+									<div class="icheck-primary d-inline">
+										<input type="checkbox" name="popular_product" value="1" id="checkboxPrimary1" >
+										<label for="checkboxPrimary1">Add to Popular Products Section</label>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="icheck-primary d-inline">
+										<input type="checkbox" name="daily_best_sells" value="1" id="checkboxPrimary2" >
+										<label for="checkboxPrimary2">Add to Daily Best Sells Section</label>
+									</div>
 								</div>
 							</div>
 							<!-- /.card-body -->
