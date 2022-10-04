@@ -124,11 +124,36 @@ class AdminProduct_Controller extends BaseController
                     <input type="hidden" name="row_<?php echo $random_key; ?>[price]" value="<?php echo $data['product_variation_price']; ?>" />
                 </td>
                 <td>
+                    <a class='btn btn-warning edit-variation' data-row-id='<?php echo $result; ?>'>Delete</a></td>
                     <a class='btn btn-danger delete-variation' data-row-id='<?php echo $result; ?>'>Delete</a></td>
                 </td>
             </tr>
         <?php
         }
+    }
+    public function edit_product_variation_row(Request $request){
+        $product_variation_row = DB::table("product_variations")->where("product_variation_id", $request->input("product_variation_id"))->get();
+        // print_r($product_variation_row);
+        ?>
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Product Variation</h4>
+                        <button type="button" class="close close-modal" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <?php print_r($product_variation_row); ?>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default close-modal" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        <?
+
     }
     public function product_finish_step(Request $request){
         DB::table("product_variations")->where("product_id", $request->input("product_id"))->delete();

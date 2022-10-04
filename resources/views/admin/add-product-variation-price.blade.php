@@ -84,7 +84,8 @@
 													<input type="hidden" name="row_<?php echo $i; ?>[price]" value="<?php echo $value->product_variation_price; ?>" />
 												</td>
 												<td>
-													<a class='btn btn-danger delete-variation' data-row-id='<?php echo $value->product_variation_id; ?>'>Delete</a></td>
+													<a class='btn btn-warning edit-variation' data-row-id='<?php echo $value->product_variation_id; ?>'>Edit</a>
+													<a class='btn btn-danger delete-variation' data-row-id='<?php echo $value->product_variation_id; ?>'>Delete</a>
 												</td>
 											</tr>
 											<?php $i++; } ?>

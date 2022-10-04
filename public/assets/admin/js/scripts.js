@@ -174,8 +174,22 @@ $(document).on("click", ".delete-variation", function(){
 				$("."+product_variation_id).remove();
 	        }
 		});
-
-	}else{
-
 	}
+});
+$(document).on("click", ".edit-variation", function(){
+	var csrf_token = $('meta[name="csrf-token"]').attr('content');
+	var product_variation_id = $(this).attr("data-row-id");
+	$.ajax({
+		url: "http://127.0.0.1:8000/admin/edit-product-variation-row",
+        method: "post",
+        data: {"_token":csrf_token, product_variation_id:product_variation_id},
+        success: function(data){
+			$(".admin-variation-modal").addClass("show");
+			$(".admin-variation-modal").css("display", "block");
+			$(".admin-variation-modal").css("padding-right", "17px");
+			$(".admin-variation-modal").attr("aria-modal", "true");
+			$(".admin-variation-modal").attr("role", "dialog");
+			$(".admin-variation-modal").html(data);
+        }
+	});
 });
