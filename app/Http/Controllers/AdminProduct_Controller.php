@@ -152,8 +152,7 @@ class AdminProduct_Controller extends BaseController
                     </div>
                 </div>
             </div>
-        <?
-
+        <?php
     }
     public function product_finish_step(Request $request){
         DB::table("product_variations")->where("product_id", $request->input("product_id"))->delete();
