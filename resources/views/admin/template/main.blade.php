@@ -309,6 +309,29 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li class="nav-item <?php if(Request::segment(2)=="all-sliders" OR Request::segment(2)=="add-new-slider"){echo "menu-open";} ?>">
+                                <a href="#" class="nav-link <?php if(Request::segment(2)=="all-sliders" OR Request::segment(2)=="add-new-slider"){echo "active";} ?>">
+                                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                                    <p>
+                                        Slider
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="{{url('admin/add-new-slider')}}" class="nav-link <?php if(Request::segment(2)=="add-new-slider"){echo "active";} ?>">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Add New Slider</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{url('admin/all-sliders')}}" class="nav-link <?php if(Request::segment(2)=="all-sliders"){echo "active";} ?>">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>All Sliders</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                             <li class="nav-item">
                                 <a href="{{url('admin/setting')}}" class="nav-link <?php if(Request::segment(2)=="setting"){echo "active";} ?>">
                                     <i class="nav-icon fas fa-th"></i>

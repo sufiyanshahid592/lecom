@@ -260,5 +260,9 @@ function dropdown_category(){
     }
     ?> </div></div> <?php
 }
+function get_number_of_category_products($category_id){
+    $result = DB::table("products")->where("product_category", $category_id)->get();
+    return count($result);
+}
 
 ?>

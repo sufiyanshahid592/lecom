@@ -73,7 +73,7 @@
 										<tbody>
 											<?php $i = 1; foreach($get_product_variations_data as $key=>$value){ ?>
 											<tr class="product-variation-row <?php echo $value->product_variation_id; ?>">
-												<?php foreach(json_decode($value->product_variation_data) as $v_key=>$v_value){ foreach($get_product_variations as $key1=>$value1){if($value1->attribute_title==$v_key){?>
+												<?php foreach(json_decode($value->product_variation_data) as $v_key=>$v_value){ foreach($get_product_variations as $key1=>$value1){if($value1->attribute_title==$v_key){ ?>
 												<td>
 													<?php echo $v_value; ?>
 													<input type="hidden" name="<?php echo "row_".$i."[".$v_key."]"; ?>" value="<?php echo $v_value; ?>" >
@@ -84,8 +84,8 @@
 													<input type="hidden" name="row_<?php echo $i; ?>[price]" value="<?php echo $value->product_variation_price; ?>" />
 												</td>
 												<td>
-													<a class='btn btn-warning edit-variation' data-row-id='<?php echo $value->product_variation_id; ?>'>Edit</a>
-													<a class='btn btn-danger delete-variation' data-row-id='<?php echo $value->product_variation_id; ?>'>Delete</a>
+													<a class='btn btn-warning edit-variation' data-product-id="<?php echo Request::segment(3); ?>" data-row-id='<?php echo $value->product_variation_id; ?>'>Edit</a>
+													<a class='btn btn-danger delete-variation' data-product-id="<?php echo Request::segment(3); ?>" data-row-id='<?php echo $value->product_variation_id; ?>'>Delete</a>
 												</td>
 											</tr>
 											<?php $i++; } ?>
@@ -93,7 +93,6 @@
 									</table>
 								</div>
 							</div>
-							<!-- /.card-body -->
 							<div class="card-footer">
 								<input type="hidden" name="product_id" value="<?php echo Request::segment(3); ?>">
 								<!-- <button onclick="document.location='admin/all-products'" class="btn btn-primary">Finish</button> -->

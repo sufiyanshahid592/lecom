@@ -46,6 +46,7 @@
                   <tr>
                     <th>#</th>
                     <th width="50%">Title</th>
+                    <th>Category</th>
                     <th>Image</th>
                     <th>Action</th>
                   </tr>
@@ -55,9 +56,10 @@
                   <tr>
                     <td><?php echo $i; ?></td>
                     <td><?php echo $value->product_title; ?></td>
+                    <td><?php echo $value->category_name; ?></td>
                     <td><img width="150px" src="{{url('assets/images/'.$value->product_image)}}" alt=""></td>
                     <td>
-                    	<a href="{{url('admin/edit-product/'.$value->product_id)}}" class="btn btn-warning">Edit</a>
+                    	<a href="{{url('admin/edit-product/'.$value->product_id)}}" onclick="return confirm('Are you sure you want to edit this product?')" class="btn btn-warning">Edit</a>
                     	<a href="{{url('admin/delete-product/'.$value->product_id)}}" onclick="return confirm('Are you sure you want to delete this product?')" class="btn btn-danger">Delete</a>
                     </td>
                   </tr>

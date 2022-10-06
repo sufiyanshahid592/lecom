@@ -94,6 +94,7 @@ Route::post("admin/add-new-attribute-value-process", "AdminProduct_Controller@ad
 Route::get("admin/edit-attributie-value/{any}", "AdminProduct_Controller@edit_attributie_value");
 Route::post("admin/edit-attributes-value-process", "AdminProduct_Controller@edit_attributes_value_process");
 Route::get("admin/delete-attribute-value/{any}", "AdminProduct_Controller@delete_attribute_value");
+Route::post("admin/update-product-variation-row", "AdminProduct_Controller@update_product_variation_row");
 
 
 // Admin Orders
@@ -112,3 +113,11 @@ Route::get("admin/add-product-variation-price/{any}", "AdminProduct_Controller@a
 Route::get("admin/setting", "Admin_Setting@setting");
 Route::post("admin/update-setting-process", "Admin_Setting@update_setting_process");
 Route::get("{any}", "Category_Product_Controller@dynamic_pages");
+
+
+// Admin Sliders
+
+Route::get("admin/add-new-slider", "AdminSlider_Controller@add_new_slider");
+Route::get("admin/all-sliders", "AdminSlider_Controller@all_sliders");
+Route::post("admin/add-new-slider-process", "AdminSlider_Controller@add_new_slider_process");
+Route::get("admin/edit-slider", "AdminSlider_Controller@edit_slider");

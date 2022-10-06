@@ -128,7 +128,6 @@ $(document).ready(function(){
 			$(".variation-value").each(function(vdata){
 				if($(this).val()!=""){
 					variation_data[$(this).attr("name")] = $(this).val();
-					// variation_data.push($(this).val());
 					add_variation_row += "<td><input type='text' class='form-control' name='"+$(this).attr('name')+"["+product_variation_length+"]' value='"+$(this).val()+"' /></td>";
 				}else{
 					$(".add-new-variation-error").html("<span style='color: red; font-weight: bold;'>Please Enter "+$(this).attr("name")+" Value.</span>");
@@ -144,9 +143,7 @@ $(document).ready(function(){
 			add_variation_row += "<td><a class='btn btn-danger delete-variation' data-row-id='"+result+"'>Delete</a></td>";
 			add_variation_row += "</tr>";
 			var product_id = data.product_id.value;
-			// $("tbody").append(add_variation_row);
 			var csrf_token = $('meta[name="csrf-token"]').attr('content');
-			// console.log(variation_data);
 			$.ajax({
 				url: "http://127.0.0.1:8000/admin/update-product-variations",
                 method: "post",
@@ -179,10 +176,11 @@ $(document).on("click", ".delete-variation", function(){
 $(document).on("click", ".edit-variation", function(){
 	var csrf_token = $('meta[name="csrf-token"]').attr('content');
 	var product_variation_id = $(this).attr("data-row-id");
+	var product_id = $(this).attr("data-product-id");
 	$.ajax({
 		url: "http://127.0.0.1:8000/admin/edit-product-variation-row",
         method: "post",
-        data: {"_token":csrf_token, product_variation_id:product_variation_id},
+        data: {"_token":csrf_token, product_variation_id:product_variation_id, product_id:product_id},
         success: function(data){
 			$(".admin-variation-modal").addClass("show");
 			$(".admin-variation-modal").css("display", "block");
@@ -190,6 +188,33 @@ $(document).on("click", ".edit-variation", function(){
 			$(".admin-variation-modal").attr("aria-modal", "true");
 			$(".admin-variation-modal").attr("role", "dialog");
 			$(".admin-variation-modal").html(data);
+        }
+	});
+});
+$(document).on("submit", ".edit-product-variation", function(data){
+	var csrf_token = $('meta[name="csrf-token"]').attr('content');
+	var variation_data = {};
+	var product_variation_row = data.target.product_variation_row.value;
+	var product_variation_price = data.target.product_variation_price.value;
+	$(".variation-value").each(function(vdata){
+		if($(this).val()!=""){
+			variation_data[$(this).attr("name")] = $(this).val();
+		}
+	});
+	$.ajax({
+		url: "http://127.0.0.1:8000/admin/update-product-variation-row",
+        method: "post",
+        data: {"_token":csrf_token, variation_data:variation_data, product_variation_row:product_variation_row, product_variation_price:product_variation_price},
+        success: function(data){
+			$(".modal").removeClass("show");
+			$(".modal").css("display", "");
+			$(".modal").css("padding-right", "");
+			$(".modal").removeAttr("aria-modal", "true");
+			$(".modal").removeAttr("role", "dialog");
+			$("body").removeClass("modal-open");
+			$("body").css("padding-right", "");
+			$("."+product_variation_row).html(data);
+			console.log(data);
         }
 	});
 });

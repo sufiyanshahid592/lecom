@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 19, 2022 at 02:26 PM
+-- Generation Time: Oct 05, 2022 at 02:01 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.27
 
@@ -83,7 +83,8 @@ INSERT INTO `attributes_value` (`attribute_value_id`, `attribute_value_title`, `
 (6, 'Large', '5'),
 (7, '20', '6'),
 (8, '30', '6'),
-(9, 'Yes', '7');
+(9, 'Yes', '7'),
+(10, 'No', '7');
 
 -- --------------------------------------------------------
 
@@ -102,33 +103,34 @@ CREATE TABLE `categories` (
   `category_icon` text DEFAULT NULL,
   `parent_category` int(11) DEFAULT NULL,
   `category_placement` text DEFAULT NULL,
-  `popular_product` varchar(255) DEFAULT NULL
+  `popular_product` varchar(255) DEFAULT NULL,
+  `daily_best_sells` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`category_id`, `category_name`, `category_slug`, `category_meta_title`, `category_meta_keyword`, `category_meta_description`, `category_image`, `category_icon`, `parent_category`, `category_placement`, `popular_product`) VALUES
-(8, 'Milks and Dairies', 'milks-and-dairies', 'Milks and Dairies', 'Milks and Dairies', 'Milks and Dairies', 'cat-13.png', 'category-1.svg', NULL, '[\"1\",\"2\"]', '1'),
-(9, 'Clothing & beauty', 'clothing-and-beauty', 'Clothing & beauty', 'Clothing & beauty', 'Clothing & beauty', 'cat-13.png', 'category-2.svg', NULL, '[\"1\",\"2\"]', '1'),
-(10, 'Pet Foods & Toy', 'pet-foods-and-toy', 'Pet Foods & Toy', 'Pet Foods & Toy', 'Pet Foods & Toy', 'cat-13.png', 'category-3.svg', NULL, '[\"1\",\"2\"]', NULL),
-(11, 'Baking material', 'baking-material', 'Baking material', 'Baking material', 'Baking material', 'cat-13.png', 'category-4.svg', NULL, '[\"1\",\"2\"]', NULL),
-(12, 'Fresh Fruit', 'fresh-fruit', 'Fresh Fruit', 'Fresh Fruit', 'Fresh Fruit', 'cat-13.png', 'category-5.svg', NULL, '[\"1\",\"2\"]', NULL),
-(13, 'Wines & Drinks', 'wines-and-drinks', 'Wines & Drinks', 'Wines & Drinks', 'Wines & Drinks', 'cat-13.png', 'category-6.svg', NULL, '[\"1\",\"2\"]', NULL),
-(14, 'Fresh Seafood', 'fresh-seafood', 'Fresh Seafood', 'Fresh Seafood', 'Fresh Seafood', 'cat-13.png', 'category-7.svg', NULL, '[\"1\",\"2\"]', NULL),
-(15, 'Fast food', 'fast-food', 'Fast food', 'Fast food', 'Fast food', 'cat-13.png', 'category-8.svg', NULL, '[\"1\",\"2\"]', NULL),
-(16, 'Vegetables', 'vegetables', 'Vegetables', 'Vegetables', 'Vegetables', 'cat-13.png', 'category-9.svg', NULL, '[\"1\",\"2\"]', NULL),
-(17, 'Bread and Juice', 'bread-and-juice', 'Bread and Juice', 'Bread and Juice', 'Bread and Juice', 'cat-13.png', 'category-10.svg', NULL, '[\"1\",\"2\"]', NULL),
-(28, 'Milks and Dairies', 'milks-and-dairies', 'Milks and Dairies', 'Milks and Dairies', 'Milks and Dairies', 'cat-13.png', 'category-1.svg', NULL, '[\"1\",\"2\"]', NULL),
-(29, 'Clothing & beauty', 'clothing-and-beauty', 'Clothing & beauty', 'Clothing & beauty', 'Clothing & beauty', 'cat-13.png', 'category-2.svg', NULL, '[\"1\",\"2\"]', NULL),
-(31, 'Baking material', 'baking-material', 'Baking material', 'Baking material', 'Baking material', 'cat-13.png', 'category-4.svg', NULL, '[\"1\",\"2\"]', NULL),
-(32, 'Fresh Fruit', 'fresh-fruit', 'Fresh Fruit', 'Fresh Fruit', 'Fresh Fruit', 'cat-13.png', 'category-5.svg', NULL, '[\"1\",\"2\"]', NULL),
-(33, 'Wines & Drinks', 'wines-and-drinks', 'Wines & Drinks', 'Wines & Drinks', 'Wines & Drinks', 'cat-13.png', 'category-6.svg', NULL, '[\"1\",\"2\"]', NULL),
-(34, 'Fresh Seafood', 'fresh-seafood', 'Fresh Seafood', 'Fresh Seafood', 'Fresh Seafood', 'cat-13.png', 'category-7.svg', NULL, '[\"1\",\"2\"]', NULL),
-(35, 'Fast food', 'fast-food', 'Fast food', 'Fast food', 'Fast food', 'cat-13.png', 'category-8.svg', NULL, '[\"1\",\"2\"]', NULL),
-(36, 'Vegetables', 'vegetables', 'Vegetables', 'Vegetables', 'Vegetables', 'cat-13.png', 'category-9.svg', NULL, '[\"1\",\"2\"]', NULL),
-(37, 'Bread and Juice', 'bread-and-juice', 'Bread and Juice', 'Bread and Juice', 'Bread and Juice', 'cat-13.png', 'category-10.svg', NULL, '[\"1\",\"2\"]', NULL);
+INSERT INTO `categories` (`category_id`, `category_name`, `category_slug`, `category_meta_title`, `category_meta_keyword`, `category_meta_description`, `category_image`, `category_icon`, `parent_category`, `category_placement`, `popular_product`, `daily_best_sells`) VALUES
+(8, 'Milks and Dairies', 'milks-and-dairies', 'Milks and Dairies', 'Milks and Dairies', 'Milks and Dairies', 'cat-13.png', 'category-1.svg', NULL, '[\"1\",\"2\"]', '1', '1'),
+(9, 'Clothing & beauty', 'clothing-and-beauty', 'Clothing & beauty', 'Clothing & beauty', 'Clothing & beauty', 'cat-13.png', 'category-2.svg', NULL, '[\"1\",\"2\"]', '1', '1'),
+(10, 'Pet Foods & Toy', 'pet-foods-and-toy', 'Pet Foods & Toy', 'Pet Foods & Toy', 'Pet Foods & Toy', 'cat-13.png', 'category-3.svg', NULL, '[\"1\",\"2\"]', NULL, NULL),
+(11, 'Baking material', 'baking-material', 'Baking material', 'Baking material', 'Baking material', 'cat-13.png', 'category-4.svg', NULL, '[\"1\",\"2\"]', NULL, NULL),
+(12, 'Fresh Fruit', 'fresh-fruit', 'Fresh Fruit', 'Fresh Fruit', 'Fresh Fruit', 'cat-13.png', 'category-5.svg', NULL, '[\"1\",\"2\"]', NULL, NULL),
+(13, 'Wines & Drinks', 'wines-and-drinks', 'Wines & Drinks', 'Wines & Drinks', 'Wines & Drinks', 'cat-13.png', 'category-6.svg', NULL, '[\"1\",\"2\"]', NULL, NULL),
+(14, 'Fresh Seafood', 'fresh-seafood', 'Fresh Seafood', 'Fresh Seafood', 'Fresh Seafood', 'cat-13.png', 'category-7.svg', NULL, '[\"1\",\"2\"]', NULL, NULL),
+(15, 'Fast food', 'fast-food', 'Fast food', 'Fast food', 'Fast food', 'cat-13.png', 'category-8.svg', NULL, '[\"1\",\"2\"]', NULL, NULL),
+(16, 'Vegetables', 'vegetables', 'Vegetables', 'Vegetables', 'Vegetables', 'cat-13.png', 'category-9.svg', NULL, '[\"1\",\"2\"]', NULL, NULL),
+(17, 'Bread and Juice', 'bread-and-juice', 'Bread and Juice', 'Bread and Juice', 'Bread and Juice', 'cat-13.png', 'category-10.svg', NULL, '[\"1\",\"2\"]', NULL, NULL),
+(28, 'Milks and Dairies', 'milks-and-dairies', 'Milks and Dairies', 'Milks and Dairies', 'Milks and Dairies', 'cat-13.png', 'category-1.svg', NULL, '[\"1\",\"2\"]', NULL, NULL),
+(29, 'Clothing & beauty', 'clothing-and-beauty', 'Clothing & beauty', 'Clothing & beauty', 'Clothing & beauty', 'cat-13.png', 'category-2.svg', NULL, '[\"1\",\"2\"]', NULL, NULL),
+(31, 'Baking material', 'baking-material', 'Baking material', 'Baking material', 'Baking material', 'cat-13.png', 'category-4.svg', NULL, '[\"1\",\"2\"]', NULL, NULL),
+(32, 'Fresh Fruit', 'fresh-fruit', 'Fresh Fruit', 'Fresh Fruit', 'Fresh Fruit', 'cat-13.png', 'category-5.svg', NULL, '[\"1\",\"2\"]', NULL, NULL),
+(33, 'Wines & Drinks', 'wines-and-drinks', 'Wines & Drinks', 'Wines & Drinks', 'Wines & Drinks', 'cat-13.png', 'category-6.svg', NULL, '[\"1\",\"2\"]', NULL, NULL),
+(34, 'Fresh Seafood', 'fresh-seafood', 'Fresh Seafood', 'Fresh Seafood', 'Fresh Seafood', 'cat-13.png', 'category-7.svg', NULL, '[\"1\",\"2\"]', NULL, NULL),
+(35, 'Fast food', 'fast-food', 'Fast food', 'Fast food', 'Fast food', 'cat-13.png', 'category-8.svg', NULL, '[\"1\",\"2\"]', NULL, NULL),
+(36, 'Vegetables', 'vegetables', 'Vegetables', 'Vegetables', 'Vegetables', 'cat-13.png', 'category-9.svg', NULL, '[\"1\",\"2\"]', NULL, NULL),
+(37, 'Bread and Juice', 'bread-and-juice', 'Bread and Juice', 'Bread and Juice', 'Bread and Juice', 'cat-13.png', 'category-10.svg', NULL, '[\"1\",\"2\"]', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -160,7 +162,9 @@ CREATE TABLE `orders` (
 
 INSERT INTO `orders` (`order_id`, `fname`, `lname`, `billing_address1`, `billing_address2`, `country`, `city`, `zipcode`, `phone`, `additional_information`, `payment_option`, `cart_product`, `order_total`, `order_date`, `payment_status`) VALUES
 (4, 'Sufiyan', 'Shahid', 'Gulshan Sardar Town', 'Ferozwala', 'PK', 'Lahore', '54000', '03014065723', 'this is first order', '2', '{\"ad715e924b0e24ed154b4d0d0c1cc647\":{\"rowId\":\"ad715e924b0e24ed154b4d0d0c1cc647\",\"id\":\"11\",\"name\":\"Seventh\",\"qty\":1,\"price\":25,\"weight\":0,\"options\":{\"image\":\"7.png\",\"product_variations\":\"{}\"},\"discount\":0,\"tax\":0,\"subtotal\":25}}', '25.00', '1661275613', '0'),
-(5, 'Sufiyan', 'Shahid', 'Gulshan Sardar', 'Ferozwala', 'AF', 'Lahore', '54000', '03014065723', 'this is my first order', '1', '{\"9ab04229e081c9b0610f9c1507bda897\":{\"rowId\":\"9ab04229e081c9b0610f9c1507bda897\",\"id\":\"5\",\"name\":\"First\",\"qty\":1,\"price\":25,\"weight\":0,\"options\":{\"image\":\"1.png\",\"product_variations\":\"{\\\"Size\\\":\\\"Small\\\",\\\"Qty\\\":\\\"10\\\"}\"},\"discount\":0,\"tax\":0,\"subtotal\":25}}', '25.00', '1663588639', '0');
+(5, 'Sufiyan', 'Shahid', 'Gulshan Sardar', 'Ferozwala', 'AF', 'Lahore', '54000', '03014065723', 'this is my first order', '1', '{\"9ab04229e081c9b0610f9c1507bda897\":{\"rowId\":\"9ab04229e081c9b0610f9c1507bda897\",\"id\":\"5\",\"name\":\"First\",\"qty\":1,\"price\":25,\"weight\":0,\"options\":{\"image\":\"1.png\",\"product_variations\":\"{\\\"Size\\\":\\\"Small\\\",\\\"Qty\\\":\\\"10\\\"}\"},\"discount\":0,\"tax\":0,\"subtotal\":25}}', '25.00', '1663588639', '0'),
+(6, 'Sufiyan', 'Shahid', 'Gulshan Sardar Town', 'Ferozwala', 'PK', 'Lahore', '54000', '03014065723', 'this is my first order', '1', '{\"9ab04229e081c9b0610f9c1507bda897\":{\"rowId\":\"9ab04229e081c9b0610f9c1507bda897\",\"id\":\"5\",\"name\":\"First\",\"qty\":\"1\",\"price\":25,\"weight\":0,\"options\":{\"image\":\"1.png\",\"product_variations\":\"{\\\"Size\\\":\\\"Small\\\",\\\"Qty\\\":\\\"10\\\"}\"},\"discount\":0,\"tax\":0,\"subtotal\":25}}', '25.00', '1664253665', '0'),
+(7, 'Sufiyan', 'Shahid', 'Gulshan Sardar Town', 'Ferozwala', 'PK', 'Lahore', '54000', '03014065723', 'this is my first order', '2', '{\"9ab04229e081c9b0610f9c1507bda897\":{\"rowId\":\"9ab04229e081c9b0610f9c1507bda897\",\"id\":\"5\",\"name\":\"First\",\"qty\":\"1\",\"price\":25,\"weight\":0,\"options\":{\"image\":\"1.png\",\"product_variations\":\"{\\\"Size\\\":\\\"Small\\\",\\\"Qty\\\":\\\"10\\\"}\"},\"discount\":0,\"tax\":0,\"subtotal\":25}}', '25.00', '1664253893', '0');
 
 -- --------------------------------------------------------
 
@@ -182,7 +186,7 @@ CREATE TABLE `products` (
   `product_hover_image` varchar(255) DEFAULT NULL,
   `product_gallery` text DEFAULT NULL,
   `product_sale_price` varchar(255) DEFAULT NULL,
-  `product_discount_price` varchar(255) DEFAULT NULL,
+  `product_discount_price` int(255) DEFAULT NULL,
   `product_label` varchar(255) DEFAULT NULL,
   `product_fall_in` varchar(255) DEFAULT NULL,
   `related_product` text DEFAULT NULL,
@@ -195,19 +199,19 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `product_title`, `product_slug`, `product_category`, `product_meta_title`, `product_meta_keyword`, `product_meta_description`, `product_short_description`, `product_long_description`, `product_image`, `product_hover_image`, `product_gallery`, `product_sale_price`, `product_discount_price`, `product_label`, `product_fall_in`, `related_product`, `product_variations`, `product_variations_values`) VALUES
-(5, 'First', 'first1', '8', 'First', 'First', 'First', '<b>First 1</b>', 'First', '1.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '25', '1', '1', '[\"6\",\"7\",\"8\"]', '[\"5\",\"6\"]', '{\"Size\":[\"Small\",\"Medium\",\"Large\"],\"Qty\":[\"10\",\"20\",\"30\"]}'),
-(6, 'Second', 'second', '9', 'Second', 'Second', 'Second', '<b>Second 1</b>', 'First', '2.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '15', '3', '1', '[]', '[\"5\",\"7\"]', '{\"Size\":[\"Small\",\"Medium\",\"Large\"],\"Coting\":[\"Yes\"]}'),
-(7, 'Third', 'third1', '8', 'Third', 'Third', 'Third', '<b>Third</b><br>', 'Third', '3.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '25', '1', '1', '[]', 'null', NULL),
-(8, 'Fourth', 'fourth', '9', 'Fourth', 'Fourth', 'Fourth', '<b>Fourth</b><br>', 'Fourth', '4.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '15', '3', '2', '[]', '[\"5\",\"6\",\"7\"]', NULL),
-(9, 'Fifth', 'fifth', '8', 'Fifth', 'Fifth', 'Fifth', '<b>Fifth</b><br>', 'Fifth', '5.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '25', '1', '2', '[]', '[\"5\", \"7\"]', NULL),
-(10, 'Sixth', 'sixth', '9', 'Sixth', 'Sixth', 'Sixth', '<b>Sixth</b><br>', 'Sixth', '6.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '15', '3', '2', '[]', '[\"5\", \"7\"]', NULL),
-(11, 'Seventh', 'seventh', '8', 'Seventh', 'Seventh', 'Seventh', '<b>Seventh</b><br>', 'Seventh', '7.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '25', '1', '3', '[]', '[\"5\", \"6\"]', NULL),
-(12, 'Eight', 'eight', '9', 'Eight', 'Eight', 'Eight', '<b>Eight</b><br>', 'Eight', '8.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '15', '3', '3', '[]', '[\"5\",\"6\",\"7\"]', NULL),
-(13, 'Ninth', 'ninth', '8', 'Ninth', 'Ninth', 'Ninth', '<b>Ninth</b><br>', 'Ninth', '9.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '25', '1', '3', '[]', '[\"5\", \"6\"]', NULL),
-(14, 'Tenth', 'tenth', '9', 'Tenth', 'Tenth', 'Tenth', '<b>Tenth</b><br>', 'Tenth', '10.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '15', '3', '4', '[]', '[\"5\",\"6\",\"7\"]', NULL),
-(15, 'Eleventh', 'eleventh', '8', 'Eleventh', 'Eleventh', 'Eleventh', '<b>Eleventh</b><br>', 'Eleventh', '11.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '25', '1', '4', '[]', '[\"5\", \"7\"]', NULL),
-(16, 'Twelveth', 'twelveth', '9', 'Twelveth', 'Twelveth', 'Twelveth', '<b>Twelveth</b><br>', 'Twelveth', '12.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', '15', '3', '4', '[]', '[\"5\", \"7\"]', NULL),
-(23, 'Last', 'last', '8', 'last', 'last', 'last', '<p>last<br></p>', '<p>last<br></p>', '9.png', '10.png', '{\"product_gallery_1\":\"image-1.png\",\"product_gallery_2\":\"image-2.png\",\"product_gallery_3\":\"image-3.png\",\"product_gallery_4\":\"image-4.png\",\"product_gallery_5\":\"image-5.png\"}', '20', '12', '2', '1', '[\"7\",\"8\"]', '[\"5\",\"6\",\"7\"]', NULL);
+(5, 'First', 'first1', '8', 'First', 'First', 'First', '<b>First 1</b>', 'First', '1.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', 80, '1', '1', '[\"6\",\"7\",\"8\"]', '[\"5\",\"6\",\"7\"]', '{\"Size\":[\"Small\",\"Medium\",\"Large\"],\"Qty\":[\"10\",\"20\",\"30\"],\"Coting\":[\"Yes\",\"No\"]}'),
+(6, 'Second', 'second', '9', 'Second', 'Second', 'Second', '<b>Second 1</b>', 'First', '2.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', 50, '3', '1', '[]', '[\"5\",\"6\",\"7\"]', '{\"Size\":[\"Small\",\"Medium\",\"Large\"],\"Coting\":[\"Yes\"]}'),
+(7, 'Third', 'third', '8', 'Third', 'Third', 'Third', '<b>Third</b><br>', 'Third', '3.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', 120, '1', '1', '[]', '[\"5\",\"6\",\"7\"]', '{\"Size\":[\"Small\",\"Medium\",\"Large\"],\"Qty\":[\"10\",\"20\",\"30\"],\"Coting\":[\"Yes\",\"No\"]}'),
+(8, 'Fourth', 'fourth', '9', 'Fourth', 'Fourth', 'Fourth', '<b>Fourth</b><br>', 'Fourth', '4.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', 40, '3', '2', '[]', '[\"5\",\"6\",\"7\"]', NULL),
+(9, 'Fifth', 'fifth', '8', 'Fifth', 'Fifth', 'Fifth', '<b>Fifth</b><br>', 'Fifth', '5.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', 20, '1', '2', '[]', '[\"5\",\"6\",\"7\"]', NULL),
+(10, 'Sixth', 'sixth', '9', 'Sixth', 'Sixth', 'Sixth', '<b>Sixth</b><br>', 'Sixth', '6.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', 60, '3', '2', '[]', '[\"5\", \"7\"]', NULL),
+(11, 'Seventh', 'seventh', '8', 'Seventh', 'Seventh', 'Seventh', '<b>Seventh</b><br>', 'Seventh', '7.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', 70, '1', '3', '[]', '[\"5\", \"6\"]', NULL),
+(12, 'Eight', 'eight', '9', 'Eight', 'Eight', 'Eight', '<b>Eight</b><br>', 'Eight', '8.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', 10, '3', '3', '[]', '[\"5\",\"6\",\"7\"]', NULL),
+(13, 'Ninth', 'ninth', '8', 'Ninth', 'Ninth', 'Ninth', '<b>Ninth</b><br>', 'Ninth', '9.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', 90, '1', '3', '[]', '[\"5\", \"6\"]', NULL),
+(14, 'Tenth', 'tenth', '9', 'Tenth', 'Tenth', 'Tenth', '<b>Tenth</b><br>', 'Tenth', '10.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', 100, '3', '4', '[]', '[\"5\",\"6\",\"7\"]', NULL),
+(15, 'Eleventh', 'eleventh', '8', 'Eleventh', 'Eleventh', 'Eleventh', '<b>Eleventh</b><br>', 'Eleventh', '11.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', 110, '1', '4', '[]', '[\"5\", \"7\"]', NULL),
+(16, 'Twelveth', 'twelveth', '9', 'Twelveth', 'Twelveth', 'Twelveth', '<b>Twelveth</b><br>', 'Twelveth', '12.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', 30, '3', '4', '[]', '[\"5\", \"7\"]', NULL),
+(23, 'Last', 'last', '8', 'last', 'last', 'last', '<p>last<br></p>', '<p>last<br></p>', '9.png', '10.png', '{\"product_gallery_1\":\"image-1.png\",\"product_gallery_2\":\"image-2.png\",\"product_gallery_3\":\"image-3.png\",\"product_gallery_4\":\"image-4.png\",\"product_gallery_5\":\"image-5.png\"}', '20', 130, '2', 'none', '[\"7\",\"8\"]', 'null', NULL);
 
 -- --------------------------------------------------------
 
@@ -230,15 +234,42 @@ INSERT INTO `product_variations` (`product_variation_id`, `product_variation_dat
 (4, '{\"Size\":\"Small\",\"Coting\":\"Yes\"}', '10', 6),
 (5, '{\"Size\":\"Medium\",\"Coting\":\"Yes\"}', '20', 6),
 (6, '{\"Size\":\"Large\",\"Coting\":\"Yes\"}', '30', 6),
-(25, '{\"Size\":\"Small\",\"Qty\":\"10\"}', '10', 5),
-(26, '{\"Size\":\"Small\",\"Qty\":\"20\"}', '20', 5),
-(27, '{\"Size\":\"Small\",\"Qty\":\"30\"}', '30', 5),
-(28, '{\"Size\":\"Medium\",\"Qty\":\"10\"}', '40', 5),
-(29, '{\"Size\":\"Medium\",\"Qty\":\"20\"}', '50', 5),
-(30, '{\"Size\":\"Medium\",\"Qty\":\"30\"}', '60', 5),
-(31, '{\"Size\":\"Large\",\"Qty\":\"10\"}', '70', 5),
-(32, '{\"Size\":\"Large\",\"Qty\":\"20\"}', '80', 5),
-(33, '{\"Size\":\"Large\",\"Qty\":\"30\"}', '90', 5);
+(45, '{\"Size\":\"Small\",\"Qty\":\"10\",\"Coting\":\"Yes\"}', '1', 7),
+(46, '{\"Size\":\"Small\",\"Qty\":\"20\",\"Coting\":\"Yes\"}', '2', 7),
+(47, '{\"Size\":\"Small\",\"Qty\":\"30\",\"Coting\":\"Yes\"}', '3', 7),
+(48, '{\"Size\":\"Medium\",\"Qty\":\"10\",\"Coting\":\"Yes\"}', '4', 7),
+(49, '{\"Size\":\"Medium\",\"Qty\":\"20\",\"Coting\":\"Yes\"}', '5', 7),
+(50, '{\"Size\":\"Medium\",\"Qty\":\"30\",\"Coting\":\"Yes\"}', '6', 7),
+(51, '{\"Size\":\"Large\",\"Qty\":\"10\",\"Coting\":\"Yes\"}', '7', 7),
+(52, '{\"Size\":\"Large\",\"Qty\":\"20\",\"Coting\":\"Yes\"}', '8', 7),
+(53, '{\"Size\":\"Large\",\"Qty\":\"30\",\"Coting\":\"Yes\"}', '9', 7),
+(54, '{\"Size\":\"Small\",\"Qty\":\"10\",\"Coting\":\"No\"}', '10', 7),
+(55, '{\"Size\":\"Small\",\"Qty\":\"20\",\"Coting\":\"No\"}', '11', 7),
+(56, '{\"Size\":\"Small\",\"Qty\":\"30\",\"Coting\":\"No\"}', '12', 7),
+(57, '{\"Size\":\"Medium\",\"Qty\":\"10\",\"Coting\":\"No\"}', '13', 7),
+(58, '{\"Size\":\"Medium\",\"Qty\":\"20\",\"Coting\":\"No\"}', '14', 7),
+(59, '{\"Size\":\"Medium\",\"Qty\":\"30\",\"Coting\":\"No\"}', '15', 7),
+(60, '{\"Size\":\"Large\",\"Qty\":\"10\",\"Coting\":\"No\"}', '16', 7),
+(61, '{\"Size\":\"Large\",\"Qty\":\"20\",\"Coting\":\"No\"}', '17', 7),
+(62, '{\"Size\":\"Large\",\"Qty\":\"30\",\"Coting\":\"No\"}', '18', 7),
+(81, '{\"Size\":\"Small\",\"Qty\":\"10\",\"Coting\":\"Yes\"}', '1', 5),
+(82, '{\"Size\":\"Small\",\"Qty\":\"10\",\"Coting\":\"No\"}', '2', 5),
+(83, '{\"Size\":\"Small\",\"Qty\":\"20\",\"Coting\":\"Yes\"}', '3', 5),
+(84, '{\"Size\":\"Small\",\"Qty\":\"20\",\"Coting\":\"No\"}', '4', 5),
+(85, '{\"Size\":\"Small\",\"Qty\":\"30\",\"Coting\":\"Yes\"}', '5', 5),
+(86, '{\"Size\":\"Small\",\"Qty\":\"30\",\"Coting\":\"No\"}', '6', 5),
+(87, '{\"Size\":\"Medium\",\"Qty\":\"10\",\"Coting\":\"Yes\"}', '7', 5),
+(88, '{\"Size\":\"Medium\",\"Qty\":\"10\",\"Coting\":\"No\"}', '8', 5),
+(89, '{\"Size\":\"Medium\",\"Qty\":\"20\",\"Coting\":\"Yes\"}', '9', 5),
+(90, '{\"Size\":\"Medium\",\"Qty\":\"20\",\"Coting\":\"No\"}', '10', 5),
+(91, '{\"Size\":\"Medium\",\"Qty\":\"30\",\"Coting\":\"Yes\"}', '11', 5),
+(92, '{\"Size\":\"Medium\",\"Qty\":\"30\",\"Coting\":\"No\"}', '12', 5),
+(93, '{\"Size\":\"Large\",\"Qty\":\"10\",\"Coting\":\"Yes\"}', '13', 5),
+(94, '{\"Size\":\"Large\",\"Qty\":\"10\",\"Coting\":\"No\"}', '14', 5),
+(95, '{\"Size\":\"Large\",\"Qty\":\"20\",\"Coting\":\"Yes\"}', '15', 5),
+(96, '{\"Size\":\"Large\",\"Qty\":\"20\",\"Coting\":\"No\"}', '16', 5),
+(97, '{\"Size\":\"Large\",\"Qty\":\"30\",\"Coting\":\"Yes\"}', '17', 5),
+(98, '{\"Size\":\"Large\",\"Qty\":\"30\",\"Coting\":\"No\"}', '18', 5);
 
 -- --------------------------------------------------------
 
@@ -258,7 +289,7 @@ CREATE TABLE `setting` (
 --
 
 INSERT INTO `setting` (`setting_id`, `website_title`, `website_currency`, `website_logo`) VALUES
-(1, 'First Website 1', 'Rs', '11.png');
+(1, 'Laravel Ecommerce Website', 'Rs', 'logo.svg');
 
 -- --------------------------------------------------------
 
@@ -362,19 +393,19 @@ ALTER TABLE `attributes`
 -- AUTO_INCREMENT for table `attributes_value`
 --
 ALTER TABLE `attributes_value`
-  MODIFY `attribute_value_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `attribute_value_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -386,7 +417,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `product_variations`
 --
 ALTER TABLE `product_variations`
-  MODIFY `product_variation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `product_variation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 
 --
 -- AUTO_INCREMENT for table `setting`

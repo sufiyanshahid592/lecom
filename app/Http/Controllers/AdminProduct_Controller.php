@@ -18,7 +18,7 @@ class AdminProduct_Controller extends BaseController
         if(empty(Session::get("admin_login_id"))){
             return redirect('admin/login');
         }
-        $data['get_all_products'] = DB::table("products")->get();
+        $data['get_all_products'] = DB::table("products")->leftJoin("categories", "categories.category_id", "=", "products.product_category")->get();
         return view("admin/all-products", $data);
     }
     public function add_new_product(){
@@ -124,34 +124,75 @@ class AdminProduct_Controller extends BaseController
                     <input type="hidden" name="row_<?php echo $random_key; ?>[price]" value="<?php echo $data['product_variation_price']; ?>" />
                 </td>
                 <td>
-                    <a class='btn btn-warning edit-variation' data-row-id='<?php echo $result; ?>'>Delete</a></td>
-                    <a class='btn btn-danger delete-variation' data-row-id='<?php echo $result; ?>'>Delete</a></td>
+                    <a class='btn btn-warning edit-variation' data-product-id="<?php echo $data['product_id']; ?>" data-row-id='<?php echo $result; ?>'>Edit</a>
+                    <a class='btn btn-danger delete-variation' data-product-id="<?php echo $data['product_id']; ?>" data-row-id='<?php echo $result; ?>'>Delete</a>
                 </td>
             </tr>
         <?php
         }
     }
     public function edit_product_variation_row(Request $request){
+        $product_details_by_id = DB::table("products")->where("product_id", $request->input("product_id"))->get();
         $product_variation_row = DB::table("product_variations")->where("product_variation_id", $request->input("product_variation_id"))->get();
         // print_r($product_variation_row);
         ?>
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Product Variation</h4>
+                        <h4 class="modal-title">Edit Product Variation</h4>
                         <button type="button" class="close close-modal" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
-                        <?php print_r($product_variation_row); ?>
-                    </div>
-                    <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-default close-modal" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
+                    <form class="edit-product-variation" onsubmit="return false;" method="post">
+                        <div class="modal-body">
+                            <?php foreach(json_decode($product_details_by_id[0]->product_variations_values) as $key=>$value){ ?>
+                            <div class="form-group">
+
+                                <label class="control-label"><?php echo $key; ?></label>
+                                <select name="<?php echo $key; ?>" class="form-control variation-value">
+                                    <?php foreach($value as $key1=>$value1){ ?>
+                                        <option <?php foreach((array)json_decode($product_variation_row[0]->product_variation_data) as $key2=>$value2){if($key2==$key){if($value1==$value2){echo "selected";}}} ?> value="<?php echo $value1; ?>"><?php echo $value1; ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                            <?php } ?>
+                            <div class="form-group">
+                                <label class="control-label">Price</label>
+                                <input type="text" class="form-control" name="product_variation_price" value="<?php echo $product_variation_row[0]->product_variation_price; ?>" >
+                            </div>
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <input type="hidden" name="product_variation_row" value="<?php echo $product_variation_row[0]->product_variation_id; ?>">
+                            <button type="button" class="btn btn-default close-modal" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
                 </div>
             </div>
+        <?php
+    }
+    public function update_product_variation_row(Request $request){
+        $data['product_variation_data'] = json_encode($request->input("variation_data"));
+        $data['product_variation_price'] = $request->input("product_variation_price");
+        $get_product_variation_row_detail = DB::table("product_variations")->where("product_variation_id", $request->input("product_variation_row"))->get();
+        $result = DB::table("product_variations")->where("product_variation_id", $request->input("product_variation_row"))->update($data);
+        $random_key = md5(rand(223,234234));
+        ?>
+        <?php foreach(json_decode($data['product_variation_data']) as $v_key=>$v_value){ ?>
+        <td>
+            <?php echo $v_value; ?>
+            <input type="hidden" name="<?php echo "row_".$random_key."[".$v_key."]"; ?>" value="<?php echo $v_value; ?>" >
+        </td>
+        <?php } ?>
+        <td>
+            <?php echo $data['product_variation_price']; ?>
+            <input type="hidden" name="row_<?php echo $random_key; ?>[price]" value="<?php echo $data['product_variation_price']; ?>" />
+        </td>
+        <td>
+            <a class='btn btn-warning edit-variation' data-product-id="<?php echo $get_product_variation_row_detail[0]->product_id; ?>" data-row-id='<?php echo $get_product_variation_row_detail[0]->product_variation_id; ?>'>Edit</a>
+            <a class='btn btn-danger delete-variation' data-product-id="<?php echo $get_product_variation_row_detail[0]->product_id; ?>" data-row-id='<?php echo $get_product_variation_row_detail[0]->product_variation_id; ?>'>Delete</a>
+        </td>
         <?php
     }
     public function product_finish_step(Request $request){
