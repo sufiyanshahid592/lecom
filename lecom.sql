@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 05, 2022 at 02:01 PM
+-- Generation Time: Oct 07, 2022 at 03:00 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.27
 
@@ -199,7 +199,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `product_title`, `product_slug`, `product_category`, `product_meta_title`, `product_meta_keyword`, `product_meta_description`, `product_short_description`, `product_long_description`, `product_image`, `product_hover_image`, `product_gallery`, `product_sale_price`, `product_discount_price`, `product_label`, `product_fall_in`, `related_product`, `product_variations`, `product_variations_values`) VALUES
-(5, 'First', 'first1', '8', 'First', 'First', 'First', '<b>First 1</b>', 'First', '1.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', 80, '1', '1', '[\"6\",\"7\",\"8\"]', '[\"5\",\"6\",\"7\"]', '{\"Size\":[\"Small\",\"Medium\",\"Large\"],\"Qty\":[\"10\",\"20\",\"30\"],\"Coting\":[\"Yes\",\"No\"]}'),
+(5, 'First', 'first1', '8', 'First', 'First', 'First', '<b>First 1</b>', 'First', '1.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', 80, '1', '1', '[\"6\",\"7\",\"8\"]', '[\"5\",\"6\"]', '{\"Size\":[\"Small\",\"Medium\",\"Large\"],\"Qty\":[\"10\",\"20\",\"30\"]}'),
 (6, 'Second', 'second', '9', 'Second', 'Second', 'Second', '<b>Second 1</b>', 'First', '2.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', 50, '3', '1', '[]', '[\"5\",\"6\",\"7\"]', '{\"Size\":[\"Small\",\"Medium\",\"Large\"],\"Coting\":[\"Yes\"]}'),
 (7, 'Third', 'third', '8', 'Third', 'Third', 'Third', '<b>Third</b><br>', 'Third', '3.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', 120, '1', '1', '[]', '[\"5\",\"6\",\"7\"]', '{\"Size\":[\"Small\",\"Medium\",\"Large\"],\"Qty\":[\"10\",\"20\",\"30\"],\"Coting\":[\"Yes\",\"No\"]}'),
 (8, 'Fourth', 'fourth', '9', 'Fourth', 'Fourth', 'Fourth', '<b>Fourth</b><br>', 'Fourth', '4.png', '2.png', '{\"product_gallery_1\":\"cat-13.png\",\"product_gallery_2\":\"2.png\",\"product_gallery_3\":\"3.png\",\"product_gallery_4\":\"4.png\",\"product_gallery_5\":\"5.png\",\"product_gallery_6\":\"6.png\",\"product_gallery_7\":\"7.png\",\"product_gallery_8\":\"8.png\"}', '30', 40, '3', '2', '[]', '[\"5\",\"6\",\"7\"]', NULL),
@@ -252,24 +252,15 @@ INSERT INTO `product_variations` (`product_variation_id`, `product_variation_dat
 (60, '{\"Size\":\"Large\",\"Qty\":\"10\",\"Coting\":\"No\"}', '16', 7),
 (61, '{\"Size\":\"Large\",\"Qty\":\"20\",\"Coting\":\"No\"}', '17', 7),
 (62, '{\"Size\":\"Large\",\"Qty\":\"30\",\"Coting\":\"No\"}', '18', 7),
-(81, '{\"Size\":\"Small\",\"Qty\":\"10\",\"Coting\":\"Yes\"}', '1', 5),
-(82, '{\"Size\":\"Small\",\"Qty\":\"10\",\"Coting\":\"No\"}', '2', 5),
-(83, '{\"Size\":\"Small\",\"Qty\":\"20\",\"Coting\":\"Yes\"}', '3', 5),
-(84, '{\"Size\":\"Small\",\"Qty\":\"20\",\"Coting\":\"No\"}', '4', 5),
-(85, '{\"Size\":\"Small\",\"Qty\":\"30\",\"Coting\":\"Yes\"}', '5', 5),
-(86, '{\"Size\":\"Small\",\"Qty\":\"30\",\"Coting\":\"No\"}', '6', 5),
-(87, '{\"Size\":\"Medium\",\"Qty\":\"10\",\"Coting\":\"Yes\"}', '7', 5),
-(88, '{\"Size\":\"Medium\",\"Qty\":\"10\",\"Coting\":\"No\"}', '8', 5),
-(89, '{\"Size\":\"Medium\",\"Qty\":\"20\",\"Coting\":\"Yes\"}', '9', 5),
-(90, '{\"Size\":\"Medium\",\"Qty\":\"20\",\"Coting\":\"No\"}', '10', 5),
-(91, '{\"Size\":\"Medium\",\"Qty\":\"30\",\"Coting\":\"Yes\"}', '11', 5),
-(92, '{\"Size\":\"Medium\",\"Qty\":\"30\",\"Coting\":\"No\"}', '12', 5),
-(93, '{\"Size\":\"Large\",\"Qty\":\"10\",\"Coting\":\"Yes\"}', '13', 5),
-(94, '{\"Size\":\"Large\",\"Qty\":\"10\",\"Coting\":\"No\"}', '14', 5),
-(95, '{\"Size\":\"Large\",\"Qty\":\"20\",\"Coting\":\"Yes\"}', '15', 5),
-(96, '{\"Size\":\"Large\",\"Qty\":\"20\",\"Coting\":\"No\"}', '16', 5),
-(97, '{\"Size\":\"Large\",\"Qty\":\"30\",\"Coting\":\"Yes\"}', '17', 5),
-(98, '{\"Size\":\"Large\",\"Qty\":\"30\",\"Coting\":\"No\"}', '18', 5);
+(143, '{\"Size\":\"Small\",\"Qty\":\"10\"}', '80', 5),
+(144, '{\"Size\":\"Small\",\"Qty\":\"20\"}', '3', 5),
+(145, '{\"Size\":\"Small\",\"Qty\":\"30\"}', '5', 5),
+(146, '{\"Size\":\"Medium\",\"Qty\":\"10\"}', '7', 5),
+(147, '{\"Size\":\"Medium\",\"Qty\":\"20\"}', '9', 5),
+(148, '{\"Size\":\"Medium\",\"Qty\":\"30\"}', '11', 5),
+(149, '{\"Size\":\"Large\",\"Qty\":\"10\"}', '13', 5),
+(150, '{\"Size\":\"Large\",\"Qty\":\"20\"}', '15', 5),
+(151, '{\"Size\":\"Large\",\"Qty\":\"30\"}', '17', 5);
 
 -- --------------------------------------------------------
 
@@ -290,6 +281,19 @@ CREATE TABLE `setting` (
 
 INSERT INTO `setting` (`setting_id`, `website_title`, `website_currency`, `website_logo`) VALUES
 (1, 'Laravel Ecommerce Website', 'Rs', 'logo.svg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sliders`
+--
+
+CREATE TABLE `sliders` (
+  `slider_id` int(11) NOT NULL,
+  `slider_title` varchar(255) DEFAULT NULL,
+  `slider_image` varchar(255) DEFAULT NULL,
+  `slider_description` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -367,6 +371,12 @@ ALTER TABLE `setting`
   ADD PRIMARY KEY (`setting_id`);
 
 --
+-- Indexes for table `sliders`
+--
+ALTER TABLE `sliders`
+  ADD PRIMARY KEY (`slider_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -417,13 +427,19 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `product_variations`
 --
 ALTER TABLE `product_variations`
-  MODIFY `product_variation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
+  MODIFY `product_variation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
 
 --
 -- AUTO_INCREMENT for table `setting`
 --
 ALTER TABLE `setting`
   MODIFY `setting_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `sliders`
+--
+ALTER TABLE `sliders`
+  MODIFY `slider_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`

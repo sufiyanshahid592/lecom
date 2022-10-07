@@ -316,6 +316,7 @@ class AdminProduct_Controller extends BaseController
     }
     public function delete_product($id){
         DB::table('products')->where("product_id", $id)->delete();
+        DB::table("product_variations")->where("product_id", $id)->delete();
         Session::flash("success", "Product Deleted Successfully");
         return redirect("admin/all-products");
     }

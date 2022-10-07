@@ -121,3 +121,4 @@ Route::get("admin/add-new-slider", "AdminSlider_Controller@add_new_slider");
 Route::get("admin/all-sliders", "AdminSlider_Controller@all_sliders");
 Route::post("admin/add-new-slider-process", "AdminSlider_Controller@add_new_slider_process");
 Route::get("admin/edit-slider", "AdminSlider_Controller@edit_slider");
+Route::get("admin/delete-slider/{any}", "AdminSlider_Controller@delete_slider");

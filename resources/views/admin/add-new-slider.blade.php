@@ -37,7 +37,11 @@
 							<div class="card-body">
 								<div class="form-group">
 									<label>Slider Title</label>
-									<input type="text" name="slider_title" class="form-control" placeholder="Enter Slider Name" required>
+									<input type="text" name="slider_title" class="form-control" placeholder="Enter Slider Title" required>
+								</div>
+								<div class="form-group">
+									<label>Slider Description</label>
+									<input type="text" name="slider_description" class="form-control" placeholder="Enter Slider Description" required>
 								</div>
 								<div class="form-group">
 									<label>Slider Image</label>

@@ -31,6 +31,7 @@ class AdminSlider_Controller extends BaseController
     }
     public function add_new_slider_process(Request $request){
         $data['slider_title'] = $request->input("slider_title");
+        $data['slider_description'] = $request->input("slider_description");
         if($request->hasFile('slider_image')){
             $file = $request->file('slider_image');
             $fileExtension = $file->getClientOriginalName();
@@ -43,5 +44,10 @@ class AdminSlider_Controller extends BaseController
             Session::flash("success", "Slider Added Successfully!...");
             return redirect("admin/all-sliders");
         }
+    }
+    public function delete_slider($id){
+        DB::table("sliders")->where("slider_id", $id)->delete();
+        Session::flash("success", "Slider Delete Successfully!...");
+        return redirect("admin/all-sliders");
     }
 }
