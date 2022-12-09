@@ -39,7 +39,7 @@
     </div>
     <div class="container mb-30">
         <div class="row flex-row-reverse">
-            <div class="col-lg-4-5">
+            <div class="col-lg-12">
                 <div class="shop-product-fillter">
                     <div class="totall-product">
                         <p>We found <strong class="text-brand"><?php echo count($get_product_by_category_id); ?></strong> items But Showing <strong class="text-brand"><?php echo $perpage; ?></strong> for you!</p>
@@ -321,7 +321,7 @@
                 </section>
                 <!--End Deals-->
             </div>
-            <div class="col-lg-1-5 primary-sidebar sticky-sidebar">
+            <!-- <div class="col-lg-1-5 primary-sidebar sticky-sidebar">
                 <div class="sidebar-widget widget-category-2 mb-30">
                     <h5 class="section-title style-1 mb-30">Category</h5>
                     <ul>
@@ -342,7 +342,6 @@
                         </li>
                     </ul>
                 </div>
-                <!-- Fillter By Price -->
                 <div class="sidebar-widget price_range range mb-30">
                     <h5 class="section-title style-1 mb-30">Fill by price</h5>
                     <div class="price-filter">
@@ -382,7 +381,6 @@
                     </div>
                     <a href="shop-grid-right.html" class="btn btn-sm btn-default"><i class="fi-rs-filter mr-5"></i> Fillter</a>
                 </div>
-                <!-- Product sidebar Widget -->
                 <div class="sidebar-widget product-sidebar mb-30 p-30 bg-grey border-radius-10">
                     <h5 class="section-title style-1 mb-30">New products</h5>
                     <div class="single-post clearfix">
@@ -433,7 +431,7 @@
                         </h4>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </main>

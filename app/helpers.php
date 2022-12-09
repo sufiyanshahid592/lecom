@@ -17,6 +17,26 @@ function website_logo(){
     $website_setting = DB::table("setting")->where("setting_id", 1)->get();
     return $website_setting[0]->website_logo;
 }
+function website_address(){
+    $website_setting = DB::table("setting")->where("setting_id", 1)->get();
+    return $website_setting[0]->website_address;
+}
+function website_number(){
+    $website_setting = DB::table("setting")->where("setting_id", 1)->get();
+    return $website_setting[0]->website_number;
+}
+function website_email(){
+    $website_setting = DB::table("setting")->where("setting_id", 1)->get();
+    return $website_setting[0]->website_email;
+}
+function website_timing(){
+    $website_setting = DB::table("setting")->where("setting_id", 1)->get();
+    return $website_setting[0]->website_timing;
+}
+function website_footer_description(){
+    $website_setting = DB::table("setting")->where("setting_id", 1)->get();
+    return $website_setting[0]->website_footer_description;
+}
 function website_currency(){
     $website_setting = DB::table("setting")->where("setting_id", 1)->get();
     return $website_setting[0]->website_currency;
@@ -94,12 +114,12 @@ function get_popular_category_products($category_id){
     </div>
 	<?php
 }
-function get_daily_best_sells_products($category_id){
+function get_daily_best_sells_products($category_id, $i){
     $get_product_by_id = DB::table("products")->limit(10)->leftJoin('categories', 'categories.category_id', '=', 'products.product_category')->where("category_id", $category_id)->get();
     ?>
     <div class="carausel-4-columns-cover arrow-center position-relative">
         <div class="slider-arrow slider-arrow-2 carausel-4-columns-arrow" id="carausel-4-columns-arrows"></div>
-        <div class="carausel-4-columns carausel-arrow-center" id="carausel-4-columns">
+        <div class="carausel-4-columns carausel-arrow-center" id="carausel-4-columns-<?php if($i!=1){echo $i;} ?>">
             <?php foreach($get_product_by_id as $key=>$value){ ?>
             <div class="product-cart-wrap">
                 <div class="product-img-action-wrap">

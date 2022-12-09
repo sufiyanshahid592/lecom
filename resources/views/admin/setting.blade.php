@@ -44,6 +44,26 @@
 									<input type="text" name="website_currency" class="form-control" placeholder="Enter Website Currency" value="<?php if(!empty($website_setting[0]->website_currency)){echo $website_setting[0]->website_currency;} ?>">
 								</div>
 								<div class="form-group">
+									<label>Website Address</label>
+									<input type="text" name="website_address" class="form-control" placeholder="Enter Website Address" value="<?php if(!empty($website_setting[0]->website_address)){echo $website_setting[0]->website_address;} ?>">
+								</div>
+								<div class="form-group">
+									<label>Website Number</label>
+									<input type="text" name="website_number" class="form-control" placeholder="Enter Website Number" value="<?php if(!empty($website_setting[0]->website_number)){echo $website_setting[0]->website_number;} ?>">
+								</div>
+								<div class="form-group">
+									<label>Website Email</label>
+									<input type="text" name="website_email" class="form-control" placeholder="Enter Website Email" value="<?php if(!empty($website_setting[0]->website_email)){echo $website_setting[0]->website_email;} ?>">
+								</div>
+								<div class="form-group">
+									<label>Website Timing</label>
+									<input type="text" name="website_timing" class="form-control" placeholder="Enter Website Timing" value="<?php if(!empty($website_setting[0]->website_timing)){echo $website_setting[0]->website_timing;} ?>">
+								</div>
+								<div class="form-group">
+									<label>Website Footer Description</label>
+									<input type="text" name="website_footer_description" class="form-control" placeholder="Enter Website Footer Description" value="<?php if(!empty($website_setting[0]->website_footer_description)){echo $website_setting[0]->website_footer_description;} ?>">
+								</div>
+								<div class="form-group">
 									<label>Website Logo</label>
 									<input type="file" name="website_logo" class="form-control" >
 									<?php if(!empty($website_setting[0]->website_title)){ ?> 
@@ -53,7 +73,7 @@
 							</div>
 							<!-- /.card-body -->
 							<div class="card-footer">
-								<button type="submit" class="btn btn-primary">Submit</button>
+								<button type="submit" class="btn btn-primary">Save Changes</button>
 							</div>
 						</form>
 					</div>

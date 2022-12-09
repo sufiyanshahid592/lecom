@@ -24,6 +24,7 @@ class Home_Controller extends BaseController
         $data['get_top_rated_products'] = DB::table("products")->leftJoin('categories', 'categories.category_id', '=', 'products.product_category')->where("product_fall_in", 4)->get();
     	$data['get_popular_category'] = DB::table("categories")->where("popular_product", 1)->get();
         $data['get_daily_best_sells_category'] = DB::table("categories")->where("daily_best_sells", 1)->get();
+        $data['get_sliders'] = DB::table("sliders")->get();
         $data['meta_keywords'] = "";
         $data['meta_description'] = "";
     	return view("user/home", $data);

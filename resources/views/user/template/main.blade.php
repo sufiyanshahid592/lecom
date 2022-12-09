@@ -5,8 +5,11 @@
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <title><?php if(!empty($title)){echo $title." | ".website_title();}else{echo website_title();} ?></title>
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <?php if(!empty($meta_keywords)){ ?><meta name="keywords" content="<?php echo $meta_keywords; ?>" /><?php } ?>
-    <?php if(!empty($meta_description)){ ?><meta name="description" content="<?php echo $meta_description; ?>" /><?php } ?>
+    <?php if(!empty($meta_keywords)){ ?>
+        <meta name="keywords" content="<?php echo $meta_keywords; ?>" />
+    <?php } if(!empty($meta_description)){ ?>
+        <meta name="description" content="<?php echo $meta_description; ?>" />
+    <?php } ?>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta property="og:title" content="" />
     <meta property="og:type" content="" />
@@ -171,9 +174,9 @@
                     <div class="col-xl-3 col-lg-4">
                         <div class="header-info header-info-right">
                             <ul>
-                                <li><a href="{{url('#')}}">About Us</a></li>
-                                <li><a href="{{url('#')}}">Wishlist</a></li>
-                                <li><a href="{{url('#')}}">Order Tracking</a></li>
+                                <!-- <li><a href="{{url('#')}}">About Us</a></li> -->
+                                <li><a href="{{url('blogs')}}">Blogs</a></li>
+                                <li><a href="{{url('track-orders')}}">Order Tracking</a></li>
                                 <?php if(empty(Session::get("user_login_id"))){ ?>
                                 <li><a href="{{url('login')}}">Login</a></li>
                                 <li><a href="{{url('register')}}">Register</a></li>
@@ -208,7 +211,7 @@
                         </div>
                         <div class="header-action-right">
                             <div class="header-action-2">
-                                <div class="search-location">
+                                <!-- <div class="search-location">
                                     <form action="#">
                                         <select class="select-active">
                                             <option>Your Location</option>
@@ -227,8 +230,8 @@
                                             <option>New York</option>
                                         </select>
                                     </form>
-                                </div>
-                                <div class="header-action-icon-2">
+                                </div> -->
+                                <!-- <div class="header-action-icon-2">
                                     <a href="shop-compare.html">
                                         <img class="svgInject')}}" alt="Nest" src="{{url('assets/user/imgs/theme/icons/icon-compare.svg')}}" />
                                         <span class="pro-count blue">3</span>
@@ -241,7 +244,7 @@
                                         <span class="pro-count blue">6</span>
                                     </a>
                                     <a href="shop-wishlist.html"><span class="lable">Wishlist</span></a>
-                                </div>
+                                </div> -->
                                 <div class="header-action-icon-2 home-cart-content-area">
                                     <?php get_cart_content(); ?>
                                 </div>
@@ -256,7 +259,7 @@
                                                 <a href="page-account.html"><i class="fi fi-rs-user mr-10"></i>My Account</a>
                                             </li>
                                             <li>
-                                                <a href="page-account.html"><i class="fi fi-rs-location-alt mr-10"></i>Order Tracking</a>
+                                                <a href="{{url('track-orders')}}"><i class="fi fi-rs-location-alt mr-10"></i>Order Tracking</a>
                                             </li>
                                             <li>
                                                 <a href="page-account.html"><i class="fi fi-rs-label mr-10"></i>My Voucher</a>
@@ -715,6 +718,7 @@
     <!--End header-->
 	@yield("content")
 	<footer class="main">
+        <?php if(empty(Request::segment(1))){ ?>
         <section class="newsletter mb-15 wow animate__animated animate__fadeIn">
             <div class="container">
                 <div class="row">
@@ -809,6 +813,7 @@
                 </div>
             </div>
         </section>
+        <?php } ?>
         <section class="section-padding footer-mid">
             <div class="container pt-15 pb-20">
                 <div class="row">
@@ -816,17 +821,17 @@
                         <div class="widget-about font-md mb-md-3 mb-lg-3 mb-xl-0 wow animate__animated animate__fadeInUp" data-wow-delay="0">
                             <div class="logo mb-30">
                                 <a href="{{url('')}}" class="mb-15"><img src="{{url('assets/images/'.website_logo())}}" alt="logo" /></a>
-                                <p class="font-lg text-heading">Awesome grocery store website template</p>
+                                <p class="font-lg text-heading">{{website_footer_description()}}</p>
                             </div>
                             <ul class="contact-infor">
-                                <li><img src="{{url('assets/user/imgs/theme/icons/icon-location.svg')}}" alt="" /><strong>Address: </strong> <span>5171 W Campbell Ave undefined Kent, Utah 53127 United States</span></li>
-                                <li><img src="{{url('assets/user/imgs/theme/icons/icon-contact.svg')}}" alt="" /><strong>Call Us:</strong><span>(+91) - 540-025-124553</span></li>
-                                <li><img src="{{url('assets/user/imgs/theme/icons/icon-email-2.svg')}}" alt="" /><strong>Email:</strong><span><a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="87f4e6ebe2c7c9e2f4f3a9e4e8ea">[email&#160;protected]</a></span></li>
-                                <li><img src="{{url('assets/user/imgs/theme/icons/icon-clock.svg')}}" alt="" /><strong>Hours:</strong><span>10:00 - 18:00, Mon - Sat</span></li>
+                                <li><img src="{{url('assets/user/imgs/theme/icons/icon-location.svg')}}" alt="" /><strong>Address: </strong> <span>{{website_address()}}</span></li>
+                                <li><img src="{{url('assets/user/imgs/theme/icons/icon-contact.svg')}}" alt="" /><strong>Call Us:</strong> <span>{{website_number()}}</span></li>
+                                <li><img src="{{url('assets/user/imgs/theme/icons/icon-email-2.svg')}}" alt="" /><strong>Email:</strong> <span><a href="mailto:{{website_email()}}" class="__cf_email__" data-cfemail="87f4e6ebe2c7c9e2f4f3a9e4e8ea">{{website_email()}}</a></span></li>
+                                <li><img src="{{url('assets/user/imgs/theme/icons/icon-clock.svg')}}" alt="" /><strong>Hours:</strong> <span>{{website_timing()}}</span></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="footer-link-widget col wow animate__animated animate__fadeInUp" data-wow-delay=".1s>
+                    <div class="footer-link-widget col wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
                         <h4 class=" widget-title">Company</h4>
                         <ul class="footer-list mb-sm-5 mb-md-0">
                             <li><a href="#">About Us</a></li>

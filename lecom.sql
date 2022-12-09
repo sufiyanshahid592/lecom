@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 07, 2022 at 03:00 PM
+-- Generation Time: Dec 09, 2022 at 05:16 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.27
 
@@ -89,6 +89,30 @@ INSERT INTO `attributes_value` (`attribute_value_id`, `attribute_value_title`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `blogs`
+--
+
+CREATE TABLE `blogs` (
+  `blog_id` int(11) NOT NULL,
+  `blog_title` varchar(255) DEFAULT NULL,
+  `blog_slug` varchar(255) DEFAULT NULL,
+  `blog_meta_keywords` text DEFAULT NULL,
+  `blog_meta_description` text DEFAULT NULL,
+  `blog_short_description` text DEFAULT NULL,
+  `blog_long_description` text DEFAULT NULL,
+  `blog_image` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `blogs`
+--
+
+INSERT INTO `blogs` (`blog_id`, `blog_title`, `blog_slug`, `blog_meta_keywords`, `blog_meta_description`, `blog_short_description`, `blog_long_description`, `blog_image`) VALUES
+(4, 'first', 'first', 'first', 'first', 'first', 'first', 'CMX.png');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `categories`
 --
 
@@ -162,8 +186,8 @@ CREATE TABLE `orders` (
 
 INSERT INTO `orders` (`order_id`, `fname`, `lname`, `billing_address1`, `billing_address2`, `country`, `city`, `zipcode`, `phone`, `additional_information`, `payment_option`, `cart_product`, `order_total`, `order_date`, `payment_status`) VALUES
 (4, 'Sufiyan', 'Shahid', 'Gulshan Sardar Town', 'Ferozwala', 'PK', 'Lahore', '54000', '03014065723', 'this is first order', '2', '{\"ad715e924b0e24ed154b4d0d0c1cc647\":{\"rowId\":\"ad715e924b0e24ed154b4d0d0c1cc647\",\"id\":\"11\",\"name\":\"Seventh\",\"qty\":1,\"price\":25,\"weight\":0,\"options\":{\"image\":\"7.png\",\"product_variations\":\"{}\"},\"discount\":0,\"tax\":0,\"subtotal\":25}}', '25.00', '1661275613', '0'),
-(5, 'Sufiyan', 'Shahid', 'Gulshan Sardar', 'Ferozwala', 'AF', 'Lahore', '54000', '03014065723', 'this is my first order', '1', '{\"9ab04229e081c9b0610f9c1507bda897\":{\"rowId\":\"9ab04229e081c9b0610f9c1507bda897\",\"id\":\"5\",\"name\":\"First\",\"qty\":1,\"price\":25,\"weight\":0,\"options\":{\"image\":\"1.png\",\"product_variations\":\"{\\\"Size\\\":\\\"Small\\\",\\\"Qty\\\":\\\"10\\\"}\"},\"discount\":0,\"tax\":0,\"subtotal\":25}}', '25.00', '1663588639', '0'),
-(6, 'Sufiyan', 'Shahid', 'Gulshan Sardar Town', 'Ferozwala', 'PK', 'Lahore', '54000', '03014065723', 'this is my first order', '1', '{\"9ab04229e081c9b0610f9c1507bda897\":{\"rowId\":\"9ab04229e081c9b0610f9c1507bda897\",\"id\":\"5\",\"name\":\"First\",\"qty\":\"1\",\"price\":25,\"weight\":0,\"options\":{\"image\":\"1.png\",\"product_variations\":\"{\\\"Size\\\":\\\"Small\\\",\\\"Qty\\\":\\\"10\\\"}\"},\"discount\":0,\"tax\":0,\"subtotal\":25}}', '25.00', '1664253665', '0'),
+(5, 'Sufiyan', 'Shahid', 'Gulshan Sardar', 'Ferozwala', 'AF', 'Lahore', '54000', '03014065723', 'this is my first order', '1', '{\"9ab04229e081c9b0610f9c1507bda897\":{\"rowId\":\"9ab04229e081c9b0610f9c1507bda897\",\"id\":\"5\",\"name\":\"First\",\"qty\":1,\"price\":25,\"weight\":0,\"options\":{\"image\":\"1.png\",\"product_variations\":\"{\\\"Size\\\":\\\"Small\\\",\\\"Qty\\\":\\\"10\\\"}\"},\"discount\":0,\"tax\":0,\"subtotal\":25}}', '25.00', '1663588639', '1'),
+(6, 'Sufiyan', 'Shahid', 'Gulshan Sardar Town', 'Ferozwala', 'PK', 'Lahore', '54000', '03014065723', 'this is my first order', '1', '{\"9ab04229e081c9b0610f9c1507bda897\":{\"rowId\":\"9ab04229e081c9b0610f9c1507bda897\",\"id\":\"5\",\"name\":\"First\",\"qty\":\"1\",\"price\":25,\"weight\":0,\"options\":{\"image\":\"1.png\",\"product_variations\":\"{\\\"Size\\\":\\\"Small\\\",\\\"Qty\\\":\\\"10\\\"}\"},\"discount\":0,\"tax\":0,\"subtotal\":25}}', '25.00', '1664253665', '2'),
 (7, 'Sufiyan', 'Shahid', 'Gulshan Sardar Town', 'Ferozwala', 'PK', 'Lahore', '54000', '03014065723', 'this is my first order', '2', '{\"9ab04229e081c9b0610f9c1507bda897\":{\"rowId\":\"9ab04229e081c9b0610f9c1507bda897\",\"id\":\"5\",\"name\":\"First\",\"qty\":\"1\",\"price\":25,\"weight\":0,\"options\":{\"image\":\"1.png\",\"product_variations\":\"{\\\"Size\\\":\\\"Small\\\",\\\"Qty\\\":\\\"10\\\"}\"},\"discount\":0,\"tax\":0,\"subtotal\":25}}', '25.00', '1664253893', '0');
 
 -- --------------------------------------------------------
@@ -272,6 +296,11 @@ CREATE TABLE `setting` (
   `setting_id` int(11) NOT NULL,
   `website_title` varchar(255) DEFAULT NULL,
   `website_currency` varchar(255) DEFAULT NULL,
+  `website_address` text DEFAULT NULL,
+  `website_number` varchar(255) DEFAULT NULL,
+  `website_email` varchar(255) DEFAULT NULL,
+  `website_timing` text DEFAULT NULL,
+  `website_footer_description` text DEFAULT NULL,
   `website_logo` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -279,8 +308,8 @@ CREATE TABLE `setting` (
 -- Dumping data for table `setting`
 --
 
-INSERT INTO `setting` (`setting_id`, `website_title`, `website_currency`, `website_logo`) VALUES
-(1, 'Laravel Ecommerce Website', 'Rs', 'logo.svg');
+INSERT INTO `setting` (`setting_id`, `website_title`, `website_currency`, `website_address`, `website_number`, `website_email`, `website_timing`, `website_footer_description`, `website_logo`) VALUES
+(1, 'Laravel Ecommerce Website', 'Rs', '5171 W Campbell Ave undefined Kent, Utah 53127 United States', '(+91) - 540-025-124553', 'info@ecommerce.com', '10:00 - 18:00, Mon - Sat', 'Awesome grocery store website template', 'logo.svg');
 
 -- --------------------------------------------------------
 
@@ -294,6 +323,14 @@ CREATE TABLE `sliders` (
   `slider_image` varchar(255) DEFAULT NULL,
   `slider_description` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sliders`
+--
+
+INSERT INTO `sliders` (`slider_id`, `slider_title`, `slider_image`, `slider_description`) VALUES
+(4, 'Don’t miss amazing', 'slider-7.png', 'Sign up for the daily newsletter'),
+(5, 'Fresh Vegetable', 'slider-8.png', 'Sign up for the daily newsletter');
 
 -- --------------------------------------------------------
 
@@ -339,6 +376,12 @@ ALTER TABLE `attributes`
 --
 ALTER TABLE `attributes_value`
   ADD PRIMARY KEY (`attribute_value_id`);
+
+--
+-- Indexes for table `blogs`
+--
+ALTER TABLE `blogs`
+  ADD PRIMARY KEY (`blog_id`);
 
 --
 -- Indexes for table `categories`
@@ -406,6 +449,12 @@ ALTER TABLE `attributes_value`
   MODIFY `attribute_value_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT for table `blogs`
+--
+ALTER TABLE `blogs`
+  MODIFY `blog_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
@@ -439,7 +488,7 @@ ALTER TABLE `setting`
 -- AUTO_INCREMENT for table `sliders`
 --
 ALTER TABLE `sliders`
-  MODIFY `slider_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `slider_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`

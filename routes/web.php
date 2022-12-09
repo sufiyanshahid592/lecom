@@ -52,6 +52,10 @@ Route::post("update-profile", "Dashboard_Controller@update_profile");
 Route::post("product-quick-view", "Home_Controller@product_quick_view");
 Route::post("product-variations-price", "Category_Product_Controller@product_variations_price");
 
+// Blogs
+
+Route::get("blogs", "Blogs_Controller@index");
+
 // Admin Routes
 Route::get("admin", "Admin_Controller@index");
 Route::get("admin/dashboard", "Admin_Controller@index");
@@ -122,3 +126,12 @@ Route::get("admin/all-sliders", "AdminSlider_Controller@all_sliders");
 Route::post("admin/add-new-slider-process", "AdminSlider_Controller@add_new_slider_process");
 Route::get("admin/edit-slider", "AdminSlider_Controller@edit_slider");
 Route::get("admin/delete-slider/{any}", "AdminSlider_Controller@delete_slider");
+
+// Admin Blog
+
+Route::get("admin/add-new-blog", "AdminBlog_Controller@add_new_blog");
+Route::post("admin/add-new-blog-process", "AdminBlog_Controller@add_new_blog_process");
+Route::get("admin/all-blogs", "AdminBlog_Controller@all_blogs");
+Route::get("admin/delete-blog/{any}", "AdminBlog_Controller@delete_blog");
+Route::get("admin/edit-blog/{any}", "AdminBlog_Controller@edit_blog");
+Route::post("admin/edit-blog-process", "AdminBlog_Controller@edit_blog_process");

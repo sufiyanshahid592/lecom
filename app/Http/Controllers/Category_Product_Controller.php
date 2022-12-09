@@ -24,7 +24,6 @@ class Category_Product_Controller extends BaseController
             return view("user/search", $data);
         }elseif(count($data['get_category_by_id'])>0){
             $data['get_product_by_category_id'] = DB::table("products")->leftJoin('categories', 'categories.category_id', '=', 'products.product_category')->where("product_category", $data['get_category_by_id'][0]->category_id)->get();
-        
             $sortby = $request->sortby;
             if(!empty($sortby)){
                 if($sortby=="low-to-high"){

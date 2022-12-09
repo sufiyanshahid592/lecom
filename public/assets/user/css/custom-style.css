@@ -4,3 +4,6 @@
 .register-form input.error, .login-form input.error, .update-profile input.error{
 	border: 1px solid red;
 }
+.product-cart-wrap .product-img-action-wrap .product-img a img{
+	height: 246px !important;
+}

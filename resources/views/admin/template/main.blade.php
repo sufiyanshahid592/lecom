@@ -332,6 +332,29 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li class="nav-item <?php if(Request::segment(2)=="all-blogs" OR Request::segment(2)=="add-new-blog"){echo "menu-open";} ?>">
+                                <a href="#" class="nav-link <?php if(Request::segment(2)=="all-blogs" OR Request::segment(2)=="add-new-blog"){echo "active";} ?>">
+                                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                                    <p>
+                                        Blog
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="{{url('admin/add-new-blog')}}" class="nav-link <?php if(Request::segment(2)=="add-new-blog"){echo "active";} ?>">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Add New Blog</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{url('admin/all-blogs')}}" class="nav-link <?php if(Request::segment(2)=="all-blogs"){echo "active";} ?>">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>All Blogs</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                             <li class="nav-item">
                                 <a href="{{url('admin/setting')}}" class="nav-link <?php if(Request::segment(2)=="setting"){echo "active";} ?>">
                                     <i class="nav-icon fas fa-th"></i>

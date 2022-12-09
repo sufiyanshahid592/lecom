@@ -25,6 +25,11 @@ class Admin_Setting extends BaseController
     public function update_setting_process(Request $request){
     	$data['website_title'] = $request->input("website_title");
     	$data['website_currency'] = $request->input("website_currency");
+        $data['website_address'] = $request->input("website_address");
+        $data['website_number'] = $request->input("website_number");
+        $data['website_email'] = $request->input("website_email");
+        $data['website_timing'] = $request->input("website_timing");
+        $data['website_footer_description'] = $request->input("website_footer_description");
     	if($request->hasFile('website_logo')){
             $file = $request->file('website_logo');
             $fileExtension = $file->getClientOriginalName();
