@@ -19,6 +19,10 @@ class Checkout_Controller extends BaseController
         if(empty(Session::get("user_login_id"))){
             return redirect('login');
         }
+        if(count(Cart::content())==0){
+            Session::flash("error", "Your Cart Has Been Empty!...");
+            return redirect('cart');
+        }
         $data['get_cart_products'] = Cart::content();
     	return view("user/checkout", $data);
     }

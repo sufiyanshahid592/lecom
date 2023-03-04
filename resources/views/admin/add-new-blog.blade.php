@@ -57,7 +57,7 @@
 								</div>
 								<div class="form-group">
 									<label>Blog Long Description</label>
-									<input type="text" name="blog_long_description" class="form-control" placeholder="Enter Blog Long Description" required>
+									<textarea class="summernote" name="blog_long_description"  placeholder="Enter Blog Long Description" required></textarea>
 								</div>
 								<div class="form-group">
 									<label>Blog Image</label>

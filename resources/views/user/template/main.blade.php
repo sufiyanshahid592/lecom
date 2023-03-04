@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-    <title><?php if(!empty($title)){echo $title." | ".website_title();}else{echo website_title();} ?></title>
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title><?php if(!empty($title)){echo $title." | ".website_title();}else{echo website_title();} ?></title>
     <?php if(!empty($meta_keywords)){ ?>
         <meta name="keywords" content="<?php echo $meta_keywords; ?>" />
     <?php } if(!empty($meta_description)){ ?>
@@ -128,8 +128,8 @@
                     <div class="col-xl-3 col-lg-4">
                         <div class="header-info">
                             <ul>
-                                <li>Need help? Call Us: <strong class="text-brand"> + 1800 900</strong></li>
-                                <li>
+                                <li>Call Us: <strong class="text-brand"> {{website_number()}}</strong></li>
+                                <!-- <li>
                                     <a class="language-dropdown-active" href="#">English <i class="fi-rs-angle-small-down"></i></a>
                                     <ul class="language-dropdown">
                                         <li>
@@ -156,7 +156,7 @@
                                             <a href="#"><img src="{{url('assets/user/imgs/theme/flag-ru.png')}}" alt="" />EU</a>
                                         </li>
                                     </ul>
-                                </li>
+                                </li> -->
                             </ul>
                         </div>
                     </div>
@@ -255,24 +255,17 @@
                                     <a href="page-account.html"><span class="lable ml-0">Account</span></a>
                                     <div class="cart-dropdown-wrap cart-dropdown-hm2 account-dropdown">
                                         <ul>
-                                            <li>
-                                                <a href="page-account.html"><i class="fi fi-rs-user mr-10"></i>My Account</a>
-                                            </li>
-                                            <li>
-                                                <a href="{{url('track-orders')}}"><i class="fi fi-rs-location-alt mr-10"></i>Order Tracking</a>
-                                            </li>
-                                            <li>
-                                                <a href="page-account.html"><i class="fi fi-rs-label mr-10"></i>My Voucher</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-wishlist.html"><i class="fi fi-rs-heart mr-10"></i>My Wishlist</a>
-                                            </li>
-                                            <li>
-                                                <a href="page-account.html"><i class="fi fi-rs-settings-sliders mr-10"></i>Setting</a>
-                                            </li>
-                                            <li>
-                                                <a href="page-login.html"><i class="fi fi-rs-sign-out mr-10"></i>Sign out</a>
-                                            </li>
+                                            <?php if(empty(Session::get("user_login_id"))){ ?>
+                                            <li><a href="{{url('login')}}">Login</a></li>
+                                            <li><a href="{{url('register')}}">Register</a></li>
+                                            <?php }else{ ?>
+                                            <li><a href="{{url('dashboard')}}"><i class="fi-rs-settings-sliders mr-10"></i> Dashboard</a></li>
+                                            <li><a href="{{url('dashboard')}}"><i class="fi-rs-shopping-bag mr-10"></i> Orders</a></li>
+                                            <li><a href="{{url('track-orders')}}"><i class="fi-rs-shopping-cart-check mr-10"></i> Track Your Order</a></li>
+                                            <li><a href="{{url('address')}}"><i class="fi-rs-marker mr-10"></i> My Address</a></li>
+                                            <li><a href="{{url('account-detail')}}"><i class="fi-rs-user mr-10"></i>Account details</a></li>
+                                            <li><a href="{{url('logout')}}"><i class="fi fi-rs-sign-out mr-10"></i> Logout</a></li>
+                                            <?php } ?>
                                         </ul>
                                     </div>
                                 </div>

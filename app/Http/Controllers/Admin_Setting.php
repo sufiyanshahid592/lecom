@@ -37,6 +37,13 @@ class Admin_Setting extends BaseController
             $file->move('assets/images/', $fileName);
             $data['website_logo'] = $fileName;
         }
+        if($request->hasFile('website_favicon')){
+            $file = $request->file('website_favicon');
+            $fileExtension = $file->getClientOriginalName();
+            $fileName = $fileExtension;
+            $file->move('assets/images/', $fileName);
+            $data['website_favicon'] = $fileName;
+        }
     	$result = DB::table("setting")->where("setting_id", 1)->update($data);
     	if($result==1){
     		return redirect('admin/setting');

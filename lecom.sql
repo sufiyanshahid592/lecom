@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2022 at 05:16 AM
+-- Generation Time: Mar 04, 2023 at 04:30 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.27
 
@@ -85,6 +85,43 @@ INSERT INTO `attributes_value` (`attribute_value_id`, `attribute_value_title`, `
 (8, '30', '6'),
 (9, 'Yes', '7'),
 (10, 'No', '7');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `banners`
+--
+
+CREATE TABLE `banners` (
+  `banner_id` int(11) NOT NULL,
+  `banner_1_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `banner_1_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `banner_2_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `banner_2_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `banner_3_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `banner_3_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `banner_4_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `banner_4_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `banner_5_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `banner_5_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `banner_6_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `banner_6_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `banner_7_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `banner_7_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `banner_8_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `banner_8_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `banner_9_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `banner_9_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `banner_10_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `banner_10_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `banners`
+--
+
+INSERT INTO `banners` (`banner_id`, `banner_1_title`, `banner_1_image`, `banner_2_title`, `banner_2_image`, `banner_3_title`, `banner_3_image`, `banner_4_title`, `banner_4_image`, `banner_5_title`, `banner_5_image`, `banner_6_title`, `banner_6_image`, `banner_7_title`, `banner_7_image`, `banner_8_title`, `banner_8_image`, `banner_9_title`, `banner_9_image`, `banner_10_title`, `banner_10_image`) VALUES
+(1, 'First', 'banner-1.webp', 'Second', 'banner-2.webp', 'Third', 'banner-3.webp', 'Fourth', 'banner-4.webp', 'Fifth', 'banner-5.webp', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -378,6 +415,12 @@ ALTER TABLE `attributes_value`
   ADD PRIMARY KEY (`attribute_value_id`);
 
 --
+-- Indexes for table `banners`
+--
+ALTER TABLE `banners`
+  ADD PRIMARY KEY (`banner_id`);
+
+--
 -- Indexes for table `blogs`
 --
 ALTER TABLE `blogs`
@@ -447,6 +490,12 @@ ALTER TABLE `attributes`
 --
 ALTER TABLE `attributes_value`
   MODIFY `attribute_value_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `banners`
+--
+ALTER TABLE `banners`
+  MODIFY `banner_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `blogs`

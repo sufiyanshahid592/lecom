@@ -55,6 +55,7 @@ Route::post("product-variations-price", "Category_Product_Controller@product_var
 // Blogs
 
 Route::get("blogs", "Blogs_Controller@index");
+Route::get("blog/{any}", "Blogs_Controller@bolg_detail");
 
 // Admin Routes
 Route::get("admin", "Admin_Controller@index");

@@ -13,6 +13,18 @@
     </div>
     <div class="container mb-80 mt-50">
         <div class="row">
+            <div class="col-lg-12">
+                <?php if(Session::get("success")){ ?>
+                <div class="row">
+                    <div class="col-lg-12 alert alert-success text-center"><?php echo Session::get("success"); ?></div>
+                </div>
+                <?php } ?>
+                <?php if(Session::get("error")){ ?>
+                <div class="row">
+                    <div class="col-lg-12 alert alert-danger text-center"><?php echo Session::get("error"); ?></div>
+                </div>
+                <?php } ?>
+            </div>
             <div class="col-lg-8 mb-40">
                 <h1 class="heading-2 mb-10">Your Cart</h1>
                 <div class="d-flex justify-content-between">

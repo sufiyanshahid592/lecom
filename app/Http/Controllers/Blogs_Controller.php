@@ -21,4 +21,9 @@ class Blogs_Controller extends BaseController
         $data["pagination"] = DB::table("blogs")->paginate();
         return view("user/blogs", $data);
     }
+    public function bolg_detail($slug){
+    	$data = array();
+    	$data['get_blog_detail_by_slug'] = DB::table("blogs")->where("blog_slug", $slug)->get();
+    	return view("user/blog-details", $data);
+    }
 }

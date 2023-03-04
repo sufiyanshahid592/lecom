@@ -43,6 +43,7 @@ class AdminBlog_Controller extends BaseController
             $file->move('assets/images/', $fileName);
             $data['blog_image'] = $fileName;
         }
+        $data['blog_time'] = time();
         $result = DB::table("blogs")->insert($data);
         if($result==1){
             Session::flash("success", "Blog Added Successfully!...");
